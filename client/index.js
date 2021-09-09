@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App.jsx';
 
-var overview = product => {
-  return product.description;
+let katara = () => {
+  console.log('Team Katara is the BEST!!!!');
 }
 
 ReactDOM.render( <App/>, document.getElementById('app'));
