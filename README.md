@@ -1,4 +1,4 @@
-# fec
+# Team Katara - Front End Capstone
 
 ## TO GET THIS WORKING
 
