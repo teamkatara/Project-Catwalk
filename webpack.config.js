@@ -1,8 +1,7 @@
 const path = require('path');
 
-
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.jsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
@@ -10,14 +9,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/\.(js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
-      }
-    ]
+        use: 'babel-loader',
+      },
+    ],
   },
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.jsx']
-  }
-}
+    extensions: ['.js', '.jsx'],
+  },
+};
