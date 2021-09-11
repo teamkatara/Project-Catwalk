@@ -8,6 +8,7 @@
 
 ## Resources for Sprint 2
 
-- [https://www.npmjs.com/package/prop-types] (PropTypes NPM Doc)
-- [https://testing-library.com/docs/react-testing-library/intro/] (React Testing Libary - Getting Started)
-- [https://jestjs.io/docs/getting-started] (Jest - Getting Started)
+- [PropTypes NPM Doc](https://www.npmjs.com/package/prop-types)
+- [React Testing Libary - Getting Started](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest - Getting Started](https://jestjs.io/docs/getting-started)
+- [Getting Starting with React Testing Library](https://www.robinwieruch.de/react-testing-library)
