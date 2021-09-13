@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 // Test Demo Router
-const router = require('./routes/test');
+const router = require('./routes/example');
 
 const PORT = 3000;
 const app = express();
