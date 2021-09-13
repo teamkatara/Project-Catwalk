@@ -1,5 +1,7 @@
 import React from 'react';
 
-const NewReview = () => (<div>New Review</div>);
+import AddReview from './AddReview';
+
+const NewReview = () => (<div><AddReview /></div>);
 
 export default NewReview;
