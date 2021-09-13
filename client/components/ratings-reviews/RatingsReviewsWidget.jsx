@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RatingsReviewsWidget = ({ reviews }) => (<div id="ratings-reviews">{reviews[0]}</div>);
+const RatingsReviewsWidget = ({ reviews }) => (<div className="ratings-reviews">{reviews[0]}</div>);
 
 RatingsReviewsWidget.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.string).isRequired,

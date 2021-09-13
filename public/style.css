@@ -1,6 +1,29 @@
-.overview {
-  height: 100%;
+body {
   width: 80%;
-  border: 2px solid black;
+  margin: 0 10%;
+}
+
+.navbar {
+  border: 1px solid black;
+  height: 10%;
+}
+
+.overview {
+  border: 1px solid black;
+  height: 90%;
+}
+
+.related-products {
+  border: 1px solid black;
+  margin: 0 10%;
+}
+
+.questions-answers {
+  border: 1px solid black;
+  margin: 0 10%;
+}
+
+.ratings-reviews {
+  border: 1px solid black;
   margin: 0 10%;
 }
