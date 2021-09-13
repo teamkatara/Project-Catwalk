@@ -22,7 +22,7 @@ class ProductOverviewWidget extends React.Component {
 
   render() {
     return (
-      <div>{this.state.rating}</div>
+      <div className="overview">Overview</div>
     );
   }
 }
