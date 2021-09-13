@@ -1,0 +1,239 @@
+{
+  "product_id": "40457",
+  "results": [
+      {
+          "style_id": 241215,
+          "name": "Sky blue",
+          "original_price": "330.00",
+          "sale_price": null,
+          "default?": true,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1507920676663-3b72429774ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+              }
+          ],
+          "skus": {
+              "1398684": {
+                  "quantity": 26,
+                  "size": "XS"
+              },
+              "1398685": {
+                  "quantity": 56,
+                  "size": "S"
+              },
+              "1398686": {
+                  "quantity": 38,
+                  "size": "M"
+              },
+              "1398687": {
+                  "quantity": 52,
+                  "size": "L"
+              },
+              "1398688": {
+                  "quantity": 11,
+                  "size": "XL"
+              },
+              "1398689": {
+                  "quantity": 29,
+                  "size": "XXL"
+              }
+          }
+      },
+      {
+          "style_id": 241216,
+          "name": "Orchid",
+          "original_price": "330.00",
+          "sale_price": null,
+          "default?": false,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1529108750117-bcbad8bd25dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=662&q=80"
+              }
+          ],
+          "skus": {
+              "1398690": {
+                  "quantity": 43,
+                  "size": "XS"
+              },
+              "1398691": {
+                  "quantity": 24,
+                  "size": "S"
+              },
+              "1398692": {
+                  "quantity": 2,
+                  "size": "M"
+              },
+              "1398693": {
+                  "quantity": 43,
+                  "size": "L"
+              },
+              "1398694": {
+                  "quantity": 11,
+                  "size": "XL"
+              },
+              "1398695": {
+                  "quantity": 43,
+                  "size": "XXL"
+              }
+          }
+      },
+      {
+          "style_id": 241217,
+          "name": "Maroon",
+          "original_price": "330.00",
+          "sale_price": null,
+          "default?": false,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1544701758-5241eb611a48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+              }
+          ],
+          "skus": {
+              "1398696": {
+                  "quantity": 56,
+                  "size": "XS"
+              },
+              "1398697": {
+                  "quantity": 42,
+                  "size": "S"
+              },
+              "1398698": {
+                  "quantity": 3,
+                  "size": "M"
+              },
+              "1398699": {
+                  "quantity": 6,
+                  "size": "L"
+              },
+              "1398700": {
+                  "quantity": 33,
+                  "size": "XL"
+              },
+              "1398701": {
+                  "quantity": 16,
+                  "size": "XXL"
+              }
+          }
+      },
+      {
+          "style_id": 241218,
+          "name": "Lime",
+          "original_price": "330.00",
+          "sale_price": null,
+          "default?": false,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1515110371136-7e393289662c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1656&q=80"
+              }
+          ],
+          "skus": {
+              "1398702": {
+                  "quantity": 49,
+                  "size": "XS"
+              },
+              "1398703": {
+                  "quantity": 14,
+                  "size": "S"
+              },
+              "1398704": {
+                  "quantity": 24,
+                  "size": "M"
+              },
+              "1398705": {
+                  "quantity": 20,
+                  "size": "L"
+              },
+              "1398706": {
+                  "quantity": 40,
+                  "size": "XL"
+              },
+              "1398707": {
+                  "quantity": 29,
+                  "size": "XXL"
+              }
+          }
+      },
+      {
+          "style_id": 241219,
+          "name": "Salmon",
+          "original_price": "330.00",
+          "sale_price": null,
+          "default?": false,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80"
+              }
+          ],
+          "skus": {
+              "1398708": {
+                  "quantity": 37,
+                  "size": "XS"
+              },
+              "1398709": {
+                  "quantity": 21,
+                  "size": "S"
+              },
+              "1398710": {
+                  "quantity": 57,
+                  "size": "M"
+              },
+              "1398711": {
+                  "quantity": 3,
+                  "size": "L"
+              },
+              "1398712": {
+                  "quantity": 10,
+                  "size": "XL"
+              },
+              "1398713": {
+                  "quantity": 34,
+                  "size": "XXL"
+              }
+          }
+      },
+      {
+          "style_id": 241220,
+          "name": "Lavender",
+          "original_price": "272.00",
+          "sale_price": null,
+          "default?": false,
+          "photos": [
+              {
+                  "thumbnail_url": "https://images.unsplash.com/photo-1500340520802-1687634cbe38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                  "url": "https://images.unsplash.com/photo-1504281623087-1a6dd8f827c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80"
+              }
+          ],
+          "skus": {
+              "1398714": {
+                  "quantity": 52,
+                  "size": "XS"
+              },
+              "1398715": {
+                  "quantity": 29,
+                  "size": "S"
+              },
+              "1398716": {
+                  "quantity": 0,
+                  "size": "M"
+              },
+              "1398717": {
+                  "quantity": 20,
+                  "size": "L"
+              },
+              "1398718": {
+                  "quantity": 42,
+                  "size": "XL"
+              },
+              "1398719": {
+                  "quantity": 51,
+                  "size": "XXL"
+              }
+          }
+      }
+  ]
+}
