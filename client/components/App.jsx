@@ -8,13 +8,15 @@ import RelatedProductsWidget from './related/RelatedProductsWidget';
 
 const App = () => (
   <div>
+    <div className="navbar">Logo </div>
+
     <ProductOverviewWidget />
 
     <RelatedProductsWidget />
 
-    <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-
     <QuestionsAndAnswersWidget />
+
+    <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
   </div>
 
 );
