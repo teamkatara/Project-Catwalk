@@ -1,0 +1,25 @@
+{
+  "id": 40457,
+  "campus": "hr-rfp",
+  "name": "Eladio Sweater",
+  "slogan": "Asperiores ratione et sit ea ipsam ut ut.",
+  "description": "Ea minus beatae quia repudiandae. Voluptas sint odio molestiae nulla illo consequatur eum voluptatum delectus. Ut iste voluptatem alias velit eum similique aspernatur quis et. Omnis qui consectetur magnam consequuntur eos. Ipsam ut praesentium sapiente quis fuga nesciunt. Voluptatem rerum harum.",
+  "category": "Sweater",
+  "default_price": "330.00",
+  "created_at": "2021-08-13T14:38:44.588Z",
+  "updated_at": "2021-08-13T14:38:44.588Z",
+  "features": [
+      {
+          "feature": "Satisfaction Guaranteed",
+          "value": null
+      },
+      {
+          "feature": "Stitching",
+          "value": "\"Double Stitch\""
+      },
+      {
+          "feature": "Non-GMO",
+          "value": null
+      }
+  ]
+}
