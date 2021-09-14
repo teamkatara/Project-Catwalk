@@ -8,6 +8,7 @@ import { configure, shallow } from 'enzyme';
 
 import RatingBreakdown from './RatingBreakdown';
 import RatingSummary from './RatingSummary';
+import AverageRating from '../../shared/AverageRating';
 
 configure({ adapter: new Adapter() });
 
@@ -35,9 +36,9 @@ describe('RatingSummary Enzyme Tests', () => {
     container = shallow(<RatingSummary />);
   });
 
-  it('should contain stars representing average review', () => {
+  it('should contain AverageRating component', () => {
     // TODO - Star Icons exist inside RatingSummary component
-    expect(container.find('svg').length).toEqual(1);
+    expect(container.containsMatchingElement(<AverageRating />)).toEqual(true);
   });
 
   it('should contain text representing the numerical average review', () => {

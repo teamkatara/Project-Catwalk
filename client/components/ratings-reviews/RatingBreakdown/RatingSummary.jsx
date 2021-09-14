@@ -6,7 +6,7 @@ import AverageRating from '../../shared/AverageRating';
 const RatingSummary = () => (
   <div>
     <div className="stars">
-      <AverageRating average={1.37} />
+      <AverageRating />
     </div>
   </div>
 );

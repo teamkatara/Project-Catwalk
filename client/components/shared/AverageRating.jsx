@@ -71,11 +71,16 @@ const AverageRating = ({ average }) => {
   if (average > 4.69 && average <= 4.99) {
     return (<FourThreeQuarterStar />);
   }
+  // returns five stars as default
   return (<FiveStar />);
 };
 
+AverageRating.defaultProps = {
+  average: 5,
+};
+
 AverageRating.propTypes = {
-  average: PropTypes.number.isRequired,
+  average: PropTypes.number,
 };
 
 export default AverageRating;
