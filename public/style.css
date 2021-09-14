@@ -27,3 +27,22 @@ body {
   border: 1px solid black;
   margin: 0 10%;
 }
+
+.qa-more-questions {
+  border: 1px solid black;
+  margin-right: 5px;
+}
+
+.qa-add-question {
+  border: 1px solid black;
+}
+
+#qa-search-text {
+  width: 85%;
+  border: 1px solid black;
+}
+
+#qa-search-btn {
+  margin-left: 5px;
+  border: 1px solid black;
+}
