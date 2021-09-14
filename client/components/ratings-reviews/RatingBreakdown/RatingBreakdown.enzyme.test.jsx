@@ -37,9 +37,11 @@ describe('RatingSummary Enzyme Tests', () => {
 
   it('should contain stars representing average review', () => {
     // TODO - Star Icons exist inside RatingSummary component
+    expect(container.find('svg').length).toEqual(1);
   });
 
   it('should contain text representing the numerical average review', () => {
-  // TODO - Review Average (Number) exists inside RatingSummary component
+    // TODO - Review Average (Number) exists inside RatingSummary component
+    expect(container.find('span').length).toEqual(1);
   });
 });
