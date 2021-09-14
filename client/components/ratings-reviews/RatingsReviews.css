@@ -1,0 +1,22 @@
+.rr-title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+.rr-widget-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 20px;
+  align-items: start;
+  width: auto;
+  height: auto;
+}
+
+.reviews-list {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-height: 1000px;
+  min-height: auto;
+  overflow: auto;
+}

@@ -41,8 +41,12 @@ describe('RatingSummary Enzyme Tests', () => {
     expect(container.containsMatchingElement(<AverageRating />)).toEqual(true);
   });
 
-  it('should contain text representing the numerical average review', () => {
+  it('should contain text representing the average review', () => {
     // TODO - Review Average (Number) exists inside RatingSummary component
-    expect(container.find('span').length).toEqual(1);
+    expect(container.find('.rating-summary-number').length).toEqual(1);
+  });
+
+  it('should contain text displaying the total amount of reviews for product', () => {
+    expect(container.find('.rating-summary-total').length).toEqual(1);
   });
 });

@@ -5,9 +5,11 @@ import AverageRating from '../../shared/AverageRating';
 
 const RatingSummary = () => (
   <div>
-    <div className="stars">
+    <div className="rating-summary-top">
+      <span className="rating-summary-number">4.8</span>
       <AverageRating />
     </div>
+    <div className="rating-summary-total">123 Reviews</div>
   </div>
 );
 

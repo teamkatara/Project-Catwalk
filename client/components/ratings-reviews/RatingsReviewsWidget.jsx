@@ -2,12 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './RatingsReviews.css';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
 
 const RatingsReviewsWidget = ({ reviews }) => (
   <div className="ratings-reviews">
-    <h4>Ratings and Reviews</h4>
-    <RatingBreakdown />
+    <div className="rr-title"><h2>RATINGS & REVIEWS</h2></div>
+    <div className="rr-widget-container">
+      <RatingBreakdown />
+      <div className="reviews-list">Reviews List Lives Here</div>
+    </div>
   </div>
 );
 
