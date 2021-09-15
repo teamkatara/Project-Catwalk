@@ -7,6 +7,7 @@ import StyleSelector from './StyleSelector';
 import AddtoCart from './AddtoCart';
 import ImageGallery from './ImageGallery';
 import ProductDescription from './ProductDescription';
+import ProductFeatures from './ProductFeatures';
 
 // class ProductOverviewWidget extends React.Component {
 //   constructor() {
@@ -41,6 +42,7 @@ const ProductOverviewWidget = ({ product, styles, selectedStyle, reviews }) => (
     <AddtoCart />
     <ImageGallery />
     <ProductDescription />
+    <ProductFeatures />
   </div>
 );
 

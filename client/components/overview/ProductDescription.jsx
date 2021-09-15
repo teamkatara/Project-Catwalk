@@ -1,7 +1,9 @@
 import React from 'react';
 
 const ProductDescription = () => (
-  <div>Product Description</div>
+  <span>
+
+  </span>
 );
 
 export default ProductDescription;
