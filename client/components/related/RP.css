@@ -1,0 +1,12 @@
+.related-products {
+  display: flex;
+  width: auto;
+  height: 60%;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid black;
+  width: 25%;
+  height: 65%;
+}
