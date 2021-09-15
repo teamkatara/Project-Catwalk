@@ -9,7 +9,7 @@ import mockReviewMeta from '../../mock-data/sample-review-meta.json';
 import mockReviews from '../../mock-data/sample-reviews.json';
 
 const RatingsReviewsWidget = ({ reviews, reviewMeta, productId }) => (
-  <div className="ratings-reviews">
+  <div id="ratings-reviews" className="ratings-reviews">
     <div className="rr-title"><h2>RATINGS & REVIEWS</h2></div>
     <div className="rr-widget-container">
       <RatingBreakdown reviewMeta={reviewMeta} />
