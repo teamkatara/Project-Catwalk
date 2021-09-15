@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-use-before-define
+import './qa-styles.css';
 import React from 'react';
 import Search from './Search';
 import QuestionList from './QuestionList';
@@ -9,7 +10,7 @@ const QuestionsAndAnswersWidget = () => {
   const questions = QuestionData.results;
   return (
     <div className="questions-answers">
-      Questions and Answers
+      <div>Questions and Answers</div>
       <Search />
       <QuestionList questions={questions} />
       <MoreQuestions />

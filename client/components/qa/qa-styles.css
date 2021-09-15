@@ -1,0 +1,56 @@
+
+/* Questions and Answers */
+
+.questions-answers {
+  border: 1px solid white;
+  margin: 5px 10%;
+  max-height: 50vh;
+}
+
+.qa-search {
+  margin: 5px 5px 5px 0;
+}
+
+.qa-question-list {
+  margin: 5px 0;
+  overflow-y: scroll;
+  max-height: 25vh;
+}
+
+.qa-question {
+  margin: 5px 0;
+}
+
+.qa-answer {
+  margin: 5px 0;
+}
+
+.qa-answers-lma {
+  background-color: white;
+  font-size: x-small;
+  margin: 5px 20px;
+  border: none;
+}
+
+.qa-more-questions {
+  border: 1px solid black;
+  margin: 0px 5px 0px 0;
+}
+
+.qa-add-question {
+  border: 1px solid black;
+}
+
+.qa-answer-metadata {
+  margin-left: 20px;
+}
+
+#qa-search-text {
+  width: 85%;
+  border: 1px solid black;
+}
+
+#qa-search-btn {
+  margin-left: 5px;
+  border: 1px solid black;
+}

@@ -8,6 +8,7 @@ const AnswerList = ({ answers }) => {
   const [answerList, setAnswerList] = React.useState(allAnswers.slice(0, 2));
 
   const setDisplayList = () => {
+    console.log('Clicked LMA');
     setAnswerList(() => allAnswers);
   };
 
@@ -16,9 +17,12 @@ const AnswerList = ({ answers }) => {
       { answerList.map((answer) => (
         <Answer answer={answer} />
       )) }
-      <div className="qa-answers-lma">
-        LOAD MORE ANSWERS
-      </div>
+      <input
+        type="button"
+        className="qa-answers-lma"
+        onClick={() => setDisplayList()}
+        value="LOAD MORE ANSWERS"
+      />
     </div>
   );
 };

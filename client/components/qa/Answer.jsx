@@ -16,7 +16,7 @@ const Answer = ({ answer }) => {
         {`A: ${body}`}
       </div>
       <div className="qa-answer-metadata">
-        {`   by ${name}, ${date.slice(0, 10)}  |  Helpful? Yes(${helpfulness})`}
+        {`   by ${name}, ${date.slice(0, 10)}  |  Helpful? Yes(${helpfulness})  |  Report`}
       </div>
     </div>
   );
