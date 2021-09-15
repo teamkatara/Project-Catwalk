@@ -3,4 +3,6 @@ config.js
 package-lock.json
 node_modules
 
+public/bundle.js
+
 coverage
