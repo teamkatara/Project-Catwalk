@@ -6,19 +6,64 @@ import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
 import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
 import RelatedProductsWidget from './related/RelatedProductsWidget';
 
-const App = () => (
-  <div>
-    <div className="navbar">Logo </div>
+import product from '../mock-data/sample-product.json';
+import styles from '../mock-data/sample-styles.json';
+import reviews from '../mock-data/sample-reviews.json';
 
-    <ProductOverviewWidget />
+const findDefault = (styles) => {
+  let defaultStyle;
+  styles.results.forEach((style) => {
+    if (style['default?']) {
+      defaultStyle = style;
+    }
+  });
+  return defaultStyle;
+};
 
-    <RelatedProductsWidget />
+// const App = () => (
+//   <div>
+//     <div className="navbar">Logo </div>
 
-    <QuestionsAndAnswersWidget />
+//     <ProductOverviewWidget />
 
-    <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-  </div>
+//     <RelatedProductsWidget />
 
-);
+//     <QuestionsAndAnswersWidget />
+
+//     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+//   </div>
+
+// );
+
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      product: product,
+      styles: styles,
+      selectedStyle: findDefault(styles),
+      reviews: reviews.results.length,
+    };
+  }
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <div>
+        <div className="navbar">Logo</div>
+
+        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
+
+        <RelatedProductsWidget />
+
+        <QuestionsAndAnswersWidget />
+
+        <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+      </div>
+    );
+  }
+}
 
 export default App;
