@@ -24,6 +24,16 @@ import styles from '../mock-data/sample-styles.json';
 
 // );
 
+const findDefault = (styles) => {
+  let defaultStyle;
+  styles.results.forEach((style) => {
+    if (style['default?']) {
+      defaultStyle = style;
+    }
+  });
+  return defaultStyle;
+};
+
 class App extends React.Component {
   constructor() {
     super();
@@ -31,6 +41,7 @@ class App extends React.Component {
     this.state = {
       product: product,
       styles: styles,
+      selectedStyle: findDefault(styles),
     };
   }
 
@@ -41,7 +52,7 @@ class App extends React.Component {
       <div>
         <div className="navbar">Logo </div>
 
-        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} />
+        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} />
 
         <RelatedProductsWidget />
 

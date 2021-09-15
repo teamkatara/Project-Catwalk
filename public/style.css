@@ -13,6 +13,11 @@ body {
   height: 90%;
 }
 
+#selected-style-image {
+  width: 50%;
+  height: 50%;
+}
+
 .related-products {
   border: 1px solid black;
   margin: 0 10%;

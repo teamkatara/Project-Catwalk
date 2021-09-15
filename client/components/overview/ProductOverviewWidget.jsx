@@ -32,10 +32,11 @@ import ImageGallery from './ImageGallery';
 //   }
 // }
 
-const ProductOverviewWidget = ({ product, styles }) => (
+const ProductOverviewWidget = ({ product, styles, selectedStyle }) => (
   <div className="overview">
-    <Info product={product} styles={styles} />
-    <StyleSelector />
+    <Info product={product} styles={styles} selectedStyle={selectedStyle} />
+    <img id="selected-style-image" src={selectedStyle.photos[0].url} />
+    <StyleSelector styles={styles} />
     <AddtoCart />
     <ImageGallery />
   </div>
