@@ -2,7 +2,7 @@ import React from 'react';
 import AverageRating from '../shared/AverageRating';
 
 const Info = ({ product, selectedStyle, reviews }) => (
-  <div>
+  <div id="main">
     <AverageRating />
     {reviews > 0 && <a href="#ratings-reviews">Read all {reviews} reviews</a>}
     <p>{product.category}</p>

@@ -9,8 +9,15 @@ body {
 }
 
 .overview {
+  display: grid;
+
   border: 1px solid black;
   height: 90%;
+}
+
+#selected-style-image {
+  width: 50%;
+  height: 50%;
 }
 
 #sale-price {
@@ -20,11 +27,6 @@ body {
 #orig-price {
   color: black;
   text-decoration: line-through;
-}
-
-#selected-style-image {
-  width: 50%;
-  height: 50%;
 }
 
 .style-entry {

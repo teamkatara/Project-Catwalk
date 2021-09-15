@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ImageGallery = (props) => (
-  <div>ImageGallery</div>
+  <div id="image-gallery">ImageGallery</div>
 );
 
 export default ImageGallery;

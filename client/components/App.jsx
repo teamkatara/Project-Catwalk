@@ -6,7 +6,6 @@ import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
 import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
 import RelatedProductsWidget from './related/RelatedProductsWidget';
 
-import ProductContext from './ProductContext';
 import product from '../mock-data/sample-product.json';
 import styles from '../mock-data/sample-styles.json';
 import reviews from '../mock-data/sample-reviews.json';
@@ -23,17 +22,15 @@ const findDefault = (styles) => {
 
 // const App = () => (
 //   <div>
-//     <ProductContext.Provider value={product}>
-//       <div className="navbar">Logo </div>
+//     <div className="navbar">Logo </div>
 
-//       <ProductOverviewWidget />
+//     <ProductOverviewWidget />
 
-//       <RelatedProductsWidget />
+//     <RelatedProductsWidget />
 
-//       <QuestionsAndAnswersWidget />
+//     <QuestionsAndAnswersWidget />
 
-//       <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-//     </ProductContext.Provider>
+//     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
 //   </div>
 
 // );
