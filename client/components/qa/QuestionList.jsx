@@ -1,21 +1,18 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
+import PropTypes from 'prop-types';
 import Question from './Question';
-import QuestionData from '../../mock-data/sample-questions.json';
 
-const QuestionList = () => {
-  const questions = QuestionData.results;
-  console.log('The Questions: ', questions);
+const QuestionList = ({ questions }) => (
+  <div className="qa-question-list">
+    <Question question={questions[0]} />
+  </div>
+);
 
-  return (
-    <div>
-      {
-        questions.map((question) => (
-          <Question question={question} />
-        ))
-      }
-    </div>
-  );
+QuestionList.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // PropTypes.arrayOf(PropTypes.string)
+  // PropTypes.string.isRequired
 };
 
 export default QuestionList;

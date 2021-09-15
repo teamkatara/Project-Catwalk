@@ -1,17 +1,19 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+import AnswerList from './AnswerList';
 
 const Question = ({ question }) => {
-  const { question_body: body, answers } = question;
+  const {
+    question_body: body,
+    answers,
+  } = question;
   return (
     <div>
-      <div>
+      <div className="qa-question">
         {`Q: ${body}`}
       </div>
-      <div>
-        {`A: ${answers}`}
-      </div>
+      <AnswerList answers={answers} />
     </div>
   );
 };

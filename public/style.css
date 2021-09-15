@@ -18,23 +18,50 @@ body {
   margin: 0 10%;
 }
 
-.questions-answers {
-  border: 1px solid black;
-  margin: 0 10%;
-}
-
 .ratings-reviews {
   border: 1px solid black;
   margin: 0 10%;
 }
 
+/* Questions and Answers */
+
+.questions-answers {
+  border: 1px solid white;
+  margin: 0 10%;
+}
+
+.qa-search {
+  margin: 5px 5px 5px 0;
+}
+
+.qa-question-list {
+  margin: 5px 0;
+}
+
+.qa-question {
+  margin: 5px 0;
+}
+
+.qa-answer {
+  margin: 5px 0;
+}
+
+.qa-answers-lma {
+  font-size: x-small;
+  margin: 5px 20px;
+}
+
 .qa-more-questions {
   border: 1px solid black;
-  margin-right: 5px;
+  margin: 0px 5px 0px 0;
 }
 
 .qa-add-question {
   border: 1px solid black;
+}
+
+.qa-answer-metadata {
+  margin-left: 20px;
 }
 
 #qa-search-text {
