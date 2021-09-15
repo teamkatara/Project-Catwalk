@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
-const { authToken } = require('../config');
+// const { authToken } = require('../config');
 
 // Test Demo Router
 const router = require('./routes/example');
