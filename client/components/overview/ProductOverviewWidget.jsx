@@ -41,8 +41,8 @@ const ProductOverviewWidget = ({ product, styles, selectedStyle, reviews }) => (
     <StyleSelector styles={styles} />
     <AddtoCart />
     <ImageGallery />
-    <ProductDescription />
-    <ProductFeatures />
+    <ProductDescription description={product.description} slogan={product.slogan} />
+    <ProductFeatures features={product.features} />
   </div>
 );
 
