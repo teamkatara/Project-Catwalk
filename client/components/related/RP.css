@@ -1,12 +1,49 @@
 .related-products {
-  display: flex;
   width: auto;
-  height: 60%;
+  height: 40%;
+  padding: 5 5;
+}
+
+.cards-list {
+  display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  width: auto;
+  height: 80%;
+  overflow-x: auto;
 }
 
 .card {
   border: 1px solid black;
   width: 25%;
+  height: 98%;
+  flex: 0 0 auto;
+  margin: 0 20 0 0;
+}
+
+.thumbnail {
+  text-align: right;
   height: 65%;
+  background-color: lightgray;
+}
+
+.star-button {
+  border: none;
+  padding: 5%;
+  background: none;
+}
+
+.details {
+  padding: 5;
+  text-align: left;
+  height: 30%;
+}
+
+.text {
+  padding: 5;
+}
+
+.text::after {
+  content: '\A';
+  white-space: pre-line;
 }
