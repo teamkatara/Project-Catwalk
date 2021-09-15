@@ -7,7 +7,7 @@ const RatingSummary = () => (
   <div>
     <div className="rating-summary-top">
       <span className="rating-summary-number">4.8</span>
-      <AverageRating />
+      <AverageRating average={1.2} />
     </div>
     <div className="rating-summary-total">123 Reviews</div>
   </div>

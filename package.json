@@ -5,7 +5,7 @@
   "main": "config.js",
   "scripts": {
     "server": "npx nodemon server/index.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "react-dev": "npx webpack --config webpack.config.js -w",
     "webpack": "webpack -w"
   },
