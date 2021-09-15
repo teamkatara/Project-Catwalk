@@ -8,6 +8,12 @@ body {
   height: 10%;
 }
 
+.overview {
+  display: grid;
+  border: 1px solid black;
+  height: 90%;
+}
+
 .related-products {
   border: 1px solid black;
   margin: 0 10%;
