@@ -23,5 +23,37 @@
   height: 80px;
   align-items: baseline;
   justify-items: center;
-  font-size: .9rem;
+  font-size: .6rem;
+}
+.rating-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bar {
+  margin-bottom: .5em;
+  position: relative;
+
+}
+.bar::-webkit-progress-value {
+  -webkit-animation: bar-fill 2s;
+  width: 0px;
+}
+.bar-color {
+  background: #33ff2c;
+}
+.bar-color::-webkit-progress-value {
+  background: #33ff2c;
+}
+
+.bar-color::-moz-progress-bar {
+  background: #33ff2c;
+}
+.text-bar {
+  color: #121003;
+  text-decoration:underline;
+  left: 1em;
+  line-height: 1;
+  position:before;
+  top: 1em;
 }

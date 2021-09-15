@@ -12,7 +12,7 @@ const RatingsReviewsWidget = ({ reviews, reviewMeta, productId }) => (
   <div className="ratings-reviews">
     <div className="rr-title"><h2>RATINGS & REVIEWS</h2></div>
     <div className="rr-widget-container">
-      <RatingBreakdown />
+      <RatingBreakdown reviewMeta={reviewMeta} />
       <div className="reviews-list">Reviews List Lives Here</div>
     </div>
   </div>
