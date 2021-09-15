@@ -1,16 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// TODO import AverageReview
 import AverageRating from '../../shared/AverageRating';
 
-const RatingSummary = () => (
+const RatingSummary = ({ average, recNum }) => (
   <div>
     <div className="rating-summary-top">
-      <span className="rating-summary-number">4.8</span>
-      <AverageRating average={1.2} />
+      <span className="rating-summary-number">{average}</span>
+      <AverageRating average={average} />
     </div>
-    <div className="rating-summary-total">123 Reviews</div>
+    <div className="rating-summary-total">{`${recNum}% of reviews recommend this product`}</div>
   </div>
 );
+
+RatingSummary.defaultProps = {
+  average: 5,
+  recNum: 100,
+};
+
+RatingSummary.propTypes = {
+  average: PropTypes.number,
+  recNum: PropTypes.number,
+};
 
 export default RatingSummary;
