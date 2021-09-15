@@ -6,7 +6,7 @@ import './RatingsReviews.css';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
 
 const RatingsReviewsWidget = ({ reviews }) => (
-  <div className="ratings-reviews">
+  <div id="ratings-reviews" className="ratings-reviews">
     <div className="rr-title"><h2>RATINGS & REVIEWS</h2></div>
     <div className="rr-widget-container">
       <RatingBreakdown />
