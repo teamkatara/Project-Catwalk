@@ -18,6 +18,11 @@ body {
   height: 50%;
 }
 
+.style-entry {
+  width: 10%;
+  height: 10%;
+}
+
 .related-products {
   border: 1px solid black;
   margin: 0 10%;

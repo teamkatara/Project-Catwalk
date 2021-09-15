@@ -1,7 +1,10 @@
 import React from 'react';
+import StyleEntry from './StyleEntry';
 
-const StyleSelector = (props) => (
-  <div>StyleSelector</div>
+let key = 0;
+
+const StyleSelector = ({ styles }) => (
+  <div>{styles.results.map((style) => <StyleEntry style={style} key={key++} />)}</div>
 );
 
 export default StyleSelector;
