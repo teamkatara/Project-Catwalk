@@ -1,6 +1,16 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useState } from 'react';
+import RelatedCard from './RelatedCard';
+import './RP.css';
+import relatedlist from '../../mock-data/sample-related.json';
 
-const RelatedProductsWidget = () => (<div id="related" className="related-products">Related Products</div>);
+const RelatedProductsWidget = () => {
+  const [list] = useState(relatedlist);
+  return (
+    <div className="related-products">
+      {list.map((product) => <RelatedCard id={product} />)}
+    </div>
+  );
+};
 
 export default RelatedProductsWidget;
