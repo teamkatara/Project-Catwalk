@@ -13,6 +13,14 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   mode: 'development',
