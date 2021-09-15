@@ -1,12 +1,6 @@
-.overview {
-  display: grid;
-  border: 1px solid black;
-  height: 90%;
-}
-
 #selected-style-image {
   width: 50%;
-  height: 50%;
+  height: auto;
 }
 
 #sale-price {
@@ -19,6 +13,7 @@
 }
 
 .style-entry {
-  width: 10%;
-  height: 10%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
