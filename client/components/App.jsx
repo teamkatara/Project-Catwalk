@@ -6,23 +6,10 @@ import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
 import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
 import RelatedProductsWidget from './related/RelatedProductsWidget';
 
+import ProductContext from './ProductContext';
 import product from '../mock-data/sample-product.json';
 import styles from '../mock-data/sample-styles.json';
-
-// const App = () => (
-//   <div>
-//     <div className="navbar">Logo </div>
-
-//     <ProductOverviewWidget product={product} styles={styles} />
-
-//     <RelatedProductsWidget />
-
-//     <QuestionsAndAnswersWidget />
-
-//     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-//   </div>
-
-// );
+import reviews from '../mock-data/sample-reviews.json';
 
 const findDefault = (styles) => {
   let defaultStyle;
@@ -34,6 +21,23 @@ const findDefault = (styles) => {
   return defaultStyle;
 };
 
+// const App = () => (
+//   <div>
+//     <ProductContext.Provider value={product}>
+//       <div className="navbar">Logo </div>
+
+//       <ProductOverviewWidget />
+
+//       <RelatedProductsWidget />
+
+//       <QuestionsAndAnswersWidget />
+
+//       <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+//     </ProductContext.Provider>
+//   </div>
+
+// );
+
 class App extends React.Component {
   constructor() {
     super();
@@ -42,6 +46,7 @@ class App extends React.Component {
       product: product,
       styles: styles,
       selectedStyle: findDefault(styles),
+      reviews: reviews.results.length,
     };
   }
 
@@ -50,9 +55,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="navbar">Logo </div>
+        <div className="navbar">Logo</div>
 
-        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} />
+        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
 
         <RelatedProductsWidget />
 

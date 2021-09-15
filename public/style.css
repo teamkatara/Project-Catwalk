@@ -13,6 +13,15 @@ body {
   height: 90%;
 }
 
+#sale-price {
+  color: red;
+}
+
+#orig-price {
+  color: black;
+  text-decoration: line-through;
+}
+
 #selected-style-image {
   width: 50%;
   height: 50%;

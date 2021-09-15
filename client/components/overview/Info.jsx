@@ -1,11 +1,14 @@
 import React from 'react';
+import AverageRating from '../shared/AverageRating';
 
-const Info = ({ product, selectedStyle }) => (
+const Info = ({ product, selectedStyle, reviews }) => (
   <div>
-    <p>Stars here <a href="#ratings-reviews">Reall all # reviews</a></p>
+    <AverageRating />
+    {reviews > 0 && <a href="#ratings-reviews">Read all {reviews} reviews</a>}
     <p>{product.category}</p>
     <h1>{product.name}</h1>
-    <p>{selectedStyle.original_price}</p>
+    {!selectedStyle.sale_price && <p>${selectedStyle.original_price}</p>}
+    {!!selectedStyle.sale_price && <span id="sale-price">${selectedStyle.sale_price} <span id="orig-price">${selectedStyle.original_price}</span></span>}
   </div>
 );
 
