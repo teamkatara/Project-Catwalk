@@ -30,22 +30,27 @@ const RatingBreakdown = ({ reviewMeta }) => {
         <li className="bar">
           <span className="text-bar">5 Stars</span>
           <progress className="bar-color" max="100" value="50" />
+          <span className="text-total-amount">5</span>
         </li>
         <li className="bar">
           <span className="text-bar">4 Stars</span>
           <progress className="bar-color" max="100" value="20" />
+          <span className="text-total-amount">5</span>
         </li>
         <li className="bar">
           <span className="text-bar">3 Stars</span>
           <progress className="bar-color" max="100" value="10" />
+          <span className="text-total-amount">5</span>
         </li>
         <li className="bar">
           <span className="text-bar">2 Stars</span>
           <progress className="bar-color" max="100" value="10" />
+          <span className="text-total-amount">5</span>
         </li>
         <li className="bar">
           <span className="text-bar">1 Stars</span>
           <progress className="bar-color" max="100" value="10" />
+          <span className="text-total-amount">5</span>
         </li>
       </ul>
     </div>

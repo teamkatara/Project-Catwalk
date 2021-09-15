@@ -33,9 +33,10 @@
 .bar {
   margin-bottom: .5em;
   position: relative;
-
+  padding-left: 2.8em;
 }
 .bar::-webkit-progress-value {
+  animation: bar-fill 2s;
   -webkit-animation: bar-fill 2s;
   width: 0px;
 }
@@ -52,8 +53,16 @@
 .text-bar {
   color: #121003;
   text-decoration:underline;
-  left: 1em;
   line-height: 1;
-  position:before;
+  position: relative;
   top: 1em;
+  right: 2.9em;
+}
+.text-total-amount {
+  color: #121003;
+  text-decoration:underline;
+  line-height: 1;
+  position:absolute;
+  top: 1.2em;
+  left: 13.2em;
 }
