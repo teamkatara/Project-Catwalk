@@ -1,0 +1,24 @@
+.overview {
+  display: grid;
+  border: 1px solid black;
+  height: 90%;
+}
+
+#selected-style-image {
+  width: 50%;
+  height: 50%;
+}
+
+#sale-price {
+  color: red;
+}
+
+#orig-price {
+  color: black;
+  text-decoration: line-through;
+}
+
+.style-entry {
+  width: 10%;
+  height: 10%;
+}
