@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-console */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -13,39 +16,36 @@ const Answer = ({ answer }) => {
 
   return (
     <div>
-      <div className="qa-answer">
-        <div>A:</div>
-        <div>{body}</div>
+      <div className="qa-answer flex-container">
+        <div id="qa-a">A:</div>
+        <br />
+        <div id="qa-answer-body">{body}</div>
       </div>
-      <div>
-        <div className="qa-ansqwer-user">
+      <div className="qa-answer-metadata flex-container">
+        <div className="qa-ansqwer-user" id="qa-user">
           {`by ${name}, ${date.slice(0, 10)}`}
         </div>
         <div>|</div>
-        <div>
-          <div>Helpful?</div>
-          <input
-            type="button"
-            className="qa-answer-button"
-            onClick={() => console.log('Clicked Yes')}
-            value="Yes"
-          />
-          <div>{helpfulness}</div>
+        <div className="flex-container">
+          <div id="qa-helpful">Helpful?</div>
+          <div id="qa-yes" onClick={() => console.log('Yes Clicked')}>Yes</div>
+          <div id="qa-score">{`(${helpfulness})`}</div>
         </div>
         <div>|</div>
-        <input
-          type="button"
-          className="qa-answer-button"
-          onClick={() => console.log('Clicked Report')}
-          value="Report"
-        />
+        <div id="qa-report" onClick={() => console.log('Report Clicked')}>Report</div>
       </div>
     </div>
   );
 };
 
 Answer.propTypes = {
-  answer: PropTypes.arrayOf(PropTypes.object).isRequired,
+  answer: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.array,
+    ]),
+  ).isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };

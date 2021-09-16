@@ -13,13 +13,13 @@ const AnswerList = ({ answers }) => {
   };
 
   return (
-    <div>
+    <div className="qa-answer-list">
       { answerList.map((answer) => (
         <Answer answer={answer} />
       )) }
       <input
         type="button"
-        className="qa-answers-button"
+        className="qa-answers-lma"
         onClick={() => setDisplayList()}
         value="LOAD MORE ANSWERS"
       />
@@ -28,7 +28,7 @@ const AnswerList = ({ answers }) => {
 };
 
 AnswerList.propTypes = {
-  answers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  answers: PropTypes.objectOf(PropTypes.object).isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };
