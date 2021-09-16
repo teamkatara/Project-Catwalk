@@ -9,13 +9,13 @@ const QuestionList = ({ questions }) => {
   const { length } = allQuestions;
 
   const [displayMAQ, setMAQ] = React.useState(true);
-  const [totalDisplayed, setTotalDisplayed] = React.useState(4);
-  const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, totalDisplayed));
+  const [totalDisplayed, setTotalDisplayed] = React.useState(6);
+  const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
 
   const setDisplayList = () => {
     // console.log('Current Total', totalDisplayed);
     setTotalDisplayed((curr) => {
-      if (curr < length - 1) {
+      if (curr < length) {
         return curr + 2;
       }
       setMAQ(false);

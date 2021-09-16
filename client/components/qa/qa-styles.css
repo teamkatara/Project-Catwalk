@@ -150,3 +150,7 @@ br {
 .qa-question-right {
   padding-top: 3px;
 }
+
+.qa-question-left {
+  max-width: 70%;
+}
