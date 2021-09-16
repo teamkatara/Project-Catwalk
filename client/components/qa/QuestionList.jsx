@@ -8,15 +8,17 @@ const QuestionList = ({ questions }) => {
   const allQuestions = Object.values(questions);
   const { length } = allQuestions;
 
+  const [displayMAQ, setMAQ] = React.useState(true);
   const [totalDisplayed, setTotalDisplayed] = React.useState(4);
   const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, totalDisplayed));
 
   const setDisplayList = () => {
-    console.log('Current Total', totalDisplayed);
+    // console.log('Current Total', totalDisplayed);
     setTotalDisplayed((curr) => {
       if (curr < length - 1) {
         return curr + 2;
       }
+      setMAQ(false);
       return length;
     });
     setQuestionList(() => allQuestions.slice(0, totalDisplayed));
@@ -35,6 +37,7 @@ const QuestionList = ({ questions }) => {
           type="button"
           value="MORE ANSWERED QUESTIONS"
           onClick={() => setDisplayList()}
+          style={{ display: displayMAQ ? 'inline' : 'none' }}
         />
         <input
           className="qa-add-question"
