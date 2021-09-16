@@ -2,15 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
-import MoreQuestions from './MoreQuestions';
+// import MoreQuestions from './MoreQuestions';
 
 const QuestionList = ({ questions }) => {
   const allQuestions = Object.values(questions);
+  const { length } = allQuestions;
+
   const [totalDisplayed, setTotalDisplayed] = React.useState(4);
   const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, totalDisplayed));
 
   const setDisplayList = () => {
-    console.log('Clicked MAQ');
+    console.log('Current Total', totalDisplayed);
+    setTotalDisplayed((curr) => {
+      if (curr < length - 1) {
+        return curr + 2;
+      }
+      return length;
+    });
     setQuestionList(() => allQuestions.slice(0, totalDisplayed));
   };
 
@@ -21,7 +29,20 @@ const QuestionList = ({ questions }) => {
           <Question question={question} />
         )) }
       </div>
-      <MoreQuestions />
+      <form className="qa-question-buttons">
+        <input
+          className="qa-more-questions"
+          type="button"
+          value="MORE ANSWERED QUESTIONS"
+          onClick={() => setDisplayList()}
+        />
+        <input
+          className="qa-add-question"
+          type="button"
+          value="ADD A QUESTION +"
+          onClick={() => console.log('Add A Question Clicked')}
+        />
+      </form>
     </div>
   );
 };
