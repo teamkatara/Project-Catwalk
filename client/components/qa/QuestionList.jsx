@@ -20,7 +20,6 @@ const QuestionList = ({ questions }) => {
         { questionList.map((question) => (
           <Question question={question} />
         )) }
-        {/* <Question question={questionList[0]} /> */}
       </div>
       <MoreQuestions />
     </div>
