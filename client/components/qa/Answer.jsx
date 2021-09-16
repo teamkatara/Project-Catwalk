@@ -10,13 +10,35 @@ const Answer = ({ answer }) => {
     // photos,
     answerer_name: name,
   } = answer;
+
   return (
     <div>
       <div className="qa-answer">
-        {`A: ${body}`}
+        <div>A:</div>
+        <div>{body}</div>
       </div>
-      <div className="qa-answer-metadata">
-        {`   by ${name}, ${date.slice(0, 10)}  |  Helpful? Yes(${helpfulness})  |  Report`}
+      <div>
+        <div className="qa-ansqwer-user">
+          {`by ${name}, ${date.slice(0, 10)}`}
+        </div>
+        <div>|</div>
+        <div>
+          <div>Helpful?</div>
+          <input
+            type="button"
+            className="qa-answer-button"
+            onClick={() => console.log('Clicked Yes')}
+            value="Yes"
+          />
+          <div>{helpfulness}</div>
+        </div>
+        <div>|</div>
+        <input
+          type="button"
+          className="qa-answer-button"
+          onClick={() => console.log('Clicked Report')}
+          value="Report"
+        />
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const AnswerList = ({ answers }) => {
       )) }
       <input
         type="button"
-        className="qa-answers-lma"
+        className="qa-answers-button"
         onClick={() => setDisplayList()}
         value="LOAD MORE ANSWERS"
       />
