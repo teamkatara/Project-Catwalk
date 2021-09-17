@@ -10,8 +10,8 @@ body {
 
 .overview {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 951.25px 570.75px;
+  grid-template-rows: 645.082444px 255.86656px;
   border: 1px solid black;
   height: 90%;
 }
