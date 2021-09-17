@@ -14,7 +14,7 @@
 #main-image-container {
   background-color: gray;
   height: 100%;
-  width: 100%;
+  width: 908px;
   text-align: center;
 }
 
@@ -50,7 +50,7 @@
 #description {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 120px;
+  margin-left: 154px;
   padding-right: 30px;
   border-right: 1px solid black;
 }
