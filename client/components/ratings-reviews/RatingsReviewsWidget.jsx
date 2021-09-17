@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import './RatingsReviews.css';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
+import ReviewList from './ReviewList/ReviewList';
 
 import mockReviewMeta from '../../mock-data/sample-review-meta.json';
 import mockReviews from '../../mock-data/sample-reviews.json';
@@ -13,7 +14,9 @@ const RatingsReviewsWidget = ({ reviews, reviewMeta, productId }) => (
     <div className="rr-title"><h2>RATINGS & REVIEWS</h2></div>
     <div className="rr-widget-container">
       <RatingBreakdown reviewMeta={reviewMeta} />
-      <div className="reviews-list">Reviews List Lives Here</div>
+      <div className="reviews-list">
+        <ReviewList />
+      </div>
     </div>
   </div>
 );

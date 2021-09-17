@@ -10,13 +10,15 @@ import RatingBreakdown from './RatingBreakdown';
 import RatingSummary from './RatingSummary';
 import AverageRating from '../../shared/AverageRating';
 
+import mockReviewMeta from '../../../mock-data/sample-review-meta.json';
+
 configure({ adapter: new Adapter() });
 
 describe('RatingBreakdown Component Enzyme Tests', () => {
   let container;
 
   beforeEach(() => {
-    container = shallow(<RatingBreakdown />);
+    container = shallow(<RatingBreakdown reviewMeta={mockReviewMeta} />);
   });
 
   it('should render a <div />', () => {
@@ -24,7 +26,8 @@ describe('RatingBreakdown Component Enzyme Tests', () => {
   });
 
   it('should render the RatingSummary Component', () => {
-    expect(container.containsMatchingElement(<RatingSummary />)).toEqual(true);
+    expect(container.containsMatchingElement(<RatingSummary average={3.5} recNum={100} />))
+      .toEqual(true);
   });
 });
 
