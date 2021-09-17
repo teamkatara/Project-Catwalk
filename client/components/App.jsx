@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import $ from 'jquery';
 
 import ProductOverviewWidget from './overview/ProductOverviewWidget';
 import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
@@ -45,16 +46,24 @@ class App extends React.Component {
       selectedStyle: findDefault(styles),
       reviews: reviews.results.length,
     };
+
+    this.selectStyle = this.selectStyle.bind(this);
   }
 
   componentDidMount() {}
+
+  selectStyle(style) {
+    this.setState({
+      selectedStyle: style,
+    });
+  }
 
   render() {
     return (
       <div>
         <div className="navbar">Logo</div>
 
-        <ProductOverviewWidget product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
+        <ProductOverviewWidget selectStyle={this.selectStyle} product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
 
         <RelatedProductsWidget />
 

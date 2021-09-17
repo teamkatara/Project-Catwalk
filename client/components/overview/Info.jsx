@@ -8,7 +8,7 @@ const Info = ({ product, selectedStyle, reviews }) => (
     <p>{product.category}</p>
     <h1>{product.name}</h1>
     {!selectedStyle.sale_price && <p>${selectedStyle.original_price}</p>}
-    {!!selectedStyle.sale_price && <span id="sale-price">${selectedStyle.sale_price} <span id="orig-price">${selectedStyle.original_price}</span></span>}
+    {!!selectedStyle.sale_price && <p><span id="sale-price">${selectedStyle.sale_price} <span id="orig-price">${selectedStyle.original_price}</span></span></p>}
   </div>
 );
 

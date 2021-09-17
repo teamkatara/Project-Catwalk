@@ -161,7 +161,7 @@
           "style_id": 241219,
           "name": "Salmon",
           "original_price": "330.00",
-          "sale_price": null,
+          "sale_price": "300.00",
           "default?": false,
           "photos": [
               {
