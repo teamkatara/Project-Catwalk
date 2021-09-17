@@ -17,9 +17,9 @@ const ReviewTile = ({ review }) => {
         <span style={{ fontWeight: 'bold' }}>{review.reviewer_name}</span>
         {review.recommend === true ? ' ✔ I recommend this product.' : null}
       </div>
-      <div className="review-tile-response">
-        {review.response !== null ? `Response from seller: ${review.response}` : null}
-      </div>
+      {/* <div className="review-tile-response"> */}
+      {review.response !== null ? (<div className="review-tile-response">{`Response from seller: ${review.response}`}</div>) : null}
+      {/* </div> */}
       <div className="review-tile-photos">
         {review.photos.map((photo) => (
           <img className="review-tile-thumbnail" src={photo.url} height="50" width="auto" loading="lazy" alt="" />))}
