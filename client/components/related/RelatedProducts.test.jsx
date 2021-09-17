@@ -12,6 +12,8 @@ import RelatedCard from './CardDetails/RelatedCard';
 import RelatedRating from './CardDetails/RelatedRating';
 import Thumbnail from './CardDetails/Thumbnail';
 import Modal from './CardDetails/Modal';
+import relatedProductList from './related-data/related-products.json';
+import relatedStyles from './related-data/related-styles.json';
 
 configure({ adapter: new Adapter() });
 
@@ -23,11 +25,11 @@ describe('RelatedProducts Component Enzyme Tests', () => {
   });
 
   it('should render a <div />', () => {
-    expect(container.find('div').length).toEqual(2);
+    expect(container.find('div').length).toEqual(3);
   });
 
   it('should render the RelatedCard Component', () => {
-    expect(container.containsMatchingElement(<RelatedCard id={40454} />)).toEqual(true);
+    expect(container.containsMatchingElement(<RelatedCard />)).toEqual(true);
   });
 });
 
@@ -35,7 +37,7 @@ describe('RelatedCard Component Enzyme Tests', () => {
   let container;
 
   beforeEach(() => {
-    container = shallow(<RelatedCard id={40454} />);
+    container = shallow(<RelatedCard id={40450} />);
   });
 
   it('should render a <div />', () => {
