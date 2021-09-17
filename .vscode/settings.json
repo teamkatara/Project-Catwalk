@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "iesafe"
-  ]
+  ],
+  "jest.jestCommandLine": "npm run test --"
 }
