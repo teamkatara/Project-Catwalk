@@ -8,24 +8,43 @@ class Buy extends React.Component {
     super();
 
     this.state = {
-      size: null,
+      sku: null,
       quantity: null,
-      quantityOptions: null,
+      stock: null,
     };
 
     this.sizeSelect = this.sizeSelect.bind(this);
+    this.quantitySelect = this.quantitySelect.bind(this);
+    this.addToBag = this.addToBag.bind(this);
   }
 
   sizeSelect(event) {
-    console.log(event.target.value);
+    Object.values(this.props.selectedStyle.skus).forEach((sku, i) => {
+      if (sku.size === event.target.value) {
+        this.setState({
+          sku: Object.keys(this.props.selectedStyle.skus)[i],
+          stock: sku.quantity,
+        });
+      }
+    });
+  }
+
+  quantitySelect(event) {
+    this.setState({
+      quantity: event.target.value,
+    });
+  }
+
+  addToBag(sku, quantity) {
+    console.log(sku, quantity)
   }
 
   render() {
     return (
       <div>
         <Size selectedStyle={this.props.selectedStyle} sizeSelect={this.sizeSelect} />
-        <Quantity selectedStyle={this.props.selectedStyle} quantityOptions={this.state.quantityOptions} />
-        <AddtoCart size={this.state.size} quantity={this.state.quantity} />
+        <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} />
+        <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
       </div>
     );
   }
