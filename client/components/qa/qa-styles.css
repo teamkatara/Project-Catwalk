@@ -17,7 +17,10 @@ br {
 }
 
 .qa-search {
-  margin: 5px 5px 5px 0;
+  margin: 5px;
+  padding: 10px 15px 10px 5px;
+  border: 1px solid black;
+  justify-content: space-between;
 }
 
 .qa-question-list {
@@ -79,9 +82,8 @@ br {
 }
 
 #qa-search-text {
-  width: 85%;
-  height: 40px;
-  border: 1px solid black;
+  width: 95%;
+  border: 1px solid white;
 }
 
 #qa-search-btn {
