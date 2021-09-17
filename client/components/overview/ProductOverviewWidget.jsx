@@ -4,7 +4,7 @@ import React from 'react';
 
 import Info from './Info';
 import StyleSelector from './StyleSelector';
-import AddtoCart from './AddtoCart';
+import Buy from './Buy';
 import ImageGallery from './ImageGallery';
 import ProductDescription from './ProductDescription';
 import ProductFeatures from './ProductFeatures';
@@ -40,7 +40,7 @@ const ProductOverviewWidget = ({ product, selectStyle, styles, selectedStyle, re
     <div id="product-info-container">
       <Info product={product} styles={styles} selectedStyle={selectedStyle} reviews={reviews} />
       <StyleSelector styles={styles} selectedStyle={selectedStyle} selectStyle={selectStyle} />
-      <AddtoCart />
+      <Buy selectedStyle={selectedStyle} />
       <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f"></i></a>
       <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter"></i></a>
       <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p"></i></a>
