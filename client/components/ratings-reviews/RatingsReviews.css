@@ -6,11 +6,13 @@
 
 .rr-widget-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
   column-gap: 20px;
   align-items: start;
   width: auto;
   height: auto;
+  grid-template-columns: 210px auto;
+  grid-template-rows: 20px 250px auto;
+  margin-top: 20px;
 }
 
 .reviews-list {
