@@ -80,12 +80,14 @@ br {
 
 #qa-search-text {
   width: 85%;
+  height: 40px;
   border: 1px solid black;
 }
 
 #qa-search-btn {
   margin-left: 5px;
   border: 1px solid black;
+  width: 10%;
 }
 
 #qa-q {
@@ -153,4 +155,8 @@ br {
 
 .qa-question-left {
   max-width: 70%;
+}
+
+#magnifying-glass {
+  padding-left: 10px;
 }

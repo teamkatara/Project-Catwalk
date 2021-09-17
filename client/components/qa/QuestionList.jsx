@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+// import Search from './Search';
 import Question from './Question';
 // import MoreQuestions from './MoreQuestions';
 
@@ -26,6 +27,17 @@ const QuestionList = ({ questions }) => {
 
   return (
     <div>
+      <div className="qa-search">
+        <form>
+          <input
+            id="qa-search-text"
+            type="text"
+            placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+            onChange={(event) => console.log(event.target.value)}
+          />
+          <i className="fas fa-search" id="magnifying-glass" />
+        </form>
+      </div>
       <div className="qa-question-list">
         { questionList.map((question) => (
           <Question question={question} />
