@@ -6,13 +6,29 @@ const Modal = ({ show }) => {
 
   if (!willShow) {
     return (
-      <div> ): </div>
+      null
     );
   }
 
   return (
     <div className="modal">
-      Modal Component
+      Comparison
+      <table className="modalTable">
+        <thead>
+          <tr>
+            <td>Product</td>
+            <td />
+            <td>Product</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>checkmark</td>
+            <td>GMO and Pesticide Free</td>
+            <td>checkmark</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

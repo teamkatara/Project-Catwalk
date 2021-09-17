@@ -27,7 +27,7 @@ describe('RelatedProducts Component Enzyme Tests', () => {
   });
 
   it('should render the RelatedCard Component', () => {
-    expect(container.containsMatchingElement(<RelatedCard />)).toEqual(true);
+    expect(container.containsMatchingElement(<RelatedCard id={40454} />)).toEqual(true);
   });
 });
 
@@ -35,7 +35,7 @@ describe('RelatedCard Component Enzyme Tests', () => {
   let container;
 
   beforeEach(() => {
-    container = shallow(<RelatedCard />);
+    container = shallow(<RelatedCard id={40454} />);
   });
 
   it('should render a <div />', () => {
@@ -43,7 +43,7 @@ describe('RelatedCard Component Enzyme Tests', () => {
   });
 
   it('should render the RelatedRating Component', () => {
-    expect(container.containsMatchingElement(<RelatedRating />)).toEqual(true);
+    expect(container.containsMatchingElement(<RelatedRating score={4.8} />)).toEqual(true);
   });
 
   it('should render the Thumbnail Component', () => {
@@ -54,11 +54,11 @@ describe('RelatedCard Component Enzyme Tests', () => {
 describe('Thumbnail Component Enyzme Tests', () => {
   let container;
 
-  befreEach(() => {
+  beforeEach(() => {
     container = shallow(<Thumbnail />);
   });
 
   it('should render the Modal Component', () => {
-    expect(container.containsMatchingElement(<Modal />)).toEqual(true);
-  })
+    expect(container.containsMatchingElement(<Modal show={false} />)).toEqual(true);
+  });
 });

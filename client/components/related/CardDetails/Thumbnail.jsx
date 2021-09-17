@@ -4,7 +4,7 @@ import Modal from './Modal';
 const Thumbnail = () => {
   const [show, setShow] = useState(false);
 
-  const onClick = (e) => {
+  const onClick = () => {
     if (show === true) {
       setShow(false);
     } else {
