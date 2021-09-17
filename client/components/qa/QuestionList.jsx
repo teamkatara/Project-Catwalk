@@ -32,7 +32,14 @@ const QuestionList = ({ questions }) => {
           id="qa-search-text"
           type="text"
           placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-          onChange={(event) => console.log(event.target.value)}
+          onChange={(e) => {
+            const query = e.target.value;
+            if (query.length >= 3) {
+              setQuestionList((curr) => curr.filter((q) => q.question_body.includes(query)));
+            } else {
+              setQuestionList(allQuestions.slice(0, totalDisplayed - 2));
+            }
+          }}
         />
         <i className="fas fa-search" id="magnifying-glass" />
       </div>
