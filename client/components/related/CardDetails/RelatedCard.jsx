@@ -27,7 +27,10 @@ const RelatedCard = ({ id }) => {
           <br />
         </span>
         <span className="text">{currentProduct.name}</span>
-        <span className="price">{currentProduct.default_price}</span>
+        <span className="price">
+          $
+          {currentProduct.default_price}
+        </span>
         <RelatedRating score={4.8} />
       </div>
     </div>
