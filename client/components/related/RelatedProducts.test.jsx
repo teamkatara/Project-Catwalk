@@ -11,6 +11,7 @@ import RelatedProductsWidget from './RelatedProductsWidget';
 import RelatedCard from './CardDetails/RelatedCard';
 import RelatedRating from './CardDetails/RelatedRating';
 import Thumbnail from './CardDetails/Thumbnail';
+import Modal from './CardDetails/Modal';
 
 configure({ adapter: new Adapter() });
 
@@ -48,4 +49,16 @@ describe('RelatedCard Component Enzyme Tests', () => {
   it('should render the Thumbnail Component', () => {
     expect(container.containsMatchingElement(<Thumbnail />)).toEqual(true);
   });
+});
+
+describe('Thumbnail Component Enyzme Tests', () => {
+  let container;
+
+  befreEach(() => {
+    container = shallow(<Thumbnail />);
+  });
+
+  it('should render the Modal Component', () => {
+    expect(container.containsMatchingElement(<Modal />)).toEqual(true);
+  })
 });

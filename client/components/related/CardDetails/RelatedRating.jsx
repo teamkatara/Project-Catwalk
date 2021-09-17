@@ -4,16 +4,12 @@ import AverageRating from '../../shared/AverageRating';
 
 const RelatedRating = ({ score }) => (
   <div>
-    <AverageRating rating={score} />
+    <AverageRating average={score} />
   </div>
 );
 
-RelatedRating.defaultProps = {
-  score: 5,
-};
-
 RelatedRating.propTypes = {
-  score: PropTypes.number,
+  score: PropTypes.number.isRequired,
 };
 
 export default RelatedRating;
