@@ -23,9 +23,9 @@ const Modal = ({ show }) => {
         </thead>
         <tbody>
           <tr>
-            <td>checkmark</td>
+            <td>✔</td>
             <td>GMO and Pesticide Free</td>
-            <td>checkmark</td>
+            <td>✔</td>
           </tr>
         </tbody>
       </table>

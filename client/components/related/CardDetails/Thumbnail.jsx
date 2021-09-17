@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Thumbnail = () => {
+const Thumbnail = ({ image }) => {
   const [show, setShow] = useState(false);
 
   const onClick = () => {
@@ -10,7 +11,6 @@ const Thumbnail = () => {
     } else {
       setShow(true);
     }
-    console.log(show);
   };
 
   const Star = (
@@ -21,13 +21,17 @@ const Thumbnail = () => {
 
   // const Star = React.createElement('button', {type: 'button'}, 'Star');
   return (
-    <div className="thumbnail">
+    <div className="thumbnail" style={{ backgroundImage: `url(${image})` }}>
       <div className="star-button">
         {Star}
       </div>
       <Modal show={show} />
     </div>
   );
+};
+
+Thumbnail.propTypes = {
+  image: PropTypes.string.isRequired,
 };
 
 export default Thumbnail;

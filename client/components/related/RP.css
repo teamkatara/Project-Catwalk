@@ -1,6 +1,6 @@
 .related-products {
   width: auto;
-  height: 40%;
+  height: 70%;
   padding: 5 5;
 }
 
@@ -9,7 +9,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   width: auto;
-  height: 80%;
+  height: 40%;
   overflow-x: auto;
 }
 
@@ -24,7 +24,8 @@
 .thumbnail {
   text-align: right;
   height: 65%;
-  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .star-button {
@@ -46,11 +47,27 @@
 
 .text {
   padding: 10;
+  font-size: large;
+  font-weight: bold;
+}
+
+.price {
+  font-size: smaller;
+  padding: 10 10 0 10;
 }
 
 .text::after {
   content: '\A';
   white-space: pre-line;
+}
+
+.price::after {
+  content: '\A';
+  white-space: pre-line;
+}
+
+.rating {
+  padding: 10;
 }
 
 .modal {
