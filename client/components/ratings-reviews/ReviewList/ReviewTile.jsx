@@ -17,9 +17,11 @@ const ReviewTile = ({ review }) => {
       <div className="review-tile-rating"><AverageRating average={review.rating} /></div>
       <div className="review-tile-summary" style={{ fontWeight: 'bold' }}>{review.summary}</div>
       <div className="review-tile-body">{review.body}</div>
-      <div className="review-tile-date">{reviewDate}</div>
+      <div className="review-tile-date">
+        <span style={{ fontWeight: 'bold' }}>{`${review.reviewer_name}    `}</span>
+        {reviewDate}
+      </div>
       <div className="review-tile-recommend">
-        <span style={{ fontWeight: 'bold' }}>{review.reviewer_name}</span>
         {review.recommend === true ? ' ✔ I recommend this product.' : null}
       </div>
       {review.response !== null ? (<div className="review-tile-response">{`Response from seller: ${review.response}`}</div>) : null}
