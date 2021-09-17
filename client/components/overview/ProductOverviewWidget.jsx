@@ -34,16 +34,16 @@ import ProductFeatures from './ProductFeatures';
 //   }
 // }
 
-const ProductOverviewWidget = ({ product, styles, selectedStyle, reviews }) => (
+const ProductOverviewWidget = ({ product, selectStyle, styles, selectedStyle, reviews }) => (
   <div className="overview">
     <div id="main-image-container"><img id="selected-style-image" src={selectedStyle.photos[0].url} /></div>
     <div id="product-info-container">
       <Info product={product} styles={styles} selectedStyle={selectedStyle} reviews={reviews} />
-      <StyleSelector styles={styles} />
+      <StyleSelector styles={styles} selectedStyle={selectedStyle} selectStyle={selectStyle} />
       <AddtoCart />
-      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter"></i></a>
+      <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p"></i></a>
     </div>
     <ProductDescription description={product.description} slogan={product.slogan} />
     <ProductFeatures features={product.features} />
