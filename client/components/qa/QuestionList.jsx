@@ -27,16 +27,21 @@ const QuestionList = ({ questions }) => {
 
   return (
     <div>
-      <div className="qa-search">
-        <form>
-          <input
-            id="qa-search-text"
-            type="text"
-            placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            onChange={(event) => console.log(event.target.value)}
-          />
-          <i className="fas fa-search" id="magnifying-glass" />
-        </form>
+      <div className="qa-search flex-container">
+        <input
+          id="qa-search-text"
+          type="text"
+          placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+          onChange={(e) => {
+            const query = e.target.value;
+            if (query.length >= 3) {
+              setQuestionList((curr) => curr.filter((q) => q.question_body.includes(query)));
+            } else {
+              setQuestionList(allQuestions.slice(0, totalDisplayed - 2));
+            }
+          }}
+        />
+        <i className="fas fa-search" id="magnifying-glass" />
       </div>
       <div className="qa-question-list">
         { questionList.map((question) => (
