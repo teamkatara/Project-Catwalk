@@ -1,0 +1,161 @@
+[
+  {
+    "id": 40450,
+    "campus": "hr-rfp",
+    "name": "Alivia Slacks",
+    "slogan": "Quia laboriosam alias ut quae vel non qui soluta totam.",
+    "description": "Quo porro temporibus. A est perferendis. Ipsa adipisci sit rerum officia qui qui voluptatibus. Natus ut aut voluptate qui ea ea.",
+    "category": "Slacks",
+    "default_price": "873.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Cut",
+            "value": "\"Striaght\""
+        },
+        {
+            "feature": "Fair Trade Certified",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 40551,
+    "campus": "hr-rfp",
+    "name": "Wiley Hat",
+    "slogan": "Sed fuga omnis quos fugiat.",
+    "description": "Velit praesentium est nulla quos. Perspiciatis cum eveniet qui nam voluptatum architecto. Ratione adipisci ducimus voluptas reiciendis ab corrupti molestiae voluptatem.",
+    "category": "Hat",
+    "default_price": "733.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Fair Trade Certified",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 40641,
+    "campus": "hr-rfp",
+    "name": "The Shanny Pants",
+    "slogan": "Tenetur voluptatem recusandae aut nihil nam qui saepe dolore quod.",
+    "description": "Quia voluptas deserunt deserunt nulla voluptatem. Et est esse fugit ducimus. Et iste doloribus molestias earum vero rerum neque ducimus omnis. Possimus dicta officiis itaque tempora est. Architecto delectus et et ducimus aut. Molestiae rerum itaque et fugit voluptate fuga.",
+    "category": "Pants",
+    "default_price": "75.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Green Leaf Certified",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 40751,
+    "campus": "hr-rfp",
+    "name": "Gerson Cap",
+    "slogan": "Ut est sint distinctio error nemo dicta facere quaerat ut.",
+    "description": "Nihil nemo voluptatem iusto rerum cum commodi tenetur quia. Quia et esse voluptas quam non est. Suscipit nihil voluptatem.",
+    "category": "Cap",
+    "default_price": "708.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Frame",
+            "value": "\"DuraResin\""
+        },
+        {
+            "feature": "Stitching",
+            "value": "\"Cross Stitch\""
+        },
+        {
+            "feature": "Frame",
+            "value": "\"AllLight Composition Resin\""
+        },
+        {
+            "feature": "Non-GMO",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 40932,
+    "campus": "hr-rfp",
+    "name": "Bertha Shorts",
+    "slogan": "Aut exercitationem voluptatem perspiciatis quis.",
+    "description": "At est perspiciatis quae. Earum eligendi deserunt molestiae voluptas. Omnis corrupti dolorem quia et dignissimos quod dolorem voluptates. Dolor rem modi dolorem nesciunt qui doloremque doloremque.",
+    "category": "Shorts",
+    "default_price": "684.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Lifetime Guarantee",
+            "value": null
+        },
+        {
+            "feature": "Stitching",
+            "value": "\"Cross Stitch\""
+        },
+        {
+            "feature": "Sustainably Sourced",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 41032,
+    "campus": "hr-rfp",
+    "name": "Elvie 1150 Sweater",
+    "slogan": "Quo est quia numquam.",
+    "description": "Ipsam distinctio animi. Sapiente est atque sint neque. Corrupti debitis inventore quaerat pariatur molestias. Tempora ex consectetur in omnis cupiditate tempore qui. Nam ut doloribus. Quia aut non debitis velit cumque consequatur sunt.",
+    "category": "Sweater",
+    "default_price": "223.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "Fabric",
+            "value": "\"Canvas\""
+        },
+        {
+            "feature": "Non-GMO",
+            "value": null
+        },
+        {
+            "feature": "Sustainably Sourced",
+            "value": null
+        }
+    ]
+  },
+  {
+    "id": 40800,
+    "campus": "hr-rfp",
+    "name": "Brenda Suit",
+    "slogan": "Esse esse totam fuga aliquid.",
+    "description": "Sit rerum est sit nam nostrum. Odit omnis eligendi. Voluptas omnis sed veritatis qui delectus cum tenetur non voluptates. Sed delectus occaecati sed enim sed eos. Porro et nobis esse voluptatum voluptas ex.",
+    "category": "Suit",
+    "default_price": "548.00",
+    "created_at": "2021-08-13T14:38:44.588Z",
+    "updated_at": "2021-08-13T14:38:44.588Z",
+    "features": [
+        {
+            "feature": "5 Year Warranty",
+            "value": null
+        },
+        {
+            "feature": "Lens",
+            "value": "\"Ultrasheen Silver\""
+        },
+        {
+            "feature": "Fair Trade Certified",
+            "value": null
+        }
+    ]
+  }
+]
