@@ -13,7 +13,7 @@ const RelatedProductsWidget = () => {
       <div className="cards-list">
         {list.map((product) => <RelatedCard id={product} key={product} />)}
       </div>
-      <h3>Outfit List</h3>
+      <h3>Your Outfit</h3>
       <div className="cards-list">
         {list.map((product) => <RelatedCard id={product} key={product} />)}
       </div>

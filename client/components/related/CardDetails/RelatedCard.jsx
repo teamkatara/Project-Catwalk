@@ -22,7 +22,10 @@ const RelatedCard = ({ id }) => {
     <div className="card">
       <Thumbnail image={currentStyle.thumbnail} />
       <div className="details">
-        <span className="price">Category</span>
+        <span className="price">
+          {currentProduct.category}
+          <br />
+        </span>
         <span className="text">{currentProduct.name}</span>
         <span className="price">{currentProduct.default_price}</span>
         <RelatedRating score={4.8} />

@@ -1,7 +1,7 @@
 .related-products {
   width: auto;
-  height: 70%;
-  padding: 5 5;
+  height: 72%;
+  padding: 10;
 }
 
 .cards-list {
@@ -40,7 +40,7 @@
 }
 
 .details {
-  padding: 5;
+  padding: 15 0 0 5;
   text-align: left;
   height: 30%;
 }
@@ -53,7 +53,7 @@
 
 .price {
   font-size: smaller;
-  padding: 10 10 0 10;
+  padding: 10;
 }
 
 .text::after {
@@ -67,7 +67,7 @@
 }
 
 .rating {
-  padding: 10;
+  padding: 0 0 0 10;
 }
 
 .modal {
