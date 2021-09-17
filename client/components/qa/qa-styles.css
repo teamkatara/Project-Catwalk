@@ -4,7 +4,16 @@
 .questions-answers {
   border: 1px solid white;
   margin: 5px 10%;
-  max-height: 50vh;
+  max-height: 75vh;
+  font-family: "helvetica";
+}
+
+.flex-container {
+  display: flex;
+}
+
+br {
+  width: 5px;
 }
 
 .qa-search {
@@ -14,43 +23,140 @@
 .qa-question-list {
   margin: 5px 0;
   overflow-y: scroll;
-  max-height: 25vh;
+  max-height: 40vh;
+}
+
+.qa-answer-list {
+  overflow-y: scroll;
+  max-height: 30vh;
 }
 
 .qa-question {
-  margin: 5px 0;
+  margin: 10px 0;
+  background-color: rgb(243, 243, 243);
 }
 
 .qa-answer {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .qa-answers-lma {
   background-color: white;
-  font-size: x-small;
-  margin: 5px 20px;
+  font-size: small;
+  font-weight: bold;
+  margin: 10px 0 5px 20px;
   border: none;
 }
 
+.qa-answer-button {
+  background-color: white;
+  font-size: x-small;
+  margin: 5px 20px;
+  border: none;
+  text-decoration: underline;
+}
+
 .qa-more-questions {
+  background-color: white;
   border: 1px solid black;
-  margin: 0px 5px 0px 0;
+  margin: 5px 5px 0px 0;
+  padding: 10px;
 }
 
 .qa-add-question {
+  background-color: white;
   border: 1px solid black;
+  padding: 10px;
 }
 
 .qa-answer-metadata {
-  margin-left: 20px;
+  margin-left: 25px;
+  font-size: small;
+}
+
+#qa-title {
+  padding: 15px 0 10 0;
 }
 
 #qa-search-text {
   width: 85%;
+  height: 40px;
   border: 1px solid black;
 }
 
 #qa-search-btn {
   margin-left: 5px;
   border: 1px solid black;
+  width: 10%;
+}
+
+#qa-q {
+  font-size: large;
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+#qa-a {
+  font-size: large;
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+#qa-user {
+  font-size: small;
+  font-weight: normal;
+  padding-right: 5px;
+}
+
+#qa-helpful {
+  font-size: small;
+  font-weight:normal;
+  padding-left: 5px;
+}
+
+#qa-yes {
+  font-size: small;
+  font-weight:normal;
+  padding: 0 2px 0 5px;
+  text-decoration: underline;
+}
+
+#qa-score {
+  font-size: small;
+  font-weight:normal;
+  padding-right: 5px;
+}
+
+#qa-report {
+  font-size: small;
+  font-weight:normal;
+  padding: 0 5px;
+  text-decoration: underline;
+}
+
+#qa-question-body {
+  font-size: large;
+  font-weight: bold;
+  padding-top: 1px;
+}
+
+#qa-answer-body {
+  font-size: medium;
+  padding-top: 3px;
+}
+
+.qa-question.flex-container {
+  justify-content: space-between;
+}
+
+.qa-question-right {
+  padding-top: 3px;
+}
+
+.qa-question-left {
+  max-width: 70%;
+}
+
+#magnifying-glass {
+  padding-left: 10px;
 }
