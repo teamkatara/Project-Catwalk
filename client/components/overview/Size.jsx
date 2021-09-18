@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Size = ({ selectedStyle, sizeSelect }) => (
-  <select onChange={sizeSelect}>
+  <select id="size-dd" onChange={sizeSelect}>
     <option>Select Size</option>
     {Object.values(selectedStyle.skus).map((sku) => {
       if (sku.quantity > 0) {

@@ -39,8 +39,20 @@
   border: 2px solid black;
 }
 
-#add-2-cart-button {
+#size-dd {
+  border: 1px solid black;
+  padding: 25px;
+}
 
+#quantity-dd {
+  border: 1px solid black;
+  padding: 25px;
+}
+
+#a2b {
+  border: 1px solid black;
+  padding: 25px;
+  background-color: white;
 }
 
 #image-gallery {

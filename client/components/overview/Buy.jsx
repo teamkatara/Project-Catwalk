@@ -44,7 +44,9 @@ class Buy extends React.Component {
       <div>
         <Size selectedStyle={this.props.selectedStyle} sizeSelect={this.sizeSelect} />
         <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} />
-        <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
+        <div>
+          <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
+        </div>
       </div>
     );
   }

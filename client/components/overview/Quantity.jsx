@@ -13,7 +13,7 @@ const helper = (stock) => {
 };
 
 const Quantity = ({ quantitySelect, stock }) => (
-  <select onChange={quantitySelect}>
+  <select id="quantity-dd" onChange={quantitySelect}>
     <option>--</option>
     {helper(stock)}
   </select>
