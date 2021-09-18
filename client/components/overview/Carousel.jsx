@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
-const Carousel = ({ selectedStyle }) => (
-  <div className="carousel-wrapper">
-    <div className="carousel">
-      {selectedStyle.photos.map((photo, i) => (i === 0
-        ? <img className="carousel-photo initial" src={photo.url}></img>
-        : <img className="carousel-photo" src={photo.url}></img>
+const Carousel = ({ selectedStyle }) => {
+  const [current, setCurrent] = useState(0);
+  const length = selectedStyle.photos.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  return (
+    <div className="slider">
+      <BiLeftArrowAlt className="left-arrow" onClick={prevSlide} />
+      <BiRightArrowAlt className="right-arrow" onClick={nextSlide} />
+      {selectedStyle.photos.map((photo, i) => (
+        <div className={i === current ? 'slide active' : 'slide'} key={i}>
+          {i === current && <img className="images" src={photo.url} alt="product" />}
+        </div>
       ))}
     </div>
-    <div className="carousel-btn-l"></div>
-    <div className="carousel-btn-r"></div>
-  </div>
-);
+  );
+};
 
 export default Carousel;

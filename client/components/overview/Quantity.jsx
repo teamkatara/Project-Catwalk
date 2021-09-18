@@ -5,7 +5,7 @@ const helper = (stock) => {
   const options = [];
 
   while (count <= stock && count <= 15) {
-    options.push(<option>{count}</option>);
+    options.push(<option key={count}>{count}</option>);
     count++;
   }
 
@@ -23,7 +23,7 @@ const Quantity = ({ quantitySelect, stock }) => (
     {!stock
     && (
       <select id="quantity-dd">
-        <option selected>-</option>
+        <option defaultValue>-</option>
         {helper(stock)}
       </select>
     )}

@@ -2,8 +2,8 @@ import React from 'react';
 
 const helper = (skus) => {
   let count = 0;
-  const options = skus.map((sku) => {
-    if (sku.quantity > 0) { return <option>{sku.size}</option>; }
+  const options = skus.map((sku, i) => {
+    if (sku.quantity > 0) { return <option key={i}>{sku.size}</option>; }
   });
   options.forEach((option) => {
     if (option) { count++; }
