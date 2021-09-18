@@ -41,7 +41,7 @@ const QuestionList = ({ questions }) => {
             }
           }}
         />
-        <i className="fas fa-search" id="magnifying-glass" />
+        <i className="fas fa-search silly" id="magnifying-glass" />
       </div>
       <div className="qa-question-list">
         { questionList.map((question) => (
