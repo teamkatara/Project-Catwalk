@@ -164,9 +164,10 @@ br {
 }
 
 .qa-photo {
-  width: 75px;
+  width: 100px;
   height: 75px;
   margin: 5px;
+  border: 1px solid gray;
 }
 
 .qa-photo-container {
