@@ -68,25 +68,31 @@ class App extends React.Component {
   render() {
     const currProduct = {
       product_id: 40355,
+      product_info: [],
       questions: [],
     };
 
-    axios.get('/products/40355', {
+    axios.get('/products/40356', {
       headers: { Authorization: authToken },
     })
-      .then((response) => currProduct.product_id = 40355)
+      .then((response) => {
+        currProduct.product_id = 40356;
+        currProduct.product_info = response;
+      })
       .catch((err) => console.log(err));
 
     axios.get(`/qa/questions/${currProduct.product_id}`, {
       headers: { Authorization: authToken },
     })
-      .then((response) => console.log('Questions: ', response.data.results))
+      .then((response) => {
+        currProduct.questions = response.results;
+      })
       .catch((err) => console.log(err));
 
     return (
       <div>
         <div className="navbar">Logo</div>
-        <ProductContext.Provider value={this.state}>
+        <ProductContext.Provider value={currProduct}>
 
           <ProductOverviewWidget
             selectStyle={this.selectStyle}

@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { ProductContext } from '../App';
 
 const Answer = ({ answer }) => {
-  console.log(answer);
   const {
     body,
     date,
@@ -60,3 +59,15 @@ Answer.propTypes = {
 };
 
 export default Answer;
+
+/*
+<ProductContext.Consumer>
+  { (data) => {
+    console.log('Product ID: ', data);
+    return (
+      // <div>
+      // </div>
+    );
+  }}
+</ProductContext.Consumer>
+*/
