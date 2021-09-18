@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Thumbnail = ({ image, list, product, current }) => {
+const Thumbnail = ({
+  image, list, product, current,
+}) => {
   const [show, setShow] = useState(false);
 
   const onClick = () => {
