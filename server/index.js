@@ -4,7 +4,8 @@ const axios = require('axios');
 const { authToken } = require('../config');
 
 // Test Demo Router
-const router = require('./routes/example');
+// const router = require('./routes/example');
+const router = require('./routes/router');
 
 const PORT = 3000;
 const app = express();
