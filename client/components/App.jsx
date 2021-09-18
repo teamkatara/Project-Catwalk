@@ -1,6 +1,10 @@
+/* eslint-disable import/no-cycle */ // From using context in answer.js
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import axios from 'axios';
 import $ from 'jquery';
+
+import authToken from '../../config';
 
 import ProductOverviewWidget from './overview/ProductOverviewWidget';
 import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
@@ -37,6 +41,7 @@ const findDefault = (styles) => {
 // );
 
 export const ProductContext = React.createContext();
+// const [productID, setID] = React.useState(40355);
 
 class App extends React.Component {
   constructor() {
@@ -61,24 +66,44 @@ class App extends React.Component {
   }
 
   render() {
+    const currProduct = {
+      product_id: 40355,
+      questions: [],
+    };
+
+    axios.get('/products/40355', {
+      headers: { Authorization: authToken },
+    })
+      .then((response) => currProduct.product_id = 40355)
+      .catch((err) => console.log(err));
+
+    axios.get(`/qa/questions/${currProduct.product_id}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((response) => console.log('Questions: ', response.data.results))
+      .catch((err) => console.log(err));
+
     return (
       <div>
         <div className="navbar">Logo</div>
+        <ProductContext.Provider value={this.state}>
 
-        <ProductOverviewWidget
-          selectStyle={this.selectStyle}
-          product={this.state.product}
-          styles={this.state.styles}
-          selectedStyle={this.state.selectedStyle}
-          reviews={this.state.reviews}
-        />
+          <ProductOverviewWidget
+            selectStyle={this.selectStyle}
+            product={this.state.product}
+            styles={this.state.styles}
+            selectedStyle={this.state.selectedStyle}
+            reviews={this.state.reviews}
+          />
 
-        <ProductContext.Provider value={40355}>
           <RelatedProductsWidget />
+
           <QuestionsAndAnswersWidget />
+
+          <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+
         </ProductContext.Provider>
 
-        <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
       </div>
     );
   }
