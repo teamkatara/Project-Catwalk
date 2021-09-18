@@ -7,11 +7,12 @@ import PropTypes from 'prop-types';
 import { ProductContext } from '../App';
 
 const Answer = ({ answer }) => {
+  console.log(answer);
   const {
     body,
     date,
     helpfulness,
-    // photos,
+    photos,
     answerer_name: name,
   } = answer;
 
@@ -21,6 +22,13 @@ const Answer = ({ answer }) => {
         <div id="qa-a">A:</div>
         <br />
         <div id="qa-answer-body">{body}</div>
+      </div>
+      <div className="qa-photo-container flex-container">
+        { /* <img src={`${photos[0]}`} alt="Lamp" width="32" height="32" /> */
+        photos.map((photo) => (
+          <img className="qa-photo" src={photo} alt="product" />
+        ))
+        }
       </div>
       <div className="qa-answer-metadata flex-container">
         <div className="qa-ansqwer-user" id="qa-user">
