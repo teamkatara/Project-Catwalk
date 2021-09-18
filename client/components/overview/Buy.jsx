@@ -24,6 +24,7 @@ class Buy extends React.Component {
         this.setState({
           sku: Object.keys(this.props.selectedStyle.skus)[i],
           stock: sku.quantity,
+          quantity: '1',
         });
       }
     });

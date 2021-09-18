@@ -11,16 +11,16 @@
   text-decoration: line-through;
 }
 
-#main-image-container {
-  background-color: gray;
-  height: 100%;
+.carousel-wrapper {
+  /* background-color: gray; */
+  /* height: 100%;
   width: 908px;
-  text-align: center;
+  text-align: center; */
 }
 
-#selected-style-image {
-  max-width: 100%;
-  max-height: 100%;
+.carousel-photo {
+  /* max-width: 100%;
+  max-height: 100%; */
 }
 
 #styles {
@@ -33,26 +33,37 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border: 1px solid black;
 }
 
 .outline {
-  border: 2px solid black;
+  border: 1px solid red;
 }
 
-#size-dd {
+.size-dd {
   border: 1px solid black;
+  width: 200px;
+  padding: 25px;
+  color: black;
+  cursor: pointer;
+}
+
+.size-disabled {
+  width: 200px;
   padding: 25px;
 }
 
 #quantity-dd {
   border: 1px solid black;
   padding: 25px;
+  cursor: pointer;
 }
 
 #a2b {
   border: 1px solid black;
   padding: 25px;
   background-color: white;
+  cursor: pointer;
 }
 
 #image-gallery {

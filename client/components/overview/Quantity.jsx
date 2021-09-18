@@ -13,10 +13,21 @@ const helper = (stock) => {
 };
 
 const Quantity = ({ quantitySelect, stock }) => (
-  <select id="quantity-dd" onChange={quantitySelect}>
-    <option>--</option>
-    {helper(stock)}
-  </select>
+  <span onChange={quantitySelect}>
+    {!!stock
+    && (
+      <select id="quantity-dd">
+        {helper(stock)}
+      </select>
+    )}
+    {!stock
+    && (
+      <select id="quantity-dd">
+        <option selected>-</option>
+        {helper(stock)}
+      </select>
+    )}
+  </span>
 );
 
 export default Quantity;
