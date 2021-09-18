@@ -36,6 +36,8 @@ const findDefault = (styles) => {
 
 // );
 
+export const ProductContext = React.createContext();
+
 class App extends React.Component {
   constructor() {
     super();
@@ -63,11 +65,18 @@ class App extends React.Component {
       <div>
         <div className="navbar">Logo</div>
 
-        <ProductOverviewWidget selectStyle={this.selectStyle} product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
+        <ProductOverviewWidget
+          selectStyle={this.selectStyle}
+          product={this.state.product}
+          styles={this.state.styles}
+          selectedStyle={this.state.selectedStyle}
+          reviews={this.state.reviews}
+        />
 
-        <RelatedProductsWidget />
-
-        <QuestionsAndAnswersWidget />
+        <ProductContext.Provider value={40355}>
+          <RelatedProductsWidget />
+          <QuestionsAndAnswersWidget />
+        </ProductContext.Provider>
 
         <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
       </div>
