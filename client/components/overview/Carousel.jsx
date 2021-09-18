@@ -8,6 +8,8 @@ const Carousel = ({ selectedStyle }) => (
         : <img className="carousel-photo" src={photo.url}></img>
       ))}
     </div>
+    <div className="carousel-btn-l"></div>
+    <div className="carousel-btn-r"></div>
   </div>
 );
 
