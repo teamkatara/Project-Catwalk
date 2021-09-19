@@ -4,15 +4,24 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Answer = ({ answer }) => {
+  console.log(answer);
   const {
     body,
     date,
     helpfulness,
-    // photos,
+    photos,
     answerer_name: name,
   } = answer;
+
+  const [helpRating, setHelpRating] = React.useState(helpfulness);
+
+  const submitHelpfulness = () => {
+    console.log('Submitting Helpfulness');
+    axios.get('./qa/questions/')
+  };
 
   return (
     <div>
@@ -21,6 +30,13 @@ const Answer = ({ answer }) => {
         <br />
         <div id="qa-answer-body">{body}</div>
       </div>
+      <div className="qa-photo-container flex-container">
+        { /* <img src={`${photos[0]}`} alt="Lamp" width="32" height="32" /> */
+        photos.map((photo) => (
+          <img className="qa-photo" src={photo} alt="product" />
+        ))
+        }
+      </div>
       <div className="qa-answer-metadata flex-container">
         <div className="qa-ansqwer-user" id="qa-user">
           {`by ${name}, ${date.slice(0, 10)}`}
@@ -28,8 +44,8 @@ const Answer = ({ answer }) => {
         <div>|</div>
         <div className="flex-container">
           <div id="qa-helpful">Helpful?</div>
-          <div id="qa-yes" onClick={() => console.log('Yes Clicked')}>Yes</div>
-          <div id="qa-score">{`(${helpfulness})`}</div>
+          <div id="qa-yes" onClick={() => submitHelpfulness()}>Yes</div>
+          <div id="qa-score">{`(${helpRating})`}</div>
         </div>
         <div>|</div>
         <div id="qa-report" onClick={() => console.log('Report Clicked')}>Report</div>
