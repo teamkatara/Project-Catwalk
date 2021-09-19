@@ -4,6 +4,7 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Answer = ({ answer }) => {
   console.log(answer);
@@ -14,6 +15,13 @@ const Answer = ({ answer }) => {
     photos,
     answerer_name: name,
   } = answer;
+
+  const [helpRating, setHelpRating] = React.useState(helpfulness);
+
+  const submitHelpfulness = () => {
+    console.log('Submitting Helpfulness');
+    axios.get('./qa/questions/')
+  };
 
   return (
     <div>
@@ -36,8 +44,8 @@ const Answer = ({ answer }) => {
         <div>|</div>
         <div className="flex-container">
           <div id="qa-helpful">Helpful?</div>
-          <div id="qa-yes" onClick={() => console.log('Yes Clicked')}>Yes</div>
-          <div id="qa-score">{`(${helpfulness})`}</div>
+          <div id="qa-yes" onClick={() => submitHelpfulness()}>Yes</div>
+          <div id="qa-score">{`(${helpRating})`}</div>
         </div>
         <div>|</div>
         <div id="qa-report" onClick={() => console.log('Report Clicked')}>Report</div>
