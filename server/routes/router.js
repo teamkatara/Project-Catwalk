@@ -70,7 +70,26 @@ router.put('/qa/questions/helpful/:question_id', (req, res) => {
     headers: { Authorization: authToken },
   })
     .then((response) => {
-      console.log('Response: ', response);
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.put('/qa/answers/helpful/:answer_id', (req, res) => {
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.params.answer_id}/helpful`, {}, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.put('/qa/answers/report/:answer_id', (req, res) => {
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.params.answer_id}/report`, {}, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
       res.send(response.data);
     })
     .catch((err) => res.send(err));

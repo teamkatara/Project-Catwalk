@@ -5,10 +5,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { authToken } from '../../../config';
 
 const Answer = ({ answer }) => {
   console.log(answer);
   const {
+    id,
     body,
     date,
     helpfulness,
@@ -17,10 +19,30 @@ const Answer = ({ answer }) => {
   } = answer;
 
   const [helpRating, setHelpRating] = React.useState(helpfulness);
+  const [helped, setHelped] = React.useState(false);
+  const [reported, setReported] = React.useState(false);
+  const [reportText, setReportText] = React.useState('Report');
 
   const submitHelpfulness = () => {
-    console.log('Submitting Helpfulness');
-    axios.get('./qa/questions/')
+    if (!helped) {
+      setHelped(true);
+      axios.put(`./qa/answers/helpful/${id}`, {
+        headers: { Authorization: authToken },
+      })
+        .then(setHelpRating((curr) => curr + 1))
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const report = () => {
+    if (!reported) {
+      setReported(true);
+      axios.put(`./qa/answers/report/${id}`, {
+        headers: { Authorization: authToken },
+      })
+        .then(setReportText('Reported'))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -48,7 +70,7 @@ const Answer = ({ answer }) => {
           <div id="qa-score">{`(${helpRating})`}</div>
         </div>
         <div>|</div>
-        <div id="qa-report" onClick={() => console.log('Report Clicked')}>Report</div>
+        <div id="qa-report" onClick={() => report()}>{reportText}</div>
       </div>
     </div>
   );
