@@ -12,7 +12,12 @@ const ReviewList = ({ reviews }) => {
   return (
     <div>
       { reviews.map((item) => {
-        return (<ReviewTile key={item.review_id} review={item} />);
+        return (
+          <>
+            <ReviewTile key={item.review_id} review={item} />
+            <hr></hr>
+          </>
+        );
       })}
     </div>
   );

@@ -41,10 +41,10 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
 
   useEffect(() => {
     if (currentFilters.length === 0) {
-      console.log('no filters here!');
+      // console.log('no filters here!');
       sortReviewHandler(reviews);
     } else {
-      console.log('showing reviews based on filter!');
+      // console.log('showing reviews based on filter!');
       const ratingsToShow = [];
       reviews.forEach((review) => {
         if (review.rating === 5 && currentFilters.indexOf('5 stars') !== -1) ratingsToShow.push(review);
@@ -58,7 +58,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
   }, [currentFilters]);
 
   const ratingClickHandler = (rating) => {
-    console.log(`${rating} was clicked!`);
+    // console.log(`${rating} was clicked!`);
     const newFilter = [...currentFilters];
     const newRating = currentFilters.indexOf(rating);
     if (newRating === -1) {
@@ -86,7 +86,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
             {rating}
           </button>
         ))}
-        <button type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</button>
+        {/* <button type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</button> */}
       </div>
       <ul className="rating-bars">
         <li className="bar">

@@ -1,17 +1,27 @@
 body {
   width: 80%;
   margin: 0 10%;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
 }
 
 .navbar {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 10%;
+}
+.brand-name {
+  /* top: 1em; */
+  bottom: 1em;
+  position: relative;
+  left: 37.8%;
+  font-size: xx-large;
+  font-weight:bold;
 }
 
 .logo {
   font-size: 3rem;
   margin: 20;
-  margin-left: 50;
+  /* margin-left: 50; */
   cursor: pointer;
 }
 
@@ -27,12 +37,12 @@ body {
   display: grid;
   grid-template-columns: 951.25px 570.75px;
   grid-template-rows: 645.082444px 255.86656px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 90%;
 }
 
 .related-products {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 0 10%;
 }
 
@@ -42,7 +52,7 @@ body {
 }
 
 .ratings-reviews {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 0 10%;
   max-height: 700px;
 }

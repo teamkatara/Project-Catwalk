@@ -75,11 +75,12 @@ class App extends React.Component {
           {this.state.theme
             ? <IoWaterOutline className="logo" onClick={this.toggleTheme} />
             : <AiOutlineFire className="logo" onClick={this.toggleTheme} />}
+          <span className="brand-name"> Team Katara</span>
           <IoBagOutline className="bag" />
         </div>
 
         <ProductOverviewWidget selectStyle={this.selectStyle} product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
-
+        <hr />
         <RelatedProductsWidget />
 
         <QuestionsAndAnswersWidget />
