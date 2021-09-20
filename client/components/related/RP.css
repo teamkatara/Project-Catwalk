@@ -1,6 +1,6 @@
 .related-products {
   width: auto;
-  height: 72%;
+  height: 75vh;
   padding: 10;
 }
 
@@ -9,21 +9,22 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   width: auto;
-  height: 40%;
+  height: 32vh;
   overflow-x: auto;
 }
 
 .card {
   border: 1px solid black;
   width: 25%;
-  height: 98%;
+  height: 30vh;
   flex: 0 0 auto;
   margin: 0 20 0 0;
+
 }
 
 .thumbnail {
   text-align: right;
-  height: 65%;
+  height: 20vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -42,7 +43,7 @@
 .details {
   padding: 15 0 0 5;
   text-align: left;
-  height: 30%;
+  height: fit-content;
 }
 
 .text {
@@ -71,12 +72,13 @@
 }
 
 .modal {
-  width: 500px;
-  background: white;
-  border: 1px solid #ccc;
-  transition: 1s ease-out;
-  box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
-  filter: blur(1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.25s, transform 0.5s;
   transform: scale(1);
   opacity: 1;
   visibility: visible;
@@ -84,11 +86,38 @@
   padding: 10;
 }
 
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 750px;
+  border-radius: 0.5rem;
+}
+
 .modalTable {
+  width: 100%;
   table-layout: auto;
-  width: 500px;
+  text-align: center;
+  padding: 10;
+}
+
+.close-button {
+  float: right;
+}
+
+.close-button::hover {
+  background-color: gray;
 }
 
 td {
   text-align: center;
+  width: 33%;
+}
+
+.productName {
+  font-weight: bold;
+  font-size: large;
 }

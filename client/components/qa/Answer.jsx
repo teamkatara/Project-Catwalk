@@ -4,15 +4,46 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { authToken } from '../../../config';
 
 const Answer = ({ answer }) => {
+  console.log(answer);
   const {
+    id,
     body,
     date,
     helpfulness,
-    // photos,
+    photos,
     answerer_name: name,
   } = answer;
+
+  const [helpRating, setHelpRating] = React.useState(helpfulness);
+  const [helped, setHelped] = React.useState(false);
+  const [reported, setReported] = React.useState(false);
+  const [reportText, setReportText] = React.useState('Report');
+
+  const submitHelpfulness = () => {
+    if (!helped) {
+      setHelped(true);
+      axios.put(`./qa/answers/helpful/${id}`, {
+        headers: { Authorization: authToken },
+      })
+        .then(setHelpRating((curr) => curr + 1))
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const report = () => {
+    if (!reported) {
+      setReported(true);
+      axios.put(`./qa/answers/report/${id}`, {
+        headers: { Authorization: authToken },
+      })
+        .then(setReportText('Reported'))
+        .catch((err) => console.log(err));
+    }
+  };
 
   return (
     <div>
@@ -21,6 +52,13 @@ const Answer = ({ answer }) => {
         <br />
         <div id="qa-answer-body">{body}</div>
       </div>
+      <div className="qa-photo-container flex-container">
+        { /* <img src={`${photos[0]}`} alt="Lamp" width="32" height="32" /> */
+        photos.map((photo) => (
+          <img className="qa-photo" src={photo} alt="product" />
+        ))
+        }
+      </div>
       <div className="qa-answer-metadata flex-container">
         <div className="qa-ansqwer-user" id="qa-user">
           {`by ${name}, ${date.slice(0, 10)}`}
@@ -28,11 +66,11 @@ const Answer = ({ answer }) => {
         <div>|</div>
         <div className="flex-container">
           <div id="qa-helpful">Helpful?</div>
-          <div id="qa-yes" onClick={() => console.log('Yes Clicked')}>Yes</div>
-          <div id="qa-score">{`(${helpfulness})`}</div>
+          <div id="qa-yes" onClick={() => submitHelpfulness()}>Yes</div>
+          <div id="qa-score">{`(${helpRating})`}</div>
         </div>
         <div>|</div>
-        <div id="qa-report" onClick={() => console.log('Report Clicked')}>Report</div>
+        <div id="qa-report" onClick={() => report()}>{reportText}</div>
       </div>
     </div>
   );

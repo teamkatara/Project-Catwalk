@@ -3,14 +3,34 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { authToken } from '../../../config';
 import AnswerList from './AnswerList';
 
 const Question = ({ question }) => {
   const {
+    question_id: id,
     question_body: body,
     answers,
     question_helpfulness: helpfulness,
   } = question;
+
+  console.log('Question: ', question);
+
+  const [helpRating, setHelpRating] = React.useState(helpfulness);
+  const [helped, setHelped] = React.useState(false);
+
+  const submitHelpfulness = () => {
+    if (!helped) {
+      setHelped(true);
+      axios.put(`./qa/questions/helpful/${id}`, {
+        headers: { Authorization: authToken },
+      })
+        .then(setHelpRating((curr) => curr + 1))
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
     <div>
       <div className="qa-question flex-container">
@@ -22,8 +42,8 @@ const Question = ({ question }) => {
         <div className="qa-question-right flex-container">
           <div className="flex-container">
             <div id="qa-helpful">Helpful?</div>
-            <div id="qa-yes" onClick={() => console.log('Yes Clicked')}>Yes</div>
-            <div id="qa-score">{`(${helpfulness})`}</div>
+            <div id="qa-yes" onClick={() => submitHelpfulness()}>Yes</div>
+            <div id="qa-score">{`(${helpRating})`}</div>
           </div>
           <div>|</div>
           <div id="qa-report" onClick={() => console.log('Add Answer Clicked')}>Add Answer</div>

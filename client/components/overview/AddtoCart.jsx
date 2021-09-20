@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AddtoCart = (props) => (
-  <div id="add-2-cart-button">AddtoCart</div>
+const AddtoCart = ({ sku, quantity, addToBag }) => (
+  <button id="a2b" onClick={() => addToBag(sku, quantity)} >Add to Bag +</button>
 );
 
 export default AddtoCart;

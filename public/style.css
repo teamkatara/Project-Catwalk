@@ -8,6 +8,21 @@ body {
   height: 10%;
 }
 
+.logo {
+  font-size: 3rem;
+  margin: 20;
+  margin-left: 50;
+  cursor: pointer;
+}
+
+.bag {
+  float: right;
+  font-size: 3rem;
+  margin: 20;
+  margin-right: 50;
+  cursor: pointer;
+}
+
 .overview {
   display: grid;
   grid-template-columns: 951.25px 570.75px;

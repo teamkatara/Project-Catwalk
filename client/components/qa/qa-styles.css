@@ -162,3 +162,14 @@ br {
 #magnifying-glass {
   padding-left: 10px;
 }
+
+.qa-photo {
+  width: 100px;
+  height: 75px;
+  margin: 5px;
+  border: 1px solid gray;
+}
+
+.qa-photo-container {
+  margin: 0 0 5px 3%;
+}
