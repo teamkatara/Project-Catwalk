@@ -19,7 +19,7 @@ const RatingsReviewsWidget = () => {
   // const productId = currentProduct.id;
   const reviewData = mockReviews.results;
   const reviewMetaData = mockReviewMeta;
-  const [currentReviews, setProductReviews] = useState(reviewData);
+  const [totalReviews, setProductReviews] = useState(reviewData);
   const [reviewMeta, setReviewMeta] = useState(reviewMetaData);
   const [displayedReviews, setReviewList] = useState([reviewData[0], reviewData[1]]);
   const [displayedIndex, setDisplayedIndex] = useState(2);
@@ -39,10 +39,14 @@ const RatingsReviewsWidget = () => {
     <div id="ratings-reviews" className="ratings-reviews">
       <div className="rr-title">
         <h2>RATINGS &amp; REVIEWS</h2>
-        <Sort reviews={currentReviews} sortReviewHandler={sortReviewHandler} />
+        <Sort reviews={totalReviews} sortReviewHandler={sortReviewHandler} />
       </div>
       <div className="rr-widget-container">
-        <RatingBreakdown reviewMeta={reviewMeta} />
+        <RatingBreakdown
+          reviewMeta={reviewMeta}
+          sortReviewHandler={sortReviewHandler}
+          reviews={totalReviews}
+        />
         <div className="reviews-list">
           <ReviewList reviews={displayedReviews} />
         </div>
