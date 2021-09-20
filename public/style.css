@@ -44,4 +44,5 @@ body {
 .ratings-reviews {
   border: 1px solid black;
   margin: 0 10%;
+  max-height: 700px;
 }

@@ -11,7 +11,7 @@ import mockReviews from '../../../mock-data/sample-reviews.json';
 const ReviewList = ({ reviews }) => {
   return (
     <div>
-      { mockReviews.results.map((item) => {
+      { reviews.map((item) => {
         return (<ReviewTile key={item.review_id} review={item} />);
       })}
     </div>

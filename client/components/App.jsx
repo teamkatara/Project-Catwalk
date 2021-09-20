@@ -84,7 +84,7 @@ class App extends React.Component {
 
         <QuestionsAndAnswersWidget />
 
-        <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+        <RatingsReviewsWidget />
       </div>
     );
   }
