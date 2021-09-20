@@ -15,8 +15,6 @@ const Question = ({ question }) => {
     question_helpfulness: helpfulness,
   } = question;
 
-  console.log('Question: ', question);
-
   const [helpRating, setHelpRating] = React.useState(helpfulness);
   const [helped, setHelped] = React.useState(false);
 

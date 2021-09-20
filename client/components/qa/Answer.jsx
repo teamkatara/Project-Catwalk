@@ -8,7 +8,6 @@ import axios from 'axios';
 import { authToken } from '../../../config';
 
 const Answer = ({ answer }) => {
-  console.log(answer);
   const {
     id,
     body,
