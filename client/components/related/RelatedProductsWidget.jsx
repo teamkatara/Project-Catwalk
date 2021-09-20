@@ -7,16 +7,20 @@ import relatedlist from '../../mock-data/sample-related.json';
 const RelatedProductsWidget = () => {
   const [list] = useState(relatedlist);
 
+  const relatedProduct = list.map((product) => <RelatedCard id={product} key={product} />);
+
+  console.log(relatedProduct);
+
   return (
     <div className="related-products">
       <h3>Related Products</h3>
       <div className="cards-list">
-        {list.map((product) => <RelatedCard id={product} key={product} />)}
+        {relatedProduct.map((product) => (product))}
       </div>
       <h3>Your Outfit</h3>
-      <div className="cards-list">
-        {list.map((product) => <RelatedCard id={product} key={product} />)}
-      </div>
+      {/* <div className="cards-list">
+        // {list.map((product) => <RelatedCard id={product} key={product} />)}
+      </div> */}
     </div>
   );
 };

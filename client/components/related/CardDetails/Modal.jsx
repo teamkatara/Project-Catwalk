@@ -47,7 +47,7 @@ const Modal = ({
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   click: PropTypes.func.isRequired,
-  characteristics: PropTypes.arrayOf(PropTypes.string).isRequired,
+  characteristics: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   productName: PropTypes.string.isRequired,
   currentName: PropTypes.string.isRequired,
 };

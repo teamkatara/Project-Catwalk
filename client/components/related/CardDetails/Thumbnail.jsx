@@ -40,7 +40,7 @@ const Thumbnail = ({
 
 Thumbnail.propTypes = {
   image: PropTypes.string.isRequired,
-  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  list: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   current: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
 

@@ -22,7 +22,7 @@ const RelatedCard = ({ id }) => {
 
   const main = Object.values(currentProductInfo.features);
   const mainMap = main.map((feature) => feature.feature);
-
+  // ["Cut", "Fair Trade Certified"]
   const current = Object.values(currentProduct.features);
   const currentMap = current.map((feature) => feature.feature);
 
