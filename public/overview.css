@@ -133,6 +133,17 @@
   overflow-y: scroll;
 }
 
+.expand {
+  color: white;
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 100;
+  right: 100px;
+}
+
 .photo-container {
   cursor: pointer;
   margin-bottom: 10px;

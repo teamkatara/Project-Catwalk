@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import { RiFullscreenFill } from 'react-icons/ri';
 import ImageGallery from './ImageGallery';
 
 const Carousel = ({ clickedStyle }) => {
   const [current, setCurrent] = useState(0);
+  const [showModal, setModal] = useState(false);
   const length = clickedStyle.photos.length;
 
   const nextSlide = () => {
@@ -17,6 +19,7 @@ const Carousel = ({ clickedStyle }) => {
   return (
     <div className="slider">
       <ImageGallery photos={clickedStyle.photos} current={current} setCurrent={setCurrent} />
+      <RiFullscreenFill className="expand" />
       <BiLeftArrowAlt className="left-arrow" onClick={prevSlide} />
       <BiRightArrowAlt className="right-arrow" onClick={nextSlide} />
       {clickedStyle.photos.map((photo, i) => (
