@@ -23,9 +23,9 @@ const helper = (skus) => {
   );
 };
 
-const Size = ({ selectedStyle, sizeSelect }) => (
+const Size = ({ clickedStyle, sizeSelect }) => (
   <span onChange={sizeSelect}>
-    {helper(Object.values(selectedStyle.skus))}
+    {helper(Object.values(clickedStyle.skus))}
   </span>
 );
 

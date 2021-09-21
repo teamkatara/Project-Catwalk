@@ -71,8 +71,19 @@
   border: 1px solid black;
 }
 
-.outline {
-  border: 1px solid red;
+#checkmark-container {
+  position: relative;
+}
+
+#checkmark {
+  left: 30px;
+  text-align: center;
+  position: absolute;
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .size-dd {
