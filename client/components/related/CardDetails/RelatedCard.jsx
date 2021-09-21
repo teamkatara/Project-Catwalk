@@ -7,7 +7,7 @@ import relatedProductList from '../related-data/related-products.json';
 import relatedStyles from '../related-data/related-styles.json';
 import currentProductInfo from '../../../mock-data/sample-product.json';
 
-const RelatedCard = ({ id }) => {
+const RelatedCard = ({ id, updateProductHandler }) => {
   let currentProduct;
   let currentStyle;
   const characteristics = [];
@@ -94,7 +94,7 @@ const RelatedCard = ({ id }) => {
           {currentProduct.category}
           <br />
         </span>
-        <span className="text">{currentProduct.name}</span>
+        <span onClick={() => updateProductHandler(id)} className="text">{currentProduct.name}</span>
         <span className="price">
           $
           {currentProduct.default_price}

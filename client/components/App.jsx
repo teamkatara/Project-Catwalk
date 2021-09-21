@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
-import $ from 'jquery';
+import ProductContext from './ProductContext';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
@@ -48,13 +48,24 @@ class App extends React.Component {
       styles: styles,
       selectedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      productId: 40457,
     };
 
     this.selectStyle = this.selectStyle.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
-  };
+    this.updateProductHandler = this.updateProductHandler.bind(this);
+  }
 
-  componentDidMount() {}
+  componentDidMount() {
+
+  }
+
+  updateProductHandler(id) {
+    this.setState({
+      productId: id,
+    });
+    // console.log(id);
+  }
 
   selectStyle(style) {
     this.setState({
@@ -77,14 +88,21 @@ class App extends React.Component {
             : <AiOutlineFire className="logo" onClick={this.toggleTheme} />}
           <IoBagOutline className="bag" />
         </div>
+        <ProductContext.Provider value={this.state.productId}>
+          <ProductOverviewWidget
+            selectStyle={this.selectStyle}
+            product={this.state.product}
+            styles={this.state.styles}
+            selectedStyle={this.state.selectedStyle}
+            reviews={this.state.reviews}
+          />
 
-        <ProductOverviewWidget selectStyle={this.selectStyle} product={this.state.product} styles={this.state.styles} selectedStyle={this.state.selectedStyle} reviews={this.state.reviews} />
+          <RelatedProductsWidget updateProductHandler={this.updateProductHandler} />
 
-        <RelatedProductsWidget />
+          <QuestionsAndAnswersWidget />
 
-        <QuestionsAndAnswersWidget />
-
-        <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+          <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+        </ProductContext.Provider>
       </div>
     );
   }
