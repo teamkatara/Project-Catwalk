@@ -12,20 +12,23 @@ const helper = (stock) => {
   return options;
 };
 
-const Quantity = ({ quantitySelect, stock }) => (
+const Quantity = ({ quantitySelect, stock, inStock }) => (
   <span onChange={quantitySelect}>
-    {!!stock
-    && (
+    {inStock && (!!stock ? (
       <select id="quantity-dd">
         {helper(stock)}
       </select>
-    )}
-    {!stock
-    && (
+    ) : (
       <select id="quantity-dd">
         <option defaultValue>-</option>
         {helper(stock)}
       </select>
+    )
+    )}
+    {!inStock && (
+    <select id="quantity-disabled" disabled>
+      <option defaultValue>-</option>
+    </select>
     )}
   </span>
 );

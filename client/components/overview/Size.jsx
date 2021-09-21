@@ -1,31 +1,16 @@
 import React from 'react';
 
-const helper = (skus) => {
-  let count = 0;
-  const options = skus.map((sku, i) => {
-    if (sku.quantity > 0) { return <option key={i}>{sku.size}</option>; }
-  });
-  options.forEach((option) => {
-    if (option) { count++; }
-  });
-  if (count === 0) {
-    return (
-      <select className="size-disabled" disabled>
-        <option>OUT OF STOCK</option>
-      </select>
-    );
-  }
-  return (
+const Size = ({ clickedStyle, sizeSelect, inStock }) => (
+  <span onChange={sizeSelect}>
+    {inStock
+    && (
     <select className="size-dd">
       <option selected>Select Size</option>
-      {options}
+      {Object.values(clickedStyle.skus).map((sku) => <option>{sku.size}</option>)}
     </select>
-  );
-};
-
-const Size = ({ clickedStyle, sizeSelect }) => (
-  <span onChange={sizeSelect}>
-    {helper(Object.values(clickedStyle.skus))}
+    )}
+    {!inStock
+      && <select className="size-disabled" disabled><option>OUT OF STOCK</option></select>}
   </span>
 );
 

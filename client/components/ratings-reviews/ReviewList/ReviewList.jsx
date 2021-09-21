@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -15,7 +16,7 @@ const ReviewList = ({ reviews }) => {
         return (
           <>
             <ReviewTile key={item.review_id} review={item} />
-            <hr></hr>
+            <hr />
           </>
         );
       })}

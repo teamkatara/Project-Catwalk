@@ -3,6 +3,12 @@ import Size from './Size';
 import Quantity from './Quantity';
 import AddtoCart from './AddtoCart';
 
+const inStock = (skus) => {
+  let count = 0;
+  skus.forEach((sku) => { if (sku.quantity > 0) { count++; } });
+  return count !== 0;
+};
+
 class Buy extends React.Component {
   constructor(props) {
     super();
@@ -43,8 +49,8 @@ class Buy extends React.Component {
   render() {
     return (
       <div>
-        <Size clickedStyle={this.props.clickedStyle} sizeSelect={this.sizeSelect} />
-        <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} />
+        <Size clickedStyle={this.props.clickedStyle} sizeSelect={this.sizeSelect} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
+        <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
         <div>
           <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
         </div>
