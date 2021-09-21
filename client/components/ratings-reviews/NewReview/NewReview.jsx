@@ -2,7 +2,7 @@ import React from 'react';
 
 import AddReview from './AddReview';
 
-const NewReview = ({characteristics, productId, submitReviewHandler}) => (
+const NewReview = ({ characteristics, productId, submitReviewHandler }) => (
   <div>
     <AddReview />
     <div className="rr-review-form">
