@@ -18,7 +18,7 @@
 .reviews-list {
   grid-column-start: 2;
   grid-column-end: 4;
-  max-height: 1000px;
+  max-height: 550px;
   min-height: auto;
   overflow: auto;
 }

@@ -1,10 +1,10 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
-import ProductContext from './ProductContext';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
-import ProductOverviewWidget from './overview/ProductOverviewWidget';
+import ProductContext from './ProductContext';
+import Overview from './overview/Overview';
 import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
 import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
 import RelatedProductsWidget from './related/RelatedProductsWidget';
@@ -23,21 +23,6 @@ const findDefault = (styles) => {
   return defaultStyle;
 };
 
-// const App = () => (
-//   <div>
-//     <div className="navbar">Logo </div>
-
-//     <ProductOverviewWidget />
-
-//     <RelatedProductsWidget />
-
-//     <QuestionsAndAnswersWidget />
-
-//     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-//   </div>
-
-// );
-
 class App extends React.Component {
   constructor() {
     super();
@@ -46,30 +31,38 @@ class App extends React.Component {
       theme: true,
       product: product,
       styles: styles,
-      selectedStyle: findDefault(styles),
+      clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
-      productId: 40457,
+      productId: 404579,
     };
 
+    this.updateProduct = this.updateProduct.bind(this);
     this.selectStyle = this.selectStyle.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
-    this.updateProductHandler = this.updateProductHandler.bind(this);
+    this.updateProductId = this.updateProductId.bind(this);
   }
 
   componentDidMount() {
-
   }
 
-  updateProductHandler(id) {
+  updateProduct(product, styles, reviews) {
+    this.setState({
+      product: product,
+      styles: styles,
+      clickedStyle: findDefault(styles),
+      reviews: reviews.results.length,
+    });
+  }
+
+  updateProductId(id) {
     this.setState({
       productId: id,
     });
-    // console.log(id);
   }
 
   selectStyle(style) {
     this.setState({
-      selectedStyle: style,
+      clickedStyle: style,
     });
   }
 
@@ -86,22 +79,24 @@ class App extends React.Component {
           {this.state.theme
             ? <IoWaterOutline className="logo" onClick={this.toggleTheme} />
             : <AiOutlineFire className="logo" onClick={this.toggleTheme} />}
+          <span className="brand-name">Team Katara</span>
           <IoBagOutline className="bag" />
         </div>
         <ProductContext.Provider value={this.state.productId}>
-          <ProductOverviewWidget
+          <Overview
             selectStyle={this.selectStyle}
             product={this.state.product}
             styles={this.state.styles}
-            selectedStyle={this.state.selectedStyle}
+            clickedStyle={this.state.clickedStyle}
             reviews={this.state.reviews}
+            updateProduct={this.updateProduct}
           />
 
-          <RelatedProductsWidget updateProductHandler={this.updateProductHandler} />
+          <RelatedProductsWidget updateProductId={this.updateProductId} />
 
           <QuestionsAndAnswersWidget />
 
-          <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+          <RatingsReviewsWidget />
         </ProductContext.Provider>
       </div>
     );
@@ -109,3 +104,17 @@ class App extends React.Component {
 }
 
 export default App;
+
+// const App = () => (
+  //   <div>
+  //     <div className="navbar">Logo </div>
+
+  //     <ProductOverviewWidget />
+
+  //     <RelatedProductsWidget />
+
+  //     <QuestionsAndAnswersWidget />
+
+  //     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
+  //   </div>
+// );

@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import ProductContext from '../ProductContext';
 import axios from 'axios';
 
@@ -36,22 +36,36 @@ import ProductFeatures from './ProductFeatures';
 //   }
 // }
 
-const ProductOverviewWidget = ({ product, selectStyle, styles, selectedStyle, reviews }) => {
+// updateProduct(, resultStyles.data, resultReviews.data.results.length)
+
+const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateProduct }) => {
   const productId = useContext(ProductContext);
-  console.log(productId);
+  const firstRender = useRef(true);
 
   useEffect(() => {
-    console.log('Hello from overview', productId);
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      axios.get(`/products/${productId}`)
+        .then((resultProduct) => (
+          axios.get(`/products/styles/${productId}`)
+            .then((resultStyles) => (
+              axios.get(`/reviews/${productId}`)
+                .then((resultReviews) => (
+                  updateProduct(resultProduct.data, resultStyles.data, resultReviews.data)
+                ))
+            ))
+        ));
+    }
   }, [productId]);
 
   return (
     <div className="overview">
-      {/* <div id="main-image-container"><img id="selected-style-image" src={selectedStyle.photos[0].url} /></div> */}
-      <Carousel selectedStyle={selectedStyle} />
+      <Carousel clickedStyle={clickedStyle} />
       <div id="product-info-container">
-        <Info product={product} styles={styles} selectedStyle={selectedStyle} reviews={reviews} />
-        <StyleSelector styles={styles} selectedStyle={selectedStyle} selectStyle={selectStyle} />
-        <Buy selectedStyle={selectedStyle} />
+        <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} />
+        <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} />
+        <Buy clickedStyle={clickedStyle} />
         <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter"></i></a>
         <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p"></i></a>
@@ -65,4 +79,4 @@ const ProductOverviewWidget = ({ product, selectStyle, styles, selectedStyle, re
 
 // PropTypes
 
-export default ProductOverviewWidget;
+export default Overview;
