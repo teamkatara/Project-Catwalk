@@ -29,12 +29,24 @@
   background-size: cover;
 }
 
+.star-container {
+  position: relative;
+}
+
+.star-image {
+  cursor: pointer;
+}
+
 .star-button {
+  position: absolute;
+  cursor: pointer;
+  left: 80%;
   padding: 5%;
   background: none;
 }
 
 .button-style {
+  cursor: pointer;
   border: none;
   background: none;
   background-color: none;
@@ -84,6 +96,7 @@
   visibility: visible;
   text-align: justify;
   padding: 10;
+  z-index: 100;
 }
 
 .modal-content {

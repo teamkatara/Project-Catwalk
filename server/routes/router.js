@@ -65,6 +65,36 @@ router.get('/qa/questions/answers/:question_id', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+router.put('/qa/questions/helpful/:question_id', (req, res) => {
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/helpful`, {}, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.put('/qa/answers/helpful/:answer_id', (req, res) => {
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.params.answer_id}/helpful`, {}, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.put('/qa/answers/report/:answer_id', (req, res) => {
+  axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${req.params.answer_id}/report`, {}, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
 // RATINGS AND REVIEWS ENDPOINTS
 
 router.get('/reviews/:product_id', (req, res) => {

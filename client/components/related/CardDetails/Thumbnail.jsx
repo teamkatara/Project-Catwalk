@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Thumbnail = ({
-  image, list, product, current,
-}) => {
+const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
   const [show, setShow] = useState(false);
 
   const onClick = () => {
@@ -17,15 +15,21 @@ const Thumbnail = ({
 
   const Star = (
     <button type="button" className="button-style" onClick={onClick}>
-      <img src="https://www.pngkit.com/png/full/437-4372254_star-outline-comments-empty-star.png" alt="empty star" style={{ height: 20, width: 20 }} />
+      <img className="star-image" src="https://www.pngkit.com/png/full/437-4372254_star-outline-comments-empty-star.png" alt="empty star" style={{ height: 20, width: 20 }} />
     </button>
   );
 
   // const Star = React.createElement('button', {type: 'button'}, 'Star');
   return (
-    <div className="thumbnail" style={{ backgroundImage: `url(${image})` }}>
+    <div className="star-container">
       <div className="star-button">
         {Star}
+      </div>
+      <div
+        onClick={() => updateProductId(id)}
+        className="thumbnail"
+        style={{ backgroundImage: `url(${image})` }}
+      >
       </div>
       <Modal
         show={show}
@@ -43,7 +47,7 @@ Thumbnail.propTypes = {
   list: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   current: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
-
+  updateProductId: PropTypes.func.isRequired,
 };
 
 export default Thumbnail;
