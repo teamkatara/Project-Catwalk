@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -51,7 +54,8 @@ const Sort = ({ reviews, sortReviewHandler }) => {
 };
 
 Sort.propTypes = {
-  reviews: PropTypes.array,
+  reviews: PropTypes.array.isRequired,
+  sortReviewHandler: PropTypes.func.isRequired,
 };
 
 export default Sort;
