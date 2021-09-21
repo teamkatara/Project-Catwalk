@@ -18,9 +18,9 @@ const RelatedProductsWidget = () => {
         {relatedProduct.map((product) => (product))}
       </div>
       <h3>Your Outfit</h3>
-      {/* <div className="cards-list">
-        // {list.map((product) => <RelatedCard id={product} key={product} />)}
-      </div> */}
+      <div className="cards-list">
+        {list.map((product) => <RelatedCard id={product} key={product} />)}
+      </div>
     </div>
   );
 };
