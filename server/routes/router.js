@@ -56,7 +56,31 @@ router.get('/qa/questions/:question_id', (req, res) => {
 });
 
 router.get('/qa/questions/answers/:question_id', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers`, {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers/?count=10`, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.post('/qa/answers/add/:question_id', (req, res) => {
+  const newAnswer = req.body;
+  console.log(newAnswer);
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers`, newAnswer, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.post('/qa/questions/add/:question_id', (req, res) => {
+  const newAnswer = req.body;
+  console.log(newAnswer);
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers`, newAnswer, {
     headers: { Authorization: authToken },
   })
     .then((response) => {
