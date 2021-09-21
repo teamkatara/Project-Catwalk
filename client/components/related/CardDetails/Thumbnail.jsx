@@ -15,7 +15,7 @@ const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
 
   const Star = (
     <button type="button" className="button-style" onClick={onClick}>
-      <img className="star-image" src="https://www.pngkit.com/png/full/437-4372254_star-outline-comments-empty-star.png" alt="empty star" style={{ height: 20, width: 20 }} />
+      <i className="far fa-star star-image"></i>
     </button>
   );
 
