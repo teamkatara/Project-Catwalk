@@ -1,7 +1,7 @@
 .related-products {
   width: auto;
   height: 80vh;
-  padding: 10;
+  /* padding: 10; */
 }
 
 .cards-list {
@@ -11,15 +11,38 @@
   width: auto;
   height: 35vh;
   overflow-x: auto;
+  position: relative;
 }
 
 .card {
+  cursor: pointer;
   border: 1px solid black;
   width: 25%;
   height: 32vh;
   flex: 0 0 auto;
   margin: 0 20 0 0;
+}
 
+.related-arrow-left {
+  position: absolute;
+  left: 10px;
+  top: 40%;
+  font-size: 2rem;
+  color: #000;
+  z-index: 100;
+  cursor: pointer;
+  user-select: none;
+}
+
+.related-arrow-right {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  font-size: 2rem;
+  color: #000;
+  z-index: 100;
+  cursor: pointer;
+  user-select: none;
 }
 
 .thumbnail {
@@ -35,6 +58,9 @@
 
 .star-image {
   cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4;
 }
 
 .star-button {
@@ -84,6 +110,7 @@
 }
 
 .modal {
+  z-index: 100;
   position: fixed;
   left: 0;
   top: 0;
@@ -96,7 +123,6 @@
   visibility: visible;
   text-align: justify;
   padding: 10;
-  z-index: 100;
 }
 
 .modal-content {
@@ -128,7 +154,6 @@
 td {
   text-align: center;
   width: 33%;
-  padding: 0 0 25 0;
 }
 
 .productName {

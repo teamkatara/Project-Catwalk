@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { IoIosStarOutline } from 'react-icons';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
+const Thumbnail = ({
+  id, image, list, product, current, updateProductId
+}) => {
   const [show, setShow] = useState(false);
 
   const onClick = () => {
@@ -15,7 +18,7 @@ const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
 
   const Star = (
     <button type="button" className="button-style" onClick={onClick}>
-      <img className="star-image" src="https://www.pngkit.com/png/full/437-4372254_star-outline-comments-empty-star.png" alt="empty star" style={{ height: 20, width: 20 }} />
+      <i className="far fa-star star-image" />
     </button>
   );
 
@@ -48,6 +51,7 @@ Thumbnail.propTypes = {
   current: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
   updateProductId: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Thumbnail;

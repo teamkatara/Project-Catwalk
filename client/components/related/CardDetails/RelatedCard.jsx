@@ -91,7 +91,10 @@ const RelatedCard = ({ id, updateProductId }) => {
         updateProductId={updateProductId}
         id={id}
       />
-      <div onClick={() => updateProductId(id)} className="details">
+      <div
+        onClick={() => updateProductId(id)}
+        className="details"
+      >
         <span className="price">
           {currentProduct.category}
           <br />
@@ -109,6 +112,7 @@ const RelatedCard = ({ id, updateProductId }) => {
 
 RelatedCard.propTypes = {
   id: PropTypes.number.isRequired,
+  updateProductId: PropTypes.func.isRequired,
 };
 
 export default RelatedCard;
