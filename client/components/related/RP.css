@@ -14,12 +14,12 @@
 }
 
 .card {
+  cursor: pointer;
   border: 1px solid black;
   width: 25%;
   height: 32vh;
   flex: 0 0 auto;
   margin: 0 20 0 0;
-
 }
 
 .thumbnail {
@@ -29,12 +29,24 @@
   background-size: cover;
 }
 
+.star-container {
+  position: relative;
+}
+
+.star-image {
+  cursor: pointer;
+}
+
 .star-button {
+  position: absolute;
+  cursor: pointer;
+  left: 80%;
   padding: 5%;
   background: none;
 }
 
 .button-style {
+  cursor: pointer;
   border: none;
   background: none;
   background-color: none;
@@ -72,6 +84,7 @@
 }
 
 .modal {
+  z-index: 100;
   position: fixed;
   left: 0;
   top: 0;

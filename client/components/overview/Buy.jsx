@@ -19,10 +19,10 @@ class Buy extends React.Component {
   }
 
   sizeSelect(event) {
-    Object.values(this.props.selectedStyle.skus).forEach((sku, i) => {
+    Object.values(this.props.clickedStyle.skus).forEach((sku, i) => {
       if (sku.size === event.target.value) {
         this.setState({
-          sku: Object.keys(this.props.selectedStyle.skus)[i],
+          sku: Object.keys(this.props.clickedStyle.skus)[i],
           stock: sku.quantity,
           quantity: '1',
         });
@@ -43,7 +43,7 @@ class Buy extends React.Component {
   render() {
     return (
       <div>
-        <Size selectedStyle={this.props.selectedStyle} sizeSelect={this.sizeSelect} />
+        <Size clickedStyle={this.props.clickedStyle} sizeSelect={this.sizeSelect} />
         <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} />
         <div>
           <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
