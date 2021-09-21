@@ -39,27 +39,27 @@
           ],
           "skus": {
               "1398684": {
-                  "quantity": 0,
+                  "quantity": 100,
                   "size": "XS"
               },
               "1398685": {
-                  "quantity": 0,
+                  "quantity": 10,
                   "size": "S"
               },
               "1398686": {
-                  "quantity": 0,
+                  "quantity": 3,
                   "size": "M"
               },
               "1398687": {
-                  "quantity": 0,
+                  "quantity": 5,
                   "size": "L"
               },
               "1398688": {
-                  "quantity": 0,
+                  "quantity": 14,
                   "size": "XL"
               },
               "1398689": {
-                  "quantity": 0,
+                  "quantity": 20,
                   "size": "XXL"
               }
           }
@@ -117,27 +117,27 @@
           ],
           "skus": {
               "1398696": {
-                  "quantity": 56,
+                  "quantity": 0,
                   "size": "XS"
               },
               "1398697": {
-                  "quantity": 42,
+                  "quantity": 0,
                   "size": "S"
               },
               "1398698": {
-                  "quantity": 3,
+                  "quantity": 0,
                   "size": "M"
               },
               "1398699": {
-                  "quantity": 6,
+                  "quantity": 0,
                   "size": "L"
               },
               "1398700": {
-                  "quantity": 33,
+                  "quantity": 0,
                   "size": "XL"
               },
               "1398701": {
-                  "quantity": 16,
+                  "quantity": 0,
                   "size": "XXL"
               }
           }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+import ImageGallery from './ImageGallery';
 
 const Carousel = ({ clickedStyle }) => {
   const [current, setCurrent] = useState(0);
@@ -15,6 +16,7 @@ const Carousel = ({ clickedStyle }) => {
 
   return (
     <div className="slider">
+      <ImageGallery photos={clickedStyle.photos} current={current} setCurrent={setCurrent} />
       <BiLeftArrowAlt className="left-arrow" onClick={prevSlide} />
       <BiRightArrowAlt className="right-arrow" onClick={nextSlide} />
       {clickedStyle.photos.map((photo, i) => (
