@@ -1,20 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { authToken } from '../../../config';
 
 const Modal = ({
-  show, click, type,
+  show, click, type, id,
 }) => {
+  const [newBody, setnewBody] = useState('');
+  const [newNick, setNewNick] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+
   const willShow = show;
 
-  if (!willShow) {
-    return (
-      null
-    );
-  }
+  if (!willShow) { return (null); }
 
   const Close = (
-    <button type="button" className="qa-close-button" onClick={click}>x</button>
+    <input
+      type="button"
+      className="qa-close-button"
+      onClick={click}
+      value="X"
+    />
   );
+
+  const submitForm = () => {
+    if (type === 'answer') {
+      const answerForm = {
+        body: newBody,
+        name: newNick,
+        email: newEmail,
+        photos: [],
+      };
+      axios.post(`/qa/answers/add/${id}`, answerForm, {
+        headers: { Authorization: authToken },
+      })
+        .then((response) => {
+          click();
+          // console.log('Added New Answer ', response);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    if (type === 'question') {
+      const questionForm = {
+        body: newBody,
+        name: newNick,
+        email: newEmail,
+        product_id: id,
+      };
+      axios.post('/qa/questions', questionForm, {
+        headers: { Authorization: authToken },
+      })
+        .then((response) => {
+          // console.log('Added New Question ', response);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
   if (type === 'answer') {
     return (
@@ -26,25 +68,45 @@ const Modal = ({
             <div className="qa-modal-answer">
               Your Answer:
               <br />
-              <textarea className="qa-modal-answer-body" cols="75" rows="5" maxLength="1000" />
+              <textarea
+                className="qa-modal-answer-body"
+                cols="75"
+                rows="5"
+                maxLength="1000"
+                onChange={(e) => setnewBody(e.target.value)}
+              />
             </div>
             <br />
             <div className="qa-modal-nick">
               Your Nickname:
               <br />
-              <input className="qa-modal-nick-body" type="text" maxLength="60" />
+              <input
+                className="qa-modal-nick-body"
+                type="text"
+                maxLength="60"
+                onChange={(e) => setNewNick(e.target.value)}
+              />
             </div>
             <br />
             <div className="qa-modal-email">
               Your Email:
               <br />
-              <input className="qa-modal-email-body" type="text" maxLength="60" />
+              <input
+                className="qa-modal-email-body"
+                type="text"
+                maxLength="60"
+                onChange={(e) => setNewEmail(e.target.value)}
+              />
             </div>
             <br />
             <div>Upload Your Photos:</div>
             <br />
             <div>
-              <input type="button" value="Submit" />
+              <input
+                type="button"
+                value="Submit Your Answer"
+                onClick={() => submitForm()}
+              />
             </div>
           </table>
         </div>
@@ -54,8 +116,54 @@ const Modal = ({
 
   if (type === 'question') {
     return (
-      <div>
-        Test
+      <div className="qa-modal">
+        <div className="qa-modal-content">
+          Add a New Question:
+          {Close}
+          <table className="qa-modalTable">
+            <div className="qa-modal-answer-NOTUSED">
+              Your Question:
+              <br />
+              <textarea
+                className="qa-modal-answer-body"
+                cols="75"
+                rows="5"
+                maxLength="1000"
+                onChange={(e) => setnewBody(e.target.value)}
+              />
+            </div>
+            <br />
+            <div className="qa-modal-nick">
+              Your Nickname:
+              <br />
+              <input
+                className="qa-modal-nick-body"
+                type="text"
+                maxLength="60"
+                onChange={(e) => setNewNick(e.target.value)}
+              />
+            </div>
+            <br />
+            <div className="qa-modal-email">
+              Your Email:
+              <br />
+              <input
+                className="qa-modal-email-body"
+                type="text"
+                maxLength="60"
+                onChange={(e) => setNewEmail(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                type="button"
+                value="Submit Your Question"
+                onClick={() => submitForm()}
+              />
+            </div>
+          </table>
+        </div>
       </div>
     );
   }
@@ -66,6 +174,7 @@ const Modal = ({
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   click: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
 };
 

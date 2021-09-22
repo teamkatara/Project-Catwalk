@@ -20,19 +20,22 @@ const QuestionList = ({ mockQuestions }) => {
   const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
 
   useEffect(() => {
+    // console.log('Product ID: ', productId);
     if (firstRender.current) {
+      // console.log('Questions: ', allQuestions);
       firstRender.current = false;
     } else {
       axios.get(`/qa/questions/${productId}`, {
         headers: { Authorization: authToken },
       })
         .then((response) => {
-          console.log(response.data.results);
+          // console.log('Questions: ', response.data.results);
           allQuestions = response.data.results;
           setMAQ(true);
           setTotalDisplayed(6);
           setQuestionList(allQuestions.slice(0, 4));
         })
+        // .then(console.log('Get Answers'))
         .catch((err) => console.log(err));
     }
   }, [productId]);

@@ -144,7 +144,6 @@ router.get('/product/rating/:id', (req, res) => {
     headers: { Authorization: authToken },
   })
     .then((response) => {
-      console.log(response);
       res.send(JSON.stringify(response.data.results
         .map((review) => review.rating)
         .reduce((previous, current) => previous + current, 0) / response.data.results.length));

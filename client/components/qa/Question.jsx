@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // eslint-disable-next-line no-use-before-define
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { authToken } from '../../../config';
@@ -17,10 +17,17 @@ const Question = ({ question }) => {
   } = question;
 
   // console.log('Question: ', question);
-
-  const [helpRating, setHelpRating] = React.useState(helpfulness);
-  const [helped, setHelped] = React.useState(false);
+  const [newAnswers, setAnswers] = useState(answers);
+  const [helpRating, setHelpRating] = useState(helpfulness);
+  const [helped, setHelped] = useState(false);
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setAnswers(answers);
+    setHelpRating(helpfulness);
+    setHelped(false);
+    setShow(false);
+  }, [question]);
 
   const submitHelpfulness = () => {
     if (!helped) {
@@ -41,6 +48,10 @@ const Question = ({ question }) => {
     }
   };
 
+  const onSubmit = (serverAnswers) => {
+    setAnswers(serverAnswers);
+  };
+
   return (
     <div>
       <div className="qa-question flex-container">
@@ -59,10 +70,12 @@ const Question = ({ question }) => {
           <div id="qa-add-answer" onClick={() => onClick()}>Add Answer</div>
         </div>
       </div>
-      <AnswerList answers={answers} />
+      <AnswerList answers={newAnswers} id={id} />
       <Modal
         show={show}
         click={onClick}
+        submit={onSubmit}
+        id={id}
         type="answer"
       />
     </div>
