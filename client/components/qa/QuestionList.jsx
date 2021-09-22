@@ -1,17 +1,41 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { authToken } from '../../../config';
 // import Search from './Search';
 import Question from './Question';
 // import MoreQuestions from './MoreQuestions';
+import ProductContext from '../ProductContext';
 
-const QuestionList = ({ questions }) => {
-  const allQuestions = Object.values(questions);
+const QuestionList = ({ mockQuestions }) => {
+  const productId = useContext(ProductContext);
+  const firstRender = useRef(true);
+
+  let allQuestions = Object.values(mockQuestions);
   const { length } = allQuestions;
 
   const [displayMAQ, setMAQ] = React.useState(true);
   const [totalDisplayed, setTotalDisplayed] = React.useState(6);
   const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      axios.get(`/qa/questions/${productId}`, {
+        headers: { Authorization: authToken },
+      })
+        .then((response) => {
+          console.log(response.data.results);
+          allQuestions = response.data.results;
+          setMAQ(true);
+          setTotalDisplayed(6);
+          setQuestionList(allQuestions.slice(0, 4));
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [productId]);
 
   const setDisplayList = () => {
     // console.log('Current Total', totalDisplayed);
@@ -68,7 +92,7 @@ const QuestionList = ({ questions }) => {
 };
 
 QuestionList.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  mockQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };
