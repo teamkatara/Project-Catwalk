@@ -5,11 +5,13 @@ body {
   font-size: medium;
   color: cornflowerblue;
   background-color: azure;
+  border-color: cornflowerblue;
 }
 
 body.active {
   color: indianred;
   background-color: rgba(60, 64, 66, 255);
+  border-color: indianred;
 }
 
 .navbar {

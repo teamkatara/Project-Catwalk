@@ -38,16 +38,16 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
         <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} />
         <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} />
         <Buy clickedStyle={clickedStyle} />
-        <div className="share-container">
+        {/* <div className="share-container">
           <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f fa-2x"></i></a>
           <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter fa-2x"></i></a>
           <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p fa-2x"></i></a>
-        </div>
+        </div> */}
       </div>
       <ProductDescription description={product.description} slogan={product.slogan} />
       <ProductFeatures features={product.features} />
     </div>
-  )
+  );
 };
 
 // PropTypes

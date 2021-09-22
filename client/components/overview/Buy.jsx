@@ -17,6 +17,7 @@ class Buy extends React.Component {
       sku: null,
       quantity: null,
       stock: null,
+      size: null,
     };
 
     this.sizeSelect = this.sizeSelect.bind(this);
@@ -34,6 +35,9 @@ class Buy extends React.Component {
         });
       }
     });
+    this.setState({
+      size: event.target.value,
+    });
   }
 
   quantitySelect(event) {
@@ -44,6 +48,11 @@ class Buy extends React.Component {
 
   addToBag(sku, quantity) {
     console.log(sku, quantity)
+    if (!sku && ! quantity) {
+      alert('Please pick a size and quantity');
+    } else if (this.state.size === 'Select Size') {
+      alert('Please pick a size');
+    }
   }
 
   render() {
@@ -51,10 +60,15 @@ class Buy extends React.Component {
       <div>
         <Size clickedStyle={this.props.clickedStyle} sizeSelect={this.sizeSelect} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
         <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
-        {inStock(Object.values(this.props.clickedStyle.skus)) &&
         <div>
-          <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
-        </div>}
+        {inStock(Object.values(this.props.clickedStyle.skus)) &&
+          <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />}
+          <span className="share-container">
+            <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f fa-lg share"></i></a>
+            <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter fa-lg share"></i></a>
+            <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p fa-lg share"></i></a>
+          </span>
+        </div>
       </div>
     );
   }
