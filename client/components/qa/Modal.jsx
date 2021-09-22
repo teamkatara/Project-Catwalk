@@ -43,12 +43,6 @@ const Modal = ({
             <br />
             <div>Upload Your Photos:</div>
             <br />
-            <div className="qa-modal-email">
-              Your Email:
-              <br />
-              <input className="qa-modal-email-body" type="text" maxLength="60" />
-            </div>
-            <br />
             <div>
               <input type="button" value="Submit" />
             </div>
