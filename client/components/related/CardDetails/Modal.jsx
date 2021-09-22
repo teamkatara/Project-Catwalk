@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const Modal = ({
@@ -17,6 +18,7 @@ const Modal = ({
   );
 
   return (
+    ReactDOM.createPortal(
     <div className="modal" onClick={click}>
       <div className="modal-content">
         Comparison
@@ -40,8 +42,8 @@ const Modal = ({
           </tbody>
         </table>
       </div>
-    </div>
-  );
+    </div>, document.getElementById('portal'),
+    ));
 };
 
 Modal.propTypes = {

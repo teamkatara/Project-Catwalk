@@ -33,15 +33,13 @@ const Thumbnail = ({
         style={{ backgroundImage: `url(${image})` }}
       >
       </div>
-      <div className="modal-container">
-        <Modal
-          show={show}
-          click={onClick}
-          characteristics={list}
-          productName={product}
-          currentName={current}
-        />
-      </div>
+      <Modal
+        show={show}
+        click={onClick}
+        characteristics={list}
+        productName={product}
+        currentName={current}
+      />
     </div>
   );
 };
