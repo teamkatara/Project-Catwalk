@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { authToken } from '../../../config';
 import AnswerList from './AnswerList';
+import Modal from './Modal';
 
 const Question = ({ question }) => {
   const {
@@ -19,6 +20,7 @@ const Question = ({ question }) => {
 
   const [helpRating, setHelpRating] = React.useState(helpfulness);
   const [helped, setHelped] = React.useState(false);
+  const [show, setShow] = useState(false);
 
   const submitHelpfulness = () => {
     if (!helped) {
@@ -28,6 +30,14 @@ const Question = ({ question }) => {
       })
         .then(setHelpRating((curr) => curr + 1))
         .catch((err) => console.log(err));
+    }
+  };
+
+  const onClick = () => {
+    if (show === true) {
+      setShow(false);
+    } else {
+      setShow(true);
     }
   };
 
@@ -46,10 +56,15 @@ const Question = ({ question }) => {
             <div id="qa-score">{`(${helpRating})`}</div>
           </div>
           <div>|</div>
-          <div id="qa-report" onClick={() => console.log('Add Answer Clicked')}>Add Answer</div>
+          <div id="qa-add-answer" onClick={() => onClick()}>Add Answer</div>
         </div>
       </div>
       <AnswerList answers={answers} />
+      <Modal
+        show={show}
+        click={onClick}
+        type="answer"
+      />
     </div>
   );
 };
