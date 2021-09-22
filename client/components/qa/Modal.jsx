@@ -4,7 +4,7 @@ import axios from 'axios';
 import { authToken } from '../../../config';
 
 const Modal = ({
-  show, click, type, id,
+  show, click, submit, type, id,
 }) => {
   const [newBody, setnewBody] = useState('');
   const [newNick, setNewNick] = useState('');
@@ -34,8 +34,9 @@ const Modal = ({
       axios.post(`/qa/answers/add/${id}`, answerForm, {
         headers: { Authorization: authToken },
       })
-        .then((response) => {
+        .then(() => {
           click();
+          submit();
           // console.log('Added New Answer ', response);
         })
         .catch((err) => console.log(err));
@@ -174,6 +175,7 @@ const Modal = ({
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   click: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
 };

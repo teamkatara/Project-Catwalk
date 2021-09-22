@@ -48,8 +48,12 @@ const Question = ({ question }) => {
     }
   };
 
-  const onSubmit = (serverAnswers) => {
-    setAnswers(serverAnswers);
+  const getAnswers = () => {
+    axios.get(`/qa/questions/answers/${id}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((res) => setAnswers(res.data.results))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -74,7 +78,7 @@ const Question = ({ question }) => {
       <Modal
         show={show}
         click={onClick}
-        submit={onSubmit}
+        submit={getAnswers}
         id={id}
         type="answer"
       />
