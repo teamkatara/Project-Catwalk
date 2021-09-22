@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import $ from 'jquery';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
@@ -67,6 +68,7 @@ class App extends React.Component {
   }
 
   toggleTheme() {
+    $(document.body).toggleClass('active');
     this.setState({
       theme: !this.state.theme,
     });

@@ -3,6 +3,13 @@ body {
   margin: 0 10%;
   font-family: 'Roboto', sans-serif;
   font-size: medium;
+  color: cornflowerblue;
+  background-color: azure;
+}
+
+body.active {
+  color: indianred;
+  background-color: rgba(60, 64, 66, 255);
 }
 
 .navbar {

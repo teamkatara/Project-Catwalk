@@ -51,9 +51,10 @@ class Buy extends React.Component {
       <div>
         <Size clickedStyle={this.props.clickedStyle} sizeSelect={this.sizeSelect} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
         <Quantity quantitySelect={this.quantitySelect} stock={this.state.stock} inStock={inStock(Object.values(this.props.clickedStyle.skus))} />
+        {inStock(Object.values(this.props.clickedStyle.skus)) &&
         <div>
           <AddtoCart addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />
-        </div>
+        </div>}
       </div>
     );
   }
