@@ -17,7 +17,7 @@ const Modal = ({
   );
 
   return (
-    <div className="modal">
+    <div className="modal" onClick={click}>
       <div className="modal-content">
         Comparison
         {Close}

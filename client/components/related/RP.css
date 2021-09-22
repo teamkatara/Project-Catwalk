@@ -1,48 +1,60 @@
 .related-products {
   width: auto;
   height: 80vh;
-  /* padding: 10; */
+}
+
+.rc-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rc-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .cards-list {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  width: auto;
   height: 35vh;
-  overflow-x: auto;
-  position: relative;
+  width: 100%;
+}
+
+.carousel-content.show-3 {
+  display: flex;
+  width: 33%;
+  transition: all 250ms linear;
+  -ms-overflow-style: none;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 
 .card {
   cursor: pointer;
   border: 1px solid black;
-  width: 25%;
+  width: 20vw;
   height: 32vh;
-  flex: 0 0 auto;
-  margin: 0 20 0 0;
+  margin: 0 0 25 0;
+}
+
+.related-arrow-left, .related-arrow-right {
+  position: absolute;
+  top: 40%;
+  font-size: 2rem;
+  color: #000;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+  transform: translateX(33%);
 }
 
 .related-arrow-left {
-  position: absolute;
   left: 10px;
-  top: 40%;
-  font-size: 2rem;
-  color: #000;
-  z-index: 100;
-  cursor: pointer;
-  user-select: none;
 }
 
 .related-arrow-right {
-  position: absolute;
   right: 10px;
-  top: 40%;
-  font-size: 2rem;
-  color: #000;
-  z-index: 100;
-  cursor: pointer;
-  user-select: none;
 }
 
 .thumbnail {
@@ -109,15 +121,20 @@
   padding: 0 0 0 10;
 }
 
+.modal-container {
+  overflow: visible;
+  position: static;
+}
+
 .modal {
   z-index: 100;
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.25s, transform 0.5s;
+  transition: opacity 0.25s, ease-in-out;
   transform: scale(1);
   opacity: 1;
   visibility: visible;

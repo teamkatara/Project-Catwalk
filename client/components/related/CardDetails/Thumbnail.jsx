@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { IoIosStarOutline } from 'react-icons';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
 const Thumbnail = ({
-  id, image, list, product, current, updateProductId
+  id, image, list, product, current, updateProductId,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -34,13 +33,15 @@ const Thumbnail = ({
         style={{ backgroundImage: `url(${image})` }}
       >
       </div>
-      <Modal
-        show={show}
-        click={onClick}
-        characteristics={list}
-        productName={product}
-        currentName={current}
-      />
+      <div className="modal-container">
+        <Modal
+          show={show}
+          click={onClick}
+          characteristics={list}
+          productName={product}
+          currentName={current}
+        />
+      </div>
     </div>
   );
 };

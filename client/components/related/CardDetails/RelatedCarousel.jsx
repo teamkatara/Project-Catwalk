@@ -10,7 +10,7 @@ const RelatedCarousel = ({ related }) => {
   const [rightShow, setRightShow] = useState(true);
 
   const nextSlide = () => {
-    if (current === related.length - 1) {
+    if (current === related.length - 4) {
       setCurrent(current + 1);
       setRightShow(false);
     } else if (current !== related.length) {
@@ -27,7 +27,7 @@ const RelatedCarousel = ({ related }) => {
       setLeftShow(false);
     } else if (current !== 0) {
       setCurrent(current - 1);
-      if (current !== related.length && rightShow === false) {
+      if (current !== related.length - 1 && rightShow === false) {
         setRightShow(true);
       }
     }
@@ -52,15 +52,15 @@ const RelatedCarousel = ({ related }) => {
   }
 
   return (
-    <div>
-      <div className="cards-list">
+    <div className="rc-container">
+      <div className="rc-wrapper">
         {leftArrow}
+        {related.map((product) => (
+          <div className="carousel-content.show-3" style={{ transform: `translateX(-${current * (100)}%)` }}>
+            {product}
+          </div>
+        ))}
         {rightArrow}
-        {related}
-      </div>
-      <h3>Your Outfit</h3>
-      <div className="cards-list">
-        Outfit here
       </div>
     </div>
   );
