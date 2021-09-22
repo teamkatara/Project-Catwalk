@@ -2,6 +2,37 @@
 
 }
 
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1000;
+}
+
+.image-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.image-modal {
+  max-width: 1500px;
+  max-height: 800px;
+}
+
+.modal-exit {
+  position: absolute;
+  font-size: 1.5em;
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+  padding: 5px;
+}
+
 .slider {
   top: 26px;
   right: 3px;
@@ -27,7 +58,7 @@
   left: 180px;
   /* left: 40px; */
   user-select: none;
-  z-index: 100;
+  z-index: 1;
 }
 
 .right-arrow {
@@ -39,7 +70,7 @@
   top: 40%;
   right: 100px;
   user-select: none;
-  z-index: 100;
+  z-index: 1;
 }
 
 ::-webkit-scrollbar {
