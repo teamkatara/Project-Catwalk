@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VscChromeClose } from 'react-icons/vsc';
+// import bsdot from bs
 
 const Modal = ({ url, showModal, setModal }) => {
   if (!showModal) return null;

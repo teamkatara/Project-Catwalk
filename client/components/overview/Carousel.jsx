@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import $ from 'jquery';
 import { BiLeftArrowAlt, BiRightArrowAlt, BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi';
 import { RiFullscreenFill } from 'react-icons/ri';
 import ImageGallery from './ImageGallery';
@@ -36,7 +35,7 @@ const Carousel = ({ clickedStyle }) => {
         if (i === current) { url.current = photo.url; }
         return (
           <div className={i === current ? 'slide active' : 'slide'} key={i}>
-            {i === current && <img className="images" src={photo.url} alt="product" />}
+            {i === current && <img onClick={() => setModal(!showModal)} className="images" src={photo.url} alt="product" />}
           </div>
         );
       })}
