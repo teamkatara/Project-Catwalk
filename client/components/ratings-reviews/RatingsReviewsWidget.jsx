@@ -46,7 +46,7 @@ const RatingsReviewsWidget = () => {
   return (
     <div id="ratings-reviews" className="ratings-reviews">
       <div className="rr-title">
-        <h2>RATINGS &amp; REVIEWS</h2>
+        <h2>Ratings &amp; Reviews</h2>
         <Sort reviews={totalReviews} sortReviewHandler={sortReviewHandler} />
       </div>
       <div className="rr-widget-container">

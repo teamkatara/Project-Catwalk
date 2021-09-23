@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RatingBreakdown.css';
 import RatingSummary from './RatingSummary';
+import CharacterBars from './CharacterBars';
 
 const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
   const [currentFilters, setCurrentFilters] = useState([]);
@@ -84,7 +85,6 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
             {rating}
           </button>
         ))}
-        <button type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</button>
       </div>
       <ul className="rating-bars">
         <li className="bar" onClick={() => (ratingClickHandler('5 Stars'))}>
@@ -113,7 +113,15 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
           <span className="text-total-amount">{results.ratings[1].amount}</span>
         </li>
       </ul>
-      <div className="rating-summary-total">{`${results.recNum}% of reviews recommend this product`}</div>
+      <div className="rating-summary-total">
+        <p>
+          <span type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</span>
+        </p>
+        {`${results.recNum}% of reviews recommend this product`}
+      </div>
+      <div className="product-breakdown">
+        <CharacterBars characters={reviewMeta.characteristics} />
+      </div>
     </div>
   );
 };
