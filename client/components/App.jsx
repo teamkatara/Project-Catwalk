@@ -29,6 +29,7 @@ class App extends React.Component {
     super();
 
     this.state = {
+      color: 'cornflowerblue',
       theme: true,
       product: product,
       styles: styles,
@@ -70,6 +71,7 @@ class App extends React.Component {
   toggleTheme() {
     $(document.body).toggleClass('active');
     this.setState({
+      color: this.state.color === 'cornflowerblue' ? 'indianred' : 'cornflowerblue',
       theme: !this.state.theme,
     });
   }
@@ -92,6 +94,7 @@ class App extends React.Component {
             clickedStyle={this.state.clickedStyle}
             reviews={this.state.reviews}
             updateProduct={this.updateProduct}
+            color={this.state.color}
           />
 
           <RelatedProductsWidget updateProductId={this.updateProductId} />

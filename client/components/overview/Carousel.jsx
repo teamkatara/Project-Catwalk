@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import $ from 'jquery';
 import { BiLeftArrowAlt, BiRightArrowAlt, BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi';
 import { RiFullscreenFill } from 'react-icons/ri';
 import ImageGallery from './ImageGallery';
@@ -7,14 +8,17 @@ import Modal from './Modal';
 const Carousel = ({ clickedStyle }) => {
   const [current, setCurrent] = useState(0);
   const [showModal, setModal] = useState(false);
+  const [gallery, setGallery] = useState(0);
   const length = clickedStyle.photos.length;
   const url = useRef();
 
   const nextSlide = () => {
+    gallery === 3 ? console.log('hello') : setGallery(gallery + 1);
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
   const prevSlide = () => {
+    gallery === 0 ? console.log('bye') : setGallery(gallery - 1);
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 

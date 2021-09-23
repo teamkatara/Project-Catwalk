@@ -3,10 +3,10 @@ import StyleEntry from './StyleEntry';
 
 let key = 0;
 
-const StyleSelector = ({ styles, clickedStyle, selectStyle }) => (
+const StyleSelector = ({ styles, clickedStyle, selectStyle, color }) => (
   <div>
     <div><strong>STYLE: </strong> {clickedStyle.name}</div>
-    <div id="styles">{styles.results.map((style) => <StyleEntry selectedId={clickedStyle.style_id} selectStyle={selectStyle} style={style} key={key++} />)}</div>
+    <div id="styles">{styles.results.map((style) => <StyleEntry selectedId={clickedStyle.style_id} selectStyle={selectStyle} style={style} key={key++} color={color} />)}</div>
   </div>
 );
 

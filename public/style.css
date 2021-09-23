@@ -18,6 +18,11 @@ body.active {
   /* border: 1px solid black; */
   height: 10%;
 }
+
+.navbar.test {
+  height: 1000px
+}
+
 .brand-name {
   /* top: 1em; */
   bottom: 1em;

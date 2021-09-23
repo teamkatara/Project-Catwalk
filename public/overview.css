@@ -119,8 +119,8 @@
   color: red;
 }
 
-#orig-price {
-  color: black;
+.orig-price {
+  color: cornflowerblue;
   text-decoration: line-through;
 }
 
@@ -139,6 +139,14 @@
   border-radius: 50%;
   border: 1px solid cornflowerblue;
   margin-bottom: 10px;
+}
+
+.style-entry.darker {
+  border: 1px solid indianred !important;
+}
+
+.style-entry.dark {
+  border: 1px solid indianred !important;
 }
 
 #checkmark-container {
