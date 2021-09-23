@@ -3,9 +3,10 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect, useContext } from 'react';
-// import { ProductContext } from '../../ProductContext.jsx';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import ProductContext from '../ProductContext';
+import { authToken } from '../../../config';
 
 import './RatingsReviews.css';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
@@ -17,13 +18,33 @@ import mockReviews from '../../mock-data/sample-reviews.json';
 
 const RatingsReviewsWidget = () => {
   // TODO Plug-in context
-  // const currentProduct = useContext(ProductContext);
-  // const productId = currentProduct.id;
+  const currentProductId = useContext(ProductContext);
   const reviewData = mockReviews.results;
   const reviewMetaData = mockReviewMeta;
   const [totalReviews, setProductReviews] = useState(reviewData);
   const [reviewMeta, setReviewMeta] = useState(reviewMetaData);
   const [displayedReviews, setDisplayedReviews] = useState([reviewData[0], reviewData[1]]);
+
+  useEffect(() => () => {
+    axios.get(`./reviews/${currentProductId}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((data) => {
+        const newReviews = data.data.results;
+        axios.get(`./reviews/meta/${currentProductId}`, {
+          headers: { Authorization: authToken },
+        })
+          .then((metaData) => {
+            console.log('I am metaData!', metaData);
+            console.log('I am newReviews!', newReviews);
+            setReviewMeta(metaData.data);
+            setProductReviews(newReviews);
+            setDisplayedReviews(newReviews);
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
+  }, [currentProductId]);
 
   // TODO Set only 2 reviews to show at a time
   const [displayedIndex, setDisplayedIndex] = useState(2);
