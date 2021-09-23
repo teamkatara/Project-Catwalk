@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const Modal = ({
@@ -17,7 +18,8 @@ const Modal = ({
   );
 
   return (
-    <div className="modal">
+    ReactDOM.createPortal(
+    <div className="modal" onClick={click}>
       <div className="modal-content">
         Comparison
         {Close}
@@ -40,14 +42,14 @@ const Modal = ({
           </tbody>
         </table>
       </div>
-    </div>
-  );
+    </div>, document.getElementById('portal'),
+    ));
 };
 
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   click: PropTypes.func.isRequired,
-  characteristics: PropTypes.arrayOf(PropTypes.string).isRequired,
+  characteristics: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   productName: PropTypes.string.isRequired,
   currentName: PropTypes.string.isRequired,
 };

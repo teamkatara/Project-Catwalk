@@ -22,7 +22,7 @@ const RelatedCard = ({ id, updateProductId }) => {
 
   const main = Object.values(currentProductInfo.features);
   const mainMap = main.map((feature) => feature.feature);
-
+  // ["Cut", "Fair Trade Certified"]
   const current = Object.values(currentProduct.features);
   const currentMap = current.map((feature) => feature.feature);
 
@@ -91,7 +91,10 @@ const RelatedCard = ({ id, updateProductId }) => {
         updateProductId={updateProductId}
         id={id}
       />
-      <div onClick={() => updateProductId(id)} className="details">
+      <div
+        onClick={() => updateProductId(id)}
+        className="details"
+      >
         <span className="price">
           {currentProduct.category}
           <br />
@@ -109,6 +112,7 @@ const RelatedCard = ({ id, updateProductId }) => {
 
 RelatedCard.propTypes = {
   id: PropTypes.number.isRequired,
+  updateProductId: PropTypes.func.isRequired,
 };
 
 export default RelatedCard;
