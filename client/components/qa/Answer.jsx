@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { authToken } from '../../../config';
@@ -20,8 +20,12 @@ const Answer = ({ answer }) => {
 
   const [helpRating, setHelpRating] = React.useState(helpfulness);
   const [helped, setHelped] = React.useState(false);
-  const [reported, setReported] = React.useState(false);
   const [reportText, setReportText] = React.useState('Report');
+  const [reported, setReported] = React.useState(false);
+
+  useEffect(() => {
+    setHelpRating(helpfulness);
+  }, [answer]);
 
   const submitHelpfulness = () => {
     if (!helped) {

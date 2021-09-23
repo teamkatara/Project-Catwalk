@@ -29,7 +29,7 @@ describe('RelatedProducts Component Enzyme Tests', () => {
   });
 
   it('should render the RelatedCard Component', () => {
-    expect(container.containsMatchingElement(<RelatedCard />)).toEqual(true);
+    expect(container.containsMatchingElement(<RelatedCard id={40450} />)).toEqual(true);
   });
 });
 
@@ -47,20 +47,21 @@ describe('RelatedCard Component Enzyme Tests', () => {
   it('should render the RelatedRating Component', () => {
     expect(container.containsMatchingElement(<RelatedRating score={4.8} />)).toEqual(true);
   });
-
-  it('should render the Thumbnail Component', () => {
-    expect(container.containsMatchingElement(<Thumbnail />)).toEqual(true);
-  });
 });
 
 describe('Thumbnail Component Enyzme Tests', () => {
   let container;
 
   beforeEach(() => {
-    container = shallow(<Thumbnail />);
+    container = shallow(<Thumbnail
+      image="url"
+      list={[['info', 'moreinfo']]}
+      product="product"
+      current="Alivia Slacks"
+    />);
   });
 
-  it('should render the Modal Component', () => {
-    expect(container.containsMatchingElement(<Modal show={false} />)).toEqual(true);
+  it('should render a Star button', () => {
+    expect(container.find('button').length).toEqual(1);
   });
 });

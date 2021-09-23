@@ -1,21 +1,23 @@
 {
-  "product_id": "40457",
+  "product_id": "404579",
   "results": [
       {
           "question_id": 330112,
-          "question_body": "Eos est labore vel et mollitia sed eligendi.",
-          "question_date": "2021-05-28T00:00:00.000Z",
-          "asker_name": "Percy_DAmore2",
-          "question_helpfulness": 24,
+          "question_body": "What is the cabbage vendor's name?",
+          "question_date": "2022-09-23T00:00:00.000Z",
+          "asker_name": "ang",
+          "question_helpfulness": 10,
           "reported": false,
           "answers": {
               "3084045": {
                   "id": 3084045,
-                  "body": "Atque non impedit deleniti beatae.",
-                  "date": "2021-02-05T00:00:00.000Z",
-                  "answerer_name": "Clotilde_Nolan21",
-                  "helpfulness": 12,
-                  "photos": []
+                  "body": "No one knows! He never reveals his real name.",
+                  "date": "2022-09-23T00:00:00.000Z",
+                  "answerer_name": "casual_fan",
+                  "helpfulness": 10,
+                  "photos": [
+                    "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9"
+                ]
               }
           }
       },
