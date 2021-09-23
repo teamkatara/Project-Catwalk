@@ -12,6 +12,8 @@ import './RatingsReviews.css';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
 import ReviewList from './ReviewList/ReviewList';
 import Sort from './Sort';
+// import NewReview from './NewReview/NewReview';
+import AddReview from './NewReview/AddReview';
 
 import mockReviewMeta from '../../mock-data/sample-review-meta.json';
 import mockReviews from '../../mock-data/sample-reviews.json';
@@ -68,6 +70,7 @@ const RatingsReviewsWidget = () => {
     <div id="ratings-reviews" className="ratings-reviews">
       <div className="rr-title">
         <h2>Ratings &amp; Reviews</h2>
+        <AddReview productId={currentProductId} characters={reviewMeta.characteristics} />
         <Sort reviews={totalReviews} sortReviewHandler={sortReviewHandler} />
       </div>
       <div className="rr-widget-container">
