@@ -9,22 +9,23 @@ const Carousel = ({ clickedStyle }) => {
   const [current, setCurrent] = useState(0);
   const [showModal, setModal] = useState(false);
   const [gallery, setGallery] = useState(0);
+  const [yPos, setYPos] = useState(0);
   const length = clickedStyle.photos.length;
   const url = useRef();
 
   const nextSlide = () => {
-    gallery === 3 ? console.log('hello') : setGallery(gallery + 1);
+    gallery === 3 ? setYPos(yPos - 121) : setGallery(gallery + 1);
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
 
   const prevSlide = () => {
-    gallery === 0 ? console.log('bye') : setGallery(gallery - 1);
+    gallery === 0 ? setYPos(yPos + 121) : setGallery(gallery - 1);
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
   return (
     <div className="slider">
-      <ImageGallery photos={clickedStyle.photos} current={current} setCurrent={setCurrent} />
+      <ImageGallery yPos={yPos} photos={clickedStyle.photos} current={current} setCurrent={setCurrent} />
       <Modal url={url.current} showModal={showModal} setModal={setModal} />
       <RiFullscreenFill className="expand" onClick={() => setModal(!showModal)} />
       {current !== 0 && <BiLeftArrowAlt className="left-arrow" onClick={prevSlide} />}

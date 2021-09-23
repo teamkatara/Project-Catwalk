@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageGallery = ({ photos, current, setCurrent }) => (
+const ImageGallery = ({ photos, current, setCurrent, yPos }) => (
   // <div className="image-gallery">
   //   <div id="image-gallery">
   //     {photos.map((photo, i) => i === current
@@ -10,7 +10,7 @@ const ImageGallery = ({ photos, current, setCurrent }) => (
   // </div>
 
   <div className="image-gallery">
-    <div id="image-gallery">
+    <div id="image-gallery" style={ {transform: `translateY(${yPos}px)`} }>
       {photos.map((photo, i) => i === current
         ? <img onClick={() => setCurrent(i)} className="photo-entry selected" src={photo.thumbnail_url} />
         : <img onClick={() => setCurrent(i)} className="photo-entry" src={photo.thumbnail_url} />)}

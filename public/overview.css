@@ -218,16 +218,16 @@
 }
 
 .image-gallery {
-  height: 500px;
+  position: absolute;
+  top: 50px;
+  left: 35px;
+  height: 447px;
+  overflow-y: hidden;
+  z-index: 100;
 }
 
 #image-gallery {
-  top: 50px;
-  left: 35px;
-  position: absolute;
   z-index: 100;
-  height: 447px;
-  overflow-y: hidden;
 }
 
 .expand {
