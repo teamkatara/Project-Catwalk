@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Answer from './Answer';
 
 const AnswerList = ({ answers }) => {
-  const allAnswers = Object.values(answers);
+  const [allAnswers, setAllAnswers] = useState(Object.values(answers));
   const firstRender = useRef(true);
   const { length } = allAnswers;
 
@@ -16,8 +16,9 @@ const AnswerList = ({ answers }) => {
       // console.log('Questions: ', allQuestions);
       firstRender.current = false;
     } else {
+      setAllAnswers(Object.values(answers));
       setLMA(true);
-      setAnswerList(allAnswers.slice(0, 2));
+      setAnswerList(Object.values(answers).slice(0, 2));
     }
   }, [answers]);
 

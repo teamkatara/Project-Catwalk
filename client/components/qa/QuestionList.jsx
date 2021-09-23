@@ -19,13 +19,16 @@ const QuestionList = ({ mockQuestions }) => {
   const productId = useContext(ProductContext);
   const firstRender = useRef(true);
 
-  let allQuestions = Object.values(mockQuestions);
+  // let allQuestions = Object.values(mockQuestions);
+  const [allQuestions, setAllQuestions] = useState(Object.values(mockQuestions));
   const { length } = allQuestions;
 
-  const [displayMAQ, setMAQ] = React.useState(true);
-  const [totalDisplayed, setTotalDisplayed] = React.useState(6);
-  const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
+  const [displayMAQ, setMAQ] = useState(true);
+  const [totalDisplayed, setTotalDisplayed] = useState(6);
+  const [questionList, setQuestionList] = useState(allQuestions.slice(0, 4));
   const [show, setShow] = useState(false);
+
+  if (allQuestions.length <= 4) { setMAQ(false); }
 
   useEffect(() => {
     // console.log('Product ID: ', productId);
@@ -37,11 +40,11 @@ const QuestionList = ({ mockQuestions }) => {
         headers: { Authorization: authToken },
       })
         .then((response) => {
-          // console.log('Questions: ', response.data.results);
-          allQuestions = response.data.results;
-          setMAQ(true);
+          const returnQuestions = Object.values(response.data.results);
+          setAllQuestions(returnQuestions);
           setTotalDisplayed(6);
-          setQuestionList(allQuestions.slice(0, 4));
+          setQuestionList(returnQuestions);
+          setMAQ(true);
         })
         // .then(console.log('Get Answers'))
         .catch((err) => console.log(err));
@@ -61,7 +64,7 @@ const QuestionList = ({ mockQuestions }) => {
       headers: { Authorization: authToken },
     })
       .then((res) => {
-        allQuestions = res.data.results;
+        setAllQuestions(res.data.results);
         setMAQ(true);
       })
       .catch((err) => console.log(err));
