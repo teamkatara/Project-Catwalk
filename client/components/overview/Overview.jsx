@@ -10,7 +10,7 @@ import Buy from './Buy';
 import ProductDescription from './ProductDescription';
 import ProductFeatures from './ProductFeatures';
 
-const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateProduct }) => {
+const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateProduct, color }) => {
   const productId = useContext(ProductContext);
   const firstRender = useRef(true);
 
@@ -35,19 +35,14 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
     <div className="overview">
       <Carousel clickedStyle={clickedStyle} />
       <div id="product-info-container">
-        <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} />
-        <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} />
-        <Buy clickedStyle={clickedStyle} />
-        <div className="share-container">
-          <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f fa-2x"></i></a>
-          <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter fa-2x"></i></a>
-          <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p fa-2x"></i></a>
-        </div>
+        <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} color={color}/>
+        <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} color={color}/>
+        <Buy clickedStyle={clickedStyle} color={color}/>
       </div>
-      <ProductDescription description={product.description} slogan={product.slogan} />
+      <ProductDescription description={product.description} slogan={product.slogan} color={color}/>
       <ProductFeatures features={product.features} />
     </div>
-  )
+  );
 };
 
 // PropTypes
