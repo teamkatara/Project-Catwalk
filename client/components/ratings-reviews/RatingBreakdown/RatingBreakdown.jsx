@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RatingBreakdown.css';
 import RatingSummary from './RatingSummary';
+import CharacterBars from './CharacterBars';
 
 const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
   const [currentFilters, setCurrentFilters] = useState([]);
@@ -29,6 +30,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
 
     for (let i = 1; i <= 5; i++) {
       if (reviewMeta.ratings[i]) {
+        // eslint-disable-next-line prefer-const
         let currentValue = ((parseInt(reviewMeta.ratings[i], 10) / responseTotal) * 100).toFixed(0);
         results.ratings[i] = { value: currentValue, amount: parseInt(reviewMeta.ratings[i], 10) };
       } else {
@@ -41,24 +43,21 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
 
   useEffect(() => {
     if (currentFilters.length === 0) {
-      // console.log('no filters here!');
       sortReviewHandler(reviews);
     } else {
-      // console.log('showing reviews based on filter!');
       const ratingsToShow = [];
       reviews.forEach((review) => {
-        if (review.rating === 5 && currentFilters.indexOf('5 stars') !== -1) ratingsToShow.push(review);
-        if (review.rating === 4 && currentFilters.indexOf(4) !== -1) ratingsToShow.push(review);
-        if (review.rating === 3 && currentFilters.indexOf(3) !== -1) ratingsToShow.push(review);
-        if (review.rating === 2 && currentFilters.indexOf(2) !== -1) ratingsToShow.push(review);
-        if (review.rating === 1 && currentFilters.indexOf(1) !== -1) ratingsToShow.push(review);
+        if (review.rating === 5 && currentFilters.indexOf('5 Stars') !== -1) ratingsToShow.push(review);
+        if (review.rating === 4 && currentFilters.indexOf('4 Stars') !== -1) ratingsToShow.push(review);
+        if (review.rating === 3 && currentFilters.indexOf('3 Stars') !== -1) ratingsToShow.push(review);
+        if (review.rating === 2 && currentFilters.indexOf('2 Stars') !== -1) ratingsToShow.push(review);
+        if (review.rating === 1 && currentFilters.indexOf('1 Star') !== -1) ratingsToShow.push(review);
       });
-      sortReviewHandler(ratingsToShow);
+      return sortReviewHandler(ratingsToShow);
     }
   }, [currentFilters]);
 
   const ratingClickHandler = (rating) => {
-    // console.log(`${rating} was clicked!`);
     const newFilter = [...currentFilters];
     const newRating = currentFilters.indexOf(rating);
     if (newRating === -1) {
@@ -66,7 +65,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
     } else {
       newFilter.splice(newRating, 1);
     }
-    setCurrentFilters(newFilter);
+    return setCurrentFilters(newFilter);
   };
   const clearClickHandler = () => {
     setCurrentFilters([]);
@@ -81,41 +80,48 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
             type="button"
             key={rating}
             className="rating-filter"
-            onClick={ratingClickHandler(rating)}
+            onClick={() => (ratingClickHandler(rating))}
           >
             {rating}
           </button>
         ))}
-        {/* <button type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</button> */}
       </div>
       <ul className="rating-bars">
-        <li className="bar">
-          <span className="text-bar" onClick={() => ratingClickHandler('5 stars')}>5 Stars</span>
+        <li className="bar" onClick={() => (ratingClickHandler('5 Stars'))}>
+          <span className="text-bar">5 Stars</span>
           <progress className="bar-color" max="100" value={results.ratings[5].value} />
           <span className="text-total-amount">{results.ratings[5].amount}</span>
         </li>
-        <li className="bar">
-          <span className="text-bar" onClick={() => ratingClickHandler(4)}>4 Stars</span>
+        <li className="bar" onClick={() => ratingClickHandler('4 Stars')}>
+          <span className="text-bar">4 Stars</span>
           <progress className="bar-color" max="100" value={results.ratings[4].value} />
           <span className="text-total-amount">{results.ratings[4].amount}</span>
         </li>
-        <li className="bar">
-          <span className="text-bar" onClick={() => ratingClickHandler(3)}>3 Stars</span>
+        <li className="bar" onClick={() => ratingClickHandler('3 Stars')}>
+          <span className="text-bar">3 Stars</span>
           <progress className="bar-color" max="100" value={results.ratings[3].value} />
           <span className="text-total-amount">{results.ratings[3].amount}</span>
         </li>
-        <li className="bar" onClick={() => ratingClickHandler(2)}>
+        <li className="bar" onClick={() => ratingClickHandler('2 Stars')}>
           <span className="text-bar">2 Stars</span>
           <progress className="bar-color" max="100" value={results.ratings[2].value} />
           <span className="text-total-amount">{results.ratings[2].amount}</span>
         </li>
-        <li className="bar">
-          <span className="text-bar" onClick={() => ratingClickHandler(1)}>1 Stars</span>
+        <li className="bar" onClick={() => ratingClickHandler('1 Star')}>
+          <span className="text-bar">1 Stars</span>
           <progress className="bar-color" max="100" value={results.ratings[1].value} />
           <span className="text-total-amount">{results.ratings[1].amount}</span>
         </li>
       </ul>
-      <div className="rating-summary-total">{`${results.recNum}% of reviews recommend this product`}</div>
+      <div className="rating-summary-total">
+        <p>
+          <span type="button" className="clear-filter" onClick={clearClickHandler}>Clear Current Filters</span>
+        </p>
+        {`${results.recNum}% of reviews recommend this product`}
+      </div>
+      <div className="product-breakdown">
+        <CharacterBars characters={reviewMeta.characteristics} />
+      </div>
     </div>
   );
 };

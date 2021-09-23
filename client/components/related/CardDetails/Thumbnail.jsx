@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
+const Thumbnail = ({
+  id, image, list, product, current, updateProductId,
+}) => {
   const [show, setShow] = useState(false);
 
   const onClick = () => {
@@ -15,7 +17,7 @@ const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
 
   const Star = (
     <button type="button" className="button-style" onClick={onClick}>
-      <i className="far fa-star star-image"></i>
+      <i className="far fa-star star-image" />
     </button>
   );
 
@@ -44,10 +46,11 @@ const Thumbnail = ({ id, image, list, product, current, updateProductId }) => {
 
 Thumbnail.propTypes = {
   image: PropTypes.string.isRequired,
-  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  list: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   current: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
-
+  updateProductId: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Thumbnail;

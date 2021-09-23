@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect, useContext } from 'react';
@@ -21,24 +23,30 @@ const RatingsReviewsWidget = () => {
   const reviewMetaData = mockReviewMeta;
   const [totalReviews, setProductReviews] = useState(reviewData);
   const [reviewMeta, setReviewMeta] = useState(reviewMetaData);
-  const [displayedReviews, setReviewList] = useState([reviewData[0], reviewData[1]]);
+  const [displayedReviews, setDisplayedReviews] = useState([reviewData[0], reviewData[1]]);
+
+  // TODO Set only 2 reviews to show at a time
   const [displayedIndex, setDisplayedIndex] = useState(2);
   const [toggleShowMore, setToggleShowMore] = useState(true);
 
   const showReviewsHandler = () => {
-    if (displayedReviews.length === displayedIndex) {
+    if (displayedReviews.length >= displayedIndex) {
       setToggleShowMore(false);
+    } else {
+      setDisplayedIndex(displayedIndex + 2);
+      // TODO increase the amount of reviews displayed
+      // setReviewList(make the magic happen here)
     }
   };
 
   const sortReviewHandler = (sorted) => {
-    setReviewList(sorted);
+    setDisplayedReviews(sorted);
   };
 
   return (
     <div id="ratings-reviews" className="ratings-reviews">
       <div className="rr-title">
-        <h2>RATINGS &amp; REVIEWS</h2>
+        <h2>Ratings &amp; Reviews</h2>
         <Sort reviews={totalReviews} sortReviewHandler={sortReviewHandler} />
       </div>
       <div className="rr-widget-container">
