@@ -248,6 +248,7 @@
   padding-bottom: 4px;
   margin-bottom: 37px;
   border-bottom: 5px solid transparent;
+  cursor: pointer;
 }
 
 .photo-entry.selected {
