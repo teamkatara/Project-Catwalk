@@ -28,7 +28,7 @@ const QuestionList = ({ mockQuestions }) => {
   const [questionList, setQuestionList] = useState(allQuestions.slice(0, 4));
   const [show, setShow] = useState(false);
 
-  if (allQuestions.length <= 4) { setMAQ(false); }
+  // if (allQuestions.length <= 4) { setMAQ(false); }
 
   useEffect(() => {
     // console.log('Product ID: ', productId);
