@@ -2,7 +2,7 @@
 /* Questions and Answers */
 
 .questions-answers {
-  border: 1px solid white;
+  border: 1px solid transparent;
   margin: 5px 10%;
   max-height: 75vh;
   font-family: "helvetica";
@@ -229,6 +229,11 @@ br {
 }
 
 .qa-modal-nick-body {
+  width: 95%;
+  height: 25px;
+}
+
+.qa-modal-photo-body {
   width: 95%;
   height: 25px;
 }

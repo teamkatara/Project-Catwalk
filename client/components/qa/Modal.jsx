@@ -8,6 +8,7 @@ const Modal = ({
 }) => {
   const [newBody, setnewBody] = useState('');
   const [newNick, setNewNick] = useState('');
+  const [newPhotos, setNewPhoto] = useState([]);
   const [newEmail, setNewEmail] = useState('');
 
   const willShow = show;
@@ -29,7 +30,7 @@ const Modal = ({
         body: newBody,
         name: newNick,
         email: newEmail,
-        photos: [],
+        photos: newPhotos,
       };
       axios.post(`/qa/answers/add/${id}`, answerForm, {
         headers: { Authorization: authToken },
@@ -101,7 +102,16 @@ const Modal = ({
               />
             </div>
             <br />
-            <div>Upload Your Photos:</div>
+            <div>
+              Upload Your Photos:
+              <br />
+              <input
+                className="qa-modal-photo-body"
+                type="text"
+                maxLength="60"
+                onChange={(e) => setNewPhoto([e.target.value])}
+              />
+            </div>
             <br />
             <div>
               <input
