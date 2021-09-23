@@ -1,5 +1,11 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useContext, useEffect, useRef } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { authToken } from '../../../config';
@@ -7,6 +13,7 @@ import { authToken } from '../../../config';
 import Question from './Question';
 // import MoreQuestions from './MoreQuestions';
 import ProductContext from '../ProductContext';
+import Modal from './Modal';
 
 const QuestionList = ({ mockQuestions }) => {
   const productId = useContext(ProductContext);
@@ -18,6 +25,7 @@ const QuestionList = ({ mockQuestions }) => {
   const [displayMAQ, setMAQ] = React.useState(true);
   const [totalDisplayed, setTotalDisplayed] = React.useState(6);
   const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     // console.log('Product ID: ', productId);
@@ -39,6 +47,25 @@ const QuestionList = ({ mockQuestions }) => {
         .catch((err) => console.log(err));
     }
   }, [productId]);
+
+  const onClick = () => {
+    if (show === true) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
+
+  const getQuestions = () => {
+    axios.get(`/qa/questions/answers/${productId}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((res) => {
+        allQuestions = res.data.results;
+        setMAQ(true);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const setDisplayList = () => {
     // console.log('Current Total', totalDisplayed);
@@ -87,9 +114,16 @@ const QuestionList = ({ mockQuestions }) => {
           className="qa-add-question"
           type="button"
           value="ADD A QUESTION +"
-          onClick={() => console.log('Add A Question Clicked')}
+          onClick={() => onClick()}
         />
       </form>
+      <Modal
+        show={show}
+        click={onClick}
+        submit={getQuestions}
+        id={productId}
+        type="question"
+      />
     </div>
   );
 };

@@ -49,10 +49,11 @@ const Modal = ({
         email: newEmail,
         product_id: id,
       };
-      axios.post('/qa/questions', questionForm, {
+      axios.post(`/qa/questions/add/${id}`, questionForm, {
         headers: { Authorization: authToken },
       })
-        .then((response) => {
+        .then(() => {
+          click();
           // console.log('Added New Question ', response);
         })
         .catch((err) => console.log(err));
