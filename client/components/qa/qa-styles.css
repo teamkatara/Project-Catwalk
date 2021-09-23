@@ -233,6 +233,11 @@ br {
   height: 25px;
 }
 
+.qa-modal-photo-body {
+  width: 95%;
+  height: 25px;
+}
+
 .qa-modal-email-body {
   width: 95%;
   height: 25px;

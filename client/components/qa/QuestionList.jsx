@@ -43,7 +43,7 @@ const QuestionList = ({ mockQuestions }) => {
           const returnQuestions = Object.values(response.data.results);
           setAllQuestions(returnQuestions);
           setTotalDisplayed(6);
-          setQuestionList(returnQuestions);
+          setQuestionList(returnQuestions.slice(0, 4));
           setMAQ(true);
         })
         // .then(console.log('Get Answers'))
@@ -60,11 +60,14 @@ const QuestionList = ({ mockQuestions }) => {
   };
 
   const getQuestions = () => {
-    axios.get(`/qa/questions/answers/${productId}`, {
+    axios.get(`/qa/questions/${productId}`, {
       headers: { Authorization: authToken },
     })
       .then((res) => {
-        setAllQuestions(res.data.results);
+        const returnQuestions = Object.values(res.data.results);
+        setAllQuestions(returnQuestions);
+        setTotalDisplayed(6);
+        setQuestionList(returnQuestions);
         setMAQ(true);
       })
       .catch((err) => console.log(err));

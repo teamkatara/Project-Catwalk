@@ -52,7 +52,9 @@ const Question = ({ question }) => {
     axios.get(`/qa/questions/answers/${id}`, {
       headers: { Authorization: authToken },
     })
-      .then((res) => setAnswers(res.data.results))
+      .then((res) => {
+        setAnswers(res.data.results);
+      })
       .catch((err) => console.log(err));
   };
 
