@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import $ from 'jquery';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
@@ -28,6 +29,7 @@ class App extends React.Component {
     super();
 
     this.state = {
+      color: 'cornflowerblue',
       theme: true,
       product: product,
       styles: styles,
@@ -69,7 +71,9 @@ class App extends React.Component {
   }
 
   toggleTheme() {
+    $(document.body).toggleClass('active');
     this.setState({
+      color: this.state.color === 'cornflowerblue' ? 'indianred' : 'cornflowerblue',
       theme: !this.state.theme,
     });
   }
@@ -92,6 +96,7 @@ class App extends React.Component {
             clickedStyle={this.state.clickedStyle}
             reviews={this.state.reviews}
             updateProduct={this.updateProduct}
+            color={this.state.color}
           />
 
           <RelatedProductsWidget updateProductId={

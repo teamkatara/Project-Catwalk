@@ -1,17 +1,77 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { authToken } from '../../../config';
 // import Search from './Search';
 import Question from './Question';
 // import MoreQuestions from './MoreQuestions';
+import ProductContext from '../ProductContext';
+import Modal from './Modal';
 
-const QuestionList = ({ questions }) => {
-  const allQuestions = Object.values(questions);
+const QuestionList = ({ mockQuestions }) => {
+  const productId = useContext(ProductContext);
+  const firstRender = useRef(true);
+
+  // let allQuestions = Object.values(mockQuestions);
+  const [allQuestions, setAllQuestions] = useState(Object.values(mockQuestions));
   const { length } = allQuestions;
 
-  const [displayMAQ, setMAQ] = React.useState(true);
-  const [totalDisplayed, setTotalDisplayed] = React.useState(6);
-  const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
+  const [displayMAQ, setMAQ] = useState(true);
+  const [totalDisplayed, setTotalDisplayed] = useState(6);
+  const [questionList, setQuestionList] = useState(allQuestions.slice(0, 4));
+  const [show, setShow] = useState(false);
+
+  // if (allQuestions.length <= 4) { setMAQ(false); }
+
+  useEffect(() => {
+    // console.log('Product ID: ', productId);
+    if (firstRender.current) {
+      // console.log('Questions: ', allQuestions);
+      firstRender.current = false;
+    } else {
+      axios.get(`/qa/questions/${productId}`, {
+        headers: { Authorization: authToken },
+      })
+        .then((response) => {
+          const returnQuestions = Object.values(response.data.results);
+          setAllQuestions(returnQuestions);
+          setTotalDisplayed(6);
+          setQuestionList(returnQuestions.slice(0, 4));
+          setMAQ(true);
+        })
+        // .then(console.log('Get Answers'))
+        .catch((err) => console.log(err));
+    }
+  }, [productId]);
+
+  const onClick = () => {
+    if (show === true) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
+
+  const getQuestions = () => {
+    axios.get(`/qa/questions/${productId}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((res) => {
+        const returnQuestions = Object.values(res.data.results);
+        setAllQuestions(returnQuestions);
+        setTotalDisplayed(6);
+        setQuestionList(returnQuestions);
+        setMAQ(true);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const setDisplayList = () => {
     // console.log('Current Total', totalDisplayed);
@@ -60,15 +120,22 @@ const QuestionList = ({ questions }) => {
           className="qa-add-question"
           type="button"
           value="ADD A QUESTION +"
-          onClick={() => console.log('Add A Question Clicked')}
+          onClick={() => onClick()}
         />
       </form>
+      <Modal
+        show={show}
+        click={onClick}
+        submit={getQuestions}
+        id={productId}
+        type="question"
+      />
     </div>
   );
 };
 
 QuestionList.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  mockQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };

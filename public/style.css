@@ -3,12 +3,26 @@ body {
   margin: 0 10%;
   font-family: 'Roboto', sans-serif;
   font-size: medium;
+  color: cornflowerblue;
+  background-color: azure;
+  border-color: cornflowerblue;
+}
+
+body.active {
+  color: indianred;
+  background-color: rgba(60, 64, 66, 255);
+  border-color: indianred;
 }
 
 .navbar {
   /* border: 1px solid black; */
   height: 10%;
 }
+
+.navbar.test {
+  height: 1000px
+}
+
 .brand-name {
   /* top: 1em; */
   bottom: 1em;
@@ -47,7 +61,7 @@ body {
 }
 
 .questions-answers {
-  border: 1px solid black;
+  border: 1px solid transparent;
   margin: 0 10%;
 }
 

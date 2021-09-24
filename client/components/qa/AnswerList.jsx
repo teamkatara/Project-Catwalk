@@ -1,18 +1,29 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Answer from './Answer';
 
 const AnswerList = ({ answers }) => {
-  const allAnswers = Object.values(answers);
+  const [allAnswers, setAllAnswers] = useState(Object.values(answers));
+  const firstRender = useRef(true);
   const { length } = allAnswers;
 
-  const [displayLMA, setLMA] = React.useState(true);
-  const [answerList, setAnswerList] = React.useState(allAnswers.slice(0, 2));
+  const [displayLMA, setLMA] = useState(true);
+  const [answerList, setAnswerList] = useState(allAnswers.slice(0, 2));
+
+  useEffect(() => {
+    if (firstRender.current) {
+      // console.log('Questions: ', allQuestions);
+      firstRender.current = false;
+    } else {
+      setAllAnswers(Object.values(answers));
+      setLMA(true);
+      setAnswerList(Object.values(answers).slice(0, 2));
+    }
+  }, [answers]);
 
   const setDisplayList = () => {
-    console.log('Clicked LMA');
-    setAnswerList(() => allAnswers);
+    setAnswerList(allAnswers);
     setLMA(false);
   };
 

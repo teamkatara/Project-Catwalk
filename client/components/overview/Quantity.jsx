@@ -12,14 +12,14 @@ const helper = (stock) => {
   return options;
 };
 
-const Quantity = ({ quantitySelect, stock, inStock }) => (
+const Quantity = ({ quantitySelect, stock, inStock, color }) => (
   <span onChange={quantitySelect}>
     {inStock && (!!stock ? (
-      <select id="quantity-dd">
+      <select id="quantity-dd" style={{borderColor: color}}>
         {helper(stock)}
       </select>
     ) : (
-      <select id="quantity-dd">
+      <select id="quantity-dd" style={{borderColor: color}}>
         <option defaultValue>-</option>
         {helper(stock)}
       </select>

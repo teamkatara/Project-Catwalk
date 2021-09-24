@@ -56,7 +56,29 @@ router.get('/qa/questions/:question_id', (req, res) => {
 });
 
 router.get('/qa/questions/answers/:question_id', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers`, {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers/?count=10`, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.post('/qa/answers/add/:question_id', (req, res) => {
+  const newAnswer = req.body;
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${req.params.question_id}/answers`, newAnswer, {
+    headers: { Authorization: authToken },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+router.post('/qa/questions/add/:product_id', (req, res) => {
+  const newQuestion = req.body;
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', newQuestion, {
     headers: { Authorization: authToken },
   })
     .then((response) => {
@@ -107,6 +129,25 @@ router.get('/reviews/:product_id', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+router.post('/reviews', (req, res) => {
+  const newReview = req.body;
+  const headers = {
+    Authorization: authToken,
+    'Content-Type': 'application/json',
+  };
+
+  axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews', newReview, { headers })
+    .then((result) => {
+      console.log('successful review form post :) ');
+      res.status(200);
+      res.send(result.data);
+    })
+    .catch((err) => {
+      res.status(400);
+      res.end('Unable to complete post request for review form submission');
+    });
+});
+
 router.get('/reviews/meta/:product_id', (req, res) => {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?sort=newest&product_id=${req.params.product_id}&count=100`, {
     headers: { Authorization: authToken },
@@ -122,7 +163,6 @@ router.get('/product/rating/:id', (req, res) => {
     headers: { Authorization: authToken },
   })
     .then((response) => {
-      console.log(response);
       res.send(JSON.stringify(response.data.results
         .map((review) => review.rating)
         .reduce((previous, current) => previous + current, 0) / response.data.results.length));
