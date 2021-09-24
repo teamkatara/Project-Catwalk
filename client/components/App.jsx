@@ -10,16 +10,14 @@ import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
 import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
 import RelatedProductsWidget from './related/RelatedProductsWidget';
 
-import product from '../mock-data/sample-product.json';
-import styles from '../mock-data/sample-styles.json';
-import reviews from '../mock-data/sample-reviews.json';
+import mockProduct from '../mock-data/sample-product.json';
+import mockStyles from '../mock-data/sample-styles.json';
+import mockReviews from '../mock-data/sample-reviews.json';
 
-const findDefault = (styles) => {
+const findDefault = ({ results }) => {
   let defaultStyle;
-  styles.results.forEach((style) => {
-    if (style['default?']) {
-      defaultStyle = style;
-    }
+  results.forEach((style) => {
+    if (style['default?']) { defaultStyle = style; }
   });
   return defaultStyle;
 };
@@ -31,10 +29,10 @@ class App extends React.Component {
     this.state = {
       color: 'cornflowerblue',
       theme: true,
-      product: product,
-      styles: styles,
-      clickedStyle: findDefault(styles),
-      reviews: reviews.results.length,
+      product: mockProduct,
+      styles: mockStyles,
+      clickedStyle: findDefault(mockStyles),
+      reviews: mockReviews.results.length,
       productId: 404579,
     };
 
@@ -44,13 +42,10 @@ class App extends React.Component {
     this.updateProductId = this.updateProductId.bind(this);
   }
 
-  componentDidMount() {
-  }
-
   updateProduct(product, styles, reviews) {
     this.setState({
-      product: product,
-      styles: styles,
+      product,
+      styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
     });
@@ -109,4 +104,3 @@ class App extends React.Component {
 }
 
 export default App;
-

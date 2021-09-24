@@ -37,7 +37,7 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
       <div id="product-info-container">
         <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} color={color}/>
         <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} color={color}/>
-        <Buy clickedStyle={clickedStyle} color={color}/>
+        <Buy clickedStyle={clickedStyle} color={color} />
       </div>
       <ProductDescription description={product.description} slogan={product.slogan} color={color}/>
       <ProductFeatures features={product.features} />
