@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import RelatedRating from './RelatedRating.jsx';
 import Thumbnail from './Thumbnail.jsx';
@@ -7,22 +8,21 @@ import relatedProductList from '../related-data/related-products.json';
 import relatedStyles from '../related-data/related-styles.json';
 import currentProductInfo from '../../../mock-data/sample-product.json';
 
-const RelatedCard = ({ id, updateProductId }) => {
-  let currentProduct;
-  let currentStyle;
+const RelatedCard = ({
+  id,
+  updateProductId,
+  currentProductInfo,
+  currentP,
+  currentS,
+  ratings,
+}) => {
   const characteristics = [];
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < relatedProductList.length; i++) {
-    if (id === relatedProductList[i].id || id === relatedStyles[i].id) {
-      // eslint-disable-next-line prefer-destructuring
-      currentProduct = relatedProductList[i];
-      currentStyle = relatedStyles[i];
-    }
-  }
+  const [currentProduct] = useState(currentP);
+  const [currentStyle] = useState(currentS);
+  const [currentReview] = useState(ratings);
 
   const main = Object.values(currentProductInfo.features);
   const mainMap = main.map((feature) => feature.feature);
-  // ["Cut", "Fair Trade Certified"]
   const current = Object.values(currentProduct.features);
   const currentMap = current.map((feature) => feature.feature);
 
@@ -84,7 +84,7 @@ const RelatedCard = ({ id, updateProductId }) => {
   return (
     <div className="card">
       <Thumbnail
-        image={currentStyle.thumbnail}
+        image={currentStyle.results[0].photos[0].thumbnail_url}
         list={characteristics}
         product={currentProductInfo.name}
         current={currentProduct.name}
@@ -104,7 +104,7 @@ const RelatedCard = ({ id, updateProductId }) => {
           $
           {currentProduct.default_price}
         </span>
-        <RelatedRating score={4.8} />
+        <RelatedRating score={currentReview} />
       </div>
     </div>
   );
@@ -113,6 +113,27 @@ const RelatedCard = ({ id, updateProductId }) => {
 RelatedCard.propTypes = {
   id: PropTypes.number.isRequired,
   updateProductId: PropTypes.func.isRequired,
+  currentProductInfo: PropTypes.objectOf(
+    [
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.object,
+    ],
+  ).isRequired,
+  currentP: PropTypes.objectOf(
+    [
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.object,
+    ],
+  ).isRequired,
+  currentS: PropTypes.objectOf(
+    [
+      PropTypes.string,
+      PropTypes.object,
+    ],
+  ).isRequired,
+  ratings: PropTypes.number.isRequired,
 };
 
 export default RelatedCard;

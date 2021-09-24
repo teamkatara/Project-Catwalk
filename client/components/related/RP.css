@@ -29,7 +29,24 @@
   cursor: pointer;
   width: 20rem;
   height: 33vh;
+  padding: 12px;
+}
+
+.card-button {
+  cursor: pointer;
+  width: 20rem;
+  height: 33vh;
   padding: 12;
+}
+
+.add-button {
+  /* width: 10rem;
+  height: 7rem;
+  padding: 10;
+  z-index: 5; */
+  position: absolute;
+  left: 37%;
+  top: 40%;
 }
 
 .related-arrow-left, .related-arrow-right {
@@ -89,6 +106,7 @@
   text-align: left;
   height: fit-content;
   border: 1px solid black;
+  background-color: inherit;
 }
 
 .text {
