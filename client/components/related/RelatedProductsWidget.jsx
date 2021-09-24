@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import RelatedCard from './CardDetails/RelatedCard';
-import RelatedCarousel from './CardDetails/RelatedCarousel';
+import RelatedCard from './CardDetails/RelatedCard.jsx';
+import RelatedCarousel from './CardDetails/RelatedCarousel.jsx';
 import './RP.css';
 import relatedlist from '../../mock-data/sample-related.json';
 

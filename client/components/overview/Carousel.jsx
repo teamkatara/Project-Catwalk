@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { BiLeftArrowAlt, BiRightArrowAlt, BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi';
 import { RiFullscreenFill } from 'react-icons/ri';
-import ImageGallery from './ImageGallery';
-import Modal from './Modal';
+import ImageGallery from './ImageGallery.jsx';
+import Modal from './Modal.jsx';
 
 const Carousel = ({ clickedStyle }) => {
   const [current, setCurrent] = useState(0);
