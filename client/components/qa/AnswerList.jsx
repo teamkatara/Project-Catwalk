@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Answer from './Answer';
+import Answer from './Answer.jsx';
 
 const AnswerList = ({ answers }) => {
   const [allAnswers, setAllAnswers] = useState(Object.values(answers));

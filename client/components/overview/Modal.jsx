@@ -8,7 +8,7 @@ const Modal = ({ url, showModal, setModal }) => {
   return ReactDOM.createPortal(
     <div className="modal-container">
       <div className="image-modal-container">
-        <img className="image-modal" src={url} />
+        <img className="image-modal" src={url} alt="" />
         <VscChromeClose className="modal-exit" onClick={() => setModal(false)} />
       </div>
     </div>,

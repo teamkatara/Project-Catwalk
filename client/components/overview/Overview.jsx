@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
-import ProductContext from '../ProductContext';
+import ProductContext from '../ProductContext.jsx';
 
-import Info from './Info';
-import Carousel from './Carousel';
-import StyleSelector from './StyleSelector';
-import Buy from './Buy';
-import ProductDescription from './ProductDescription';
-import ProductFeatures from './ProductFeatures';
+import Info from './Info.jsx';
+import Carousel from './Carousel.jsx';
+import StyleSelector from './StyleSelector.jsx';
+import Buy from './Buy.jsx';
+import ProductDescription from './ProductDescription.jsx';
+import ProductFeatures from './ProductFeatures.jsx';
 
 const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateProduct, color }) => {
   const productId = useContext(ProductContext);
@@ -28,13 +28,17 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
                     .then((resultRelated) => {
                       axios.get(`/product/rating/${productId}`)
                         .then((rating) => {
-                          updateProduct(
-                            resultProduct.data,
-                            resultStyles.data,
-                            resultReviews.data,
-                            resultRelated.data,
-                            rating.data,
-                          );
+                          axios.get(`./reviews/meta/${productId}`)
+                            .then((metaResults) => {
+                               updateProduct(
+                                 resultProduct.data,
+                                 resultStyles.data,
+                                 resultReviews.data,
+                                 metaResults.data,
+                                 resultRelated.data,
+                                 rating.data,
+                               );
+                            });
                         });
                     });
                 });

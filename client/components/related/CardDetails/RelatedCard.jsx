@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import RelatedRating from './RelatedRating';
-import Thumbnail from './Thumbnail';
+import RelatedRating from './RelatedRating.jsx';
+import Thumbnail from './Thumbnail.jsx';
+import relatedProductList from '../related-data/related-products.json';
+import relatedStyles from '../related-data/related-styles.json';
+import currentProductInfo from '../../../mock-data/sample-product.json';
 
 const RelatedCard = ({
   id,

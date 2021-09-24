@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import NewReview from './NewReview';
+import NewReview from './NewReview.jsx';
 
 const Modal = ({ show, clickHandler, characters, productId,
 }) => {
@@ -13,7 +13,7 @@ const Modal = ({ show, clickHandler, characters, productId,
     );
   }
   const Close = (
-    <button type="button" className="close-button" onClick={clickHandler}>x</button>
+    <button type="button" aria-label="Close Add Review" className="close-button" onClick={clickHandler}>x</button>
   );
 
   return (

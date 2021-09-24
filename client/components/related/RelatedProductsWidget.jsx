@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import RelatedCard from './CardDetails/RelatedCard';
-import OutfitCard from './CardDetails/OutfitCard';
-import RelatedCarousel from './CardDetails/RelatedCarousel';
-import OutfitCarousel from './CardDetails/OutfitCarousel';
+import RelatedCard from './CardDetails/RelatedCard.jsx';
+import OutfitCard from './CardDetails/OutfitCard.jsx';
+import RelatedCarousel from './CardDetails/RelatedCarousel.jsx';
+import OutfitCarousel from './CardDetails/OutfitCarousel.jsx';
+
 import './RP.css';
 import relatedProductList from './related-data/related-products.json';
 import relatedStyles from './related-data/related-styles.json';
