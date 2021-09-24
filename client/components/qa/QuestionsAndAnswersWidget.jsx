@@ -2,7 +2,7 @@
 import './qa-styles.css';
 import React from 'react';
 
-import QuestionList from './QuestionList';
+import QuestionList from './QuestionList.jsx';
 import QuestionData from '../../mock-data/sample-questions.json';
 
 const QuestionsAndAnswersWidget = () => {

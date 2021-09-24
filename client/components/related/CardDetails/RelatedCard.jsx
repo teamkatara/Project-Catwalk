@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
-import RelatedRating from './RelatedRating';
-import Thumbnail from './Thumbnail';
+import RelatedRating from './RelatedRating.jsx';
+import Thumbnail from './Thumbnail.jsx';
 import relatedProductList from '../related-data/related-products.json';
 import relatedStyles from '../related-data/related-styles.json';
 import currentProductInfo from '../../../mock-data/sample-product.json';

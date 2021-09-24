@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useContext, useEffect, useRef } from 'react';
 import axios from 'axios';
-import ProductContext from '../ProductContext';
+import ProductContext from '../ProductContext.jsx';
 
-import Info from './Info';
-import Carousel from './Carousel';
-import StyleSelector from './StyleSelector';
-import Buy from './Buy';
-import ProductDescription from './ProductDescription';
-import ProductFeatures from './ProductFeatures';
+import Info from './Info.jsx';
+import Carousel from './Carousel.jsx';
+import StyleSelector from './StyleSelector.jsx';
+import Buy from './Buy.jsx';
+import ProductDescription from './ProductDescription.jsx';
+import ProductFeatures from './ProductFeatures.jsx';
 
 const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateProduct, color }) => {
   const productId = useContext(ProductContext);

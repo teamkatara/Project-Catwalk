@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './NewReview.css';
-import Modal from './Modal';
+import Modal from './Modal.jsx';
 
 const AddReview = ({ characters, productId }) => {
   const [show, setShow] = useState(false);

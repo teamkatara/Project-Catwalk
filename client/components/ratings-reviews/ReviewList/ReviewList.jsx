@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import './ReviewList.css';
 
-import ReviewTile from './ReviewTile';
+import ReviewTile from './ReviewTile.jsx';
 
 import mockReviews from '../../../mock-data/sample-reviews.json';
 

@@ -7,13 +7,18 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RatingBreakdown.css';
-import RatingSummary from './RatingSummary';
-import CharacterBars from './CharacterBars';
+import RatingSummary from './RatingSummary.jsx';
+import CharacterBars from './CharacterBars.jsx';
 
 const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
   const [currentFilters, setCurrentFilters] = useState([]);
   const [allReviews, setAllReviews] = useState(reviews);
   const [displayedReviews, setDisplayedReviews] = useState(reviews);
+  const [characters, setCharacters] = useState(reviewMeta.characteristics);
+
+  useEffect(() => {
+    setCharacters(reviewMeta.characteristics);
+  }, [reviewMeta]);
 
   const calcRatingBreakdown = () => {
     let scoreTotal = 0;
@@ -120,7 +125,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
           {`${results.recNum}% of reviews recommend this product`}
         </div>
         <div className="product-breakdown">
-          <CharacterBars characters={reviewMeta.characteristics} />
+          <CharacterBars characters={characters} />
         </div>
       </div>
     );

@@ -4,11 +4,11 @@ import $ from 'jquery';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
-import ProductContext from './ProductContext';
-import Overview from './overview/Overview';
-import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
-import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
-import RelatedProductsWidget from './related/RelatedProductsWidget';
+import ProductContext from './ProductContext.jsx';
+import Overview from './overview/Overview.jsx';
+import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget.jsx';
+import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget.jsx';
+import RelatedProductsWidget from './related/RelatedProductsWidget.jsx';
 
 import product from '../mock-data/sample-product.json';
 import styles from '../mock-data/sample-styles.json';

@@ -1,5 +1,5 @@
 import React from 'react';
-import AverageRating from '../shared/AverageRating';
+import AverageRating from '../shared/AverageRating.jsx';
 
 const Info = ({ product, clickedStyle, reviews, color }) => (
   <div id="main">

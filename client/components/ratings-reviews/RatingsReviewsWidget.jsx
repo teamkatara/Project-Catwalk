@@ -5,15 +5,15 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import ProductContext from '../ProductContext';
+import ProductContext from '../ProductContext.jsx';
 import { authToken } from '../../../config';
 
 import './RatingsReviews.css';
-import RatingBreakdown from './RatingBreakdown/RatingBreakdown';
-import ReviewList from './ReviewList/ReviewList';
-import Sort from './Sort';
+import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
+import ReviewList from './ReviewList/ReviewList.jsx';
+import Sort from './Sort.jsx';
 // import NewReview from './NewReview/NewReview';
-import AddReview from './NewReview/AddReview';
+import AddReview from './NewReview/AddReview.jsx';
 
 import mockReviewMeta from '../../mock-data/sample-review-meta.json';
 import mockReviews from '../../mock-data/sample-reviews.json';
