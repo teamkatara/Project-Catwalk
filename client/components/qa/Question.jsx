@@ -8,7 +8,7 @@ import { authToken } from '../../../config';
 import AnswerList from './AnswerList.jsx';
 import Modal from './Modal.jsx';
 
-const Question = ({ question }) => {
+const Question = ({ question, color }) => {
   const {
     question_id: id,
     question_body: body,
@@ -76,7 +76,7 @@ const Question = ({ question }) => {
           <div id="qa-add-answer" onClick={() => onClick()}>Add Answer</div>
         </div>
       </div>
-      <AnswerList answers={newAnswers} id={id} />
+      <AnswerList answers={newAnswers} id={id} color={color} />
       <Modal
         show={show}
         click={onClick}
@@ -89,6 +89,7 @@ const Question = ({ question }) => {
 };
 
 Question.propTypes = {
+  color: PropTypes.string.isRequired,
   question: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.object,
@@ -97,7 +98,6 @@ Question.propTypes = {
       PropTypes.boolean,
     ]),
   ).isRequired,
-
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };
