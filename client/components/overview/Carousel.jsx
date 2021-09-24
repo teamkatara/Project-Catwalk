@@ -9,7 +9,7 @@ const Carousel = ({ clickedStyle }) => {
   const [showModal, setModal] = useState(false);
   const [gallery, setGallery] = useState(0);
   const [yPos, setYPos] = useState(0);
-  const length = clickedStyle.photos.length;
+  const { length } = clickedStyle.photos;
   const url = useRef();
 
   const nextSlide = () => {
@@ -25,7 +25,6 @@ const Carousel = ({ clickedStyle }) => {
   return (
     <div className="slider">
       <ImageGallery yPos={yPos} photos={clickedStyle.photos} current={current} setCurrent={setCurrent} />
-      <Modal url={url.current} showModal={showModal} setModal={setModal} />
       <RiFullscreenFill className="expand" onClick={() => setModal(!showModal)} />
       {current !== 0 && <BiLeftArrowAlt className="left-arrow" onClick={prevSlide} />}
       {current !== length - 1 && <BiRightArrowAlt className="right-arrow" onClick={nextSlide} />}
@@ -39,6 +38,7 @@ const Carousel = ({ clickedStyle }) => {
           </div>
         );
       })}
+      <Modal url={url.current} showModal={showModal} setModal={setModal} photos={clickedStyle.photos} setCurrent={setCurrent} current={current}/>
     </div>
   );
 };

@@ -110,16 +110,3 @@ class App extends React.Component {
 
 export default App;
 
-// const App = () => (
-  //   <div>
-  //     <div className="navbar">Logo </div>
-
-  //     <ProductOverviewWidget />
-
-  //     <RelatedProductsWidget />
-
-  //     <QuestionsAndAnswersWidget />
-
-  //     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-  //   </div>
-// );
