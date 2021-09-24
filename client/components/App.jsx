@@ -81,11 +81,17 @@ class App extends React.Component {
     return (
       <div>
         <div className="navbar">
-          {this.state.theme
-            ? <IoWaterOutline className="logo" onClick={this.toggleTheme} />
-            : <AiOutlineFire className="logo" onClick={this.toggleTheme} />}
-          <span className="brand-name">Team Katara</span>
-          <IoBagOutline className="bag" />
+          <div>
+            {this.state.theme
+              ? <IoWaterOutline className="logo" onClick={this.toggleTheme} />
+              : <AiOutlineFire className="logo" onClick={this.toggleTheme} />}
+          </div>
+          <div>
+            <span className="brand-name">Team Katara</span>
+          </div>
+          <div>
+            <IoBagOutline className="bag" />
+          </div>
         </div>
         <ProductContext.Provider value={this.state.productId}>
           <Overview
