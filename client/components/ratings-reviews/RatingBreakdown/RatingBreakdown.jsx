@@ -124,6 +124,7 @@ const RatingBreakdown = ({ reviewMeta, reviews, sortReviewHandler }) => {
         </div>
       </div>
     );
+  // eslint-disable-next-line no-else-return
   } else {
     return (
       <div className="rating-breakdown">

@@ -10,6 +10,21 @@ import ReviewTile from './ReviewTile';
 import mockReviews from '../../../mock-data/sample-reviews.json';
 
 const ReviewList = ({ reviews }) => {
+  // useEffect(() => {
+  //   (
+  //     <div>
+  //       { reviews.map((item) => {
+  //         return (
+  //           <>
+  //             <ReviewTile key={item.review_id} review={item} />
+  //             <hr />
+  //           </>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // }, [reviews]);
+
   return (
     <div>
       { reviews.map((item) => {

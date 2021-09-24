@@ -24,7 +24,10 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
             .then((resultStyles) => (
               axios.get(`/reviews/${productId}`)
                 .then((resultReviews) => (
-                  updateProduct(resultProduct.data, resultStyles.data, resultReviews.data)
+                  axios.get(`./reviews/meta/${productId}`)
+                    .then((metaResults) => {
+                      updateProduct(resultProduct.data, resultStyles.data, resultReviews.data, metaResults.data);
+                    })
                 ))
             ))
         ));

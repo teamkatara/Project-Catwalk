@@ -47,12 +47,14 @@ class App extends React.Component {
   componentDidMount() {
   }
 
-  updateProduct(product, styles, reviews) {
+  updateProduct(product, styles, reviews, metaData) {
     this.setState({
       product: product,
       styles: styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      allReviews: reviews.results,
+      reviewMeta: metaData,
     });
   }
 
@@ -101,7 +103,7 @@ class App extends React.Component {
 
           <QuestionsAndAnswersWidget />
 
-          <RatingsReviewsWidget />
+          <RatingsReviewsWidget reviews={this.state.allReviews} reviewMeta={this.state.reviewMeta}/>
         </ProductContext.Provider>
       </div>
     );
