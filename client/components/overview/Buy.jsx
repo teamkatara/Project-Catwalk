@@ -1,9 +1,9 @@
 /* eslint-disable no-alert */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Size from './Size';
-import Quantity from './Quantity';
-import AddtoCart from './AddtoCart';
+import Size from './Size.jsx';
+import Quantity from './Quantity.jsx';
+import AddtoCart from './AddtoCart.jsx';
 
 const inStock = (skus) => {
   let count = 0;

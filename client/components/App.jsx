@@ -4,11 +4,11 @@ import $ from 'jquery';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
-import ProductContext from './ProductContext';
-import Overview from './overview/Overview';
-import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
-import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
-import RelatedProductsWidget from './related/RelatedProductsWidget';
+import ProductContext from './ProductContext.jsx';
+import Overview from './overview/Overview.jsx';
+import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget.jsx';
+import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget.jsx';
+import RelatedProductsWidget from './related/RelatedProductsWidget.jsx';
 
 import mockProduct from '../mock-data/sample-product.json';
 import mockStyles from '../mock-data/sample-styles.json';
@@ -33,7 +33,9 @@ class App extends React.Component {
       styles: mockStyles,
       clickedStyle: findDefault(mockStyles),
       reviews: mockReviews.results.length,
+      related: [40450, 40641, 40551, 40751, 40932, 41032, 40800],
       productId: 404579,
+      rating: 5,
     };
 
     this.updateProduct = this.updateProduct.bind(this);
@@ -42,12 +44,16 @@ class App extends React.Component {
     this.updateProductId = this.updateProductId.bind(this);
   }
 
-  updateProduct(product, styles, reviews) {
+  updateProduct(product, styles, reviews, metaData, related, rating) {
     this.setState({
       product,
       styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      allReviews: reviews.results,
+      reviewMeta: metaData,
+      related: related,
+      rating: rating,
     });
   }
 
@@ -92,11 +98,17 @@ class App extends React.Component {
             color={this.state.color}
           />
 
-          <RelatedProductsWidget updateProductId={this.updateProductId} />
+          <RelatedProductsWidget
+            updateProductId={this.updateProductId}
+            rel={this.state.related}
+            currentId={this.state.productId}
+            currentProduct={this.state.product}
+            rating={this.state.rating}
+          />
 
-          <QuestionsAndAnswersWidget />
+          <QuestionsAndAnswersWidget color={this.state.color} />
 
-          <RatingsReviewsWidget />
+          <RatingsReviewsWidget reviews={this.state.allReviews} reviewMeta={this.state.reviewMeta}/>
         </ProductContext.Provider>
       </div>
     );

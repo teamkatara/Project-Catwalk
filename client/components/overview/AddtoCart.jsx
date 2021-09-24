@@ -7,7 +7,7 @@ const AddtoCart = ({
   addToBag,
   color,
 }) => (
-  <button type="button" style={{ borderColor: color }} id="a2b" onClick={() => addToBag(sku, quantity)}>
+  <button type="button" aria-label="Add to Bag" style={{ borderColor: color }} id="a2b" onClick={() => addToBag(sku, quantity)}>
     Add to Bag
   </button>
 );

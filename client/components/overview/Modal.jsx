@@ -20,7 +20,7 @@ const Modal = ({ url, showModal, setModal, photos, setCurrent, current }) => {
         : <BsDot onClick={() => setBoth(photo, i)} className="bs-dot" />)}
       </div>
       <div className="image-modal-container">
-        <img className="image-modal" src={modalUrl} />
+        <img className="image-modal" src={url} alt="" />
         <VscChromeClose className="modal-exit" onClick={() => setModal(false)} />
       </div>
     </div>,

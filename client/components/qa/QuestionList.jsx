@@ -1,17 +1,77 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
-import PropTypes from 'prop-types';
-// import Search from './Search';
-import Question from './Question';
-// import MoreQuestions from './MoreQuestions';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
-const QuestionList = ({ questions }) => {
-  const allQuestions = Object.values(questions);
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { authToken } from '../../../config';
+// import Search from './Search';
+import Question from './Question.jsx';
+// import MoreQuestions from './MoreQuestions';
+import ProductContext from '../ProductContext.jsx';
+import Modal from './Modal.jsx';
+
+const QuestionList = ({ mockQuestions, color }) => {
+  const productId = useContext(ProductContext);
+  const firstRender = useRef(true);
+
+  // let allQuestions = Object.values(mockQuestions);
+  const [allQuestions, setAllQuestions] = useState(Object.values(mockQuestions));
   const { length } = allQuestions;
 
-  const [displayMAQ, setMAQ] = React.useState(true);
-  const [totalDisplayed, setTotalDisplayed] = React.useState(6);
-  const [questionList, setQuestionList] = React.useState(allQuestions.slice(0, 4));
+  const [displayMAQ, setMAQ] = useState(true);
+  const [totalDisplayed, setTotalDisplayed] = useState(6);
+  const [questionList, setQuestionList] = useState(allQuestions.slice(0, 4));
+  const [show, setShow] = useState(false);
+
+  // if (allQuestions.length <= 4) { setMAQ(false); }
+
+  useEffect(() => {
+    // console.log('Product ID: ', productId);
+    if (firstRender.current) {
+      // console.log('Questions: ', allQuestions);
+      firstRender.current = false;
+    } else {
+      axios.get(`/qa/questions/${productId}`, {
+        headers: { Authorization: authToken },
+      })
+        .then((response) => {
+          const returnQuestions = Object.values(response.data.results);
+          setAllQuestions(returnQuestions);
+          setTotalDisplayed(6);
+          setQuestionList(returnQuestions.slice(0, 4));
+          setMAQ(true);
+        })
+        // .then(console.log('Get Answers'))
+        .catch((err) => console.log(err));
+    }
+  }, [productId]);
+
+  const onClick = () => {
+    if (show === true) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
+
+  const getQuestions = () => {
+    axios.get(`/qa/questions/${productId}`, {
+      headers: { Authorization: authToken },
+    })
+      .then((res) => {
+        const returnQuestions = Object.values(res.data.results);
+        setAllQuestions(returnQuestions);
+        setTotalDisplayed(6);
+        setQuestionList(returnQuestions);
+        setMAQ(true);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const setDisplayList = () => {
     // console.log('Current Total', totalDisplayed);
@@ -27,7 +87,10 @@ const QuestionList = ({ questions }) => {
 
   return (
     <div>
-      <div className="qa-search flex-container">
+      <div
+        className="qa-search flex-container"
+        style={{ color, borderColor: color }}
+      >
         <input
           id="qa-search-text"
           type="text"
@@ -45,7 +108,7 @@ const QuestionList = ({ questions }) => {
       </div>
       <div className="qa-question-list">
         { questionList.map((question) => (
-          <Question question={question} />
+          <Question question={question} color={color} />
         )) }
       </div>
       <form className="qa-question-buttons">
@@ -54,21 +117,30 @@ const QuestionList = ({ questions }) => {
           type="button"
           value="MORE ANSWERED QUESTIONS"
           onClick={() => setDisplayList()}
-          style={{ display: displayMAQ ? 'inline' : 'none' }}
+          style={{ color, borderColor: color, display: displayMAQ ? 'inline' : 'none' }}
         />
         <input
           className="qa-add-question"
           type="button"
           value="ADD A QUESTION +"
-          onClick={() => console.log('Add A Question Clicked')}
+          style={{ color, borderColor: color }}
+          onClick={() => onClick()}
         />
       </form>
+      <Modal
+        show={show}
+        click={onClick}
+        submit={getQuestions}
+        id={productId}
+        type="question"
+      />
     </div>
   );
 };
 
 QuestionList.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  mockQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  color: PropTypes.string.isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };
