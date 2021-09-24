@@ -63,9 +63,9 @@ class Buy extends React.Component {
         {inStock(Object.values(this.props.clickedStyle.skus)) &&
           <AddtoCart color={this.props.color} addToBag={this.addToBag} sku={this.state.sku} quantity={this.state.quantity} />}
           <span className="share-container" style={{borderColor: this.props.color}}>
-            <a href="https://www.facebook.com" target="_blank"><i className="fab fa-facebook-f fa-lg share"></i></a>
-            <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter fa-lg share"></i></a>
-            <a href="https://www.pinterest.com" target="_blank"><i className="fab fa-pinterest-p fa-lg share"></i></a>
+            <a href="https://www.facebook.com" aria-label="facebook" rel="noreferrer" target="_blank"><i className="fab fa-facebook-f fa-lg share"></i></a>
+            <a href="https://twitter.com" aria-label="twitter" rel="noreferrer" target="_blank"><i className="fab fa-twitter fa-lg share"></i></a>
+            <a href="https://www.pinterest.com" aria-label="pinterest" rel="noreferrer" target="_blank"><i className="fab fa-pinterest-p fa-lg share"></i></a>
           </span>
         </div>
       </div>

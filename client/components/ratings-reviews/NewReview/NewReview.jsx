@@ -369,7 +369,7 @@ const NewReview = ({ characters, closeHandler, productId }) => {
                   ))
                 }
             </div>
-            <button onClick={uploadHandler}>Upload</button>
+            <button aria-label="Upload Photos" onClick={uploadHandler}>Upload</button>
           </div>
 
           <div>

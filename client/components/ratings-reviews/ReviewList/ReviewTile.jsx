@@ -28,7 +28,7 @@ const ReviewTile = ({ review }) => {
       {review.response !== null ? (<div className="review-tile-response">{`Response from seller: ${review.response}`}</div>) : null}
       <div className="review-tile-photos">
         {review.photos.map((photo) => (
-          <img className="review-tile-thumbnail" src={photo.url} height="50" width="auto" loading="lazy" alt="" />))}
+          <img className="review-tile-thumbnail" src={photo.url} height="50" width="auto" loading="lazy" alt="review" />))}
       </div>
       <div className="review-tile-helpful">
         Was this review helpful?

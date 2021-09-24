@@ -14,7 +14,7 @@ const Modal = ({
   }
 
   const Close = (
-    <button type="button" className="close-button" onClick={click}>x</button>
+    <button type="button" aria-label="Close Related" className="close-button" onClick={click}>x</button>
   );
 
   return (

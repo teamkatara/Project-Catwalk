@@ -16,7 +16,7 @@ const Thumbnail = ({
   };
 
   const Star = (
-    <button type="button" className="button-style" onClick={onClick}>
+    <button type="button" aria-label="Open Comparison" className="button-style" onClick={onClick}>
       <i className="far fa-star star-image" />
     </button>
   );

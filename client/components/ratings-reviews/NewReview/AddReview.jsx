@@ -16,7 +16,7 @@ const AddReview = ({ characters, productId }) => {
   };
   return (
     <div>
-      <button type="button" onClick={clickHandler}>Add Review</button>
+      <button type="button" aria-label="Add Review" onClick={clickHandler}>Add Review</button>
       <Modal
         show={show}
         clickHandler={clickHandler}
