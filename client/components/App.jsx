@@ -112,7 +112,7 @@ class App extends React.Component {
             rating={this.state.rating}
           />
 
-          <QuestionsAndAnswersWidget />
+          <QuestionsAndAnswersWidget color={this.state.color} />
 
           <RatingsReviewsWidget reviews={this.state.allReviews} reviewMeta={this.state.reviewMeta}/>
         </ProductContext.Provider>
@@ -122,17 +122,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// const App = () => (
-  //   <div>
-  //     <div className="navbar">Logo </div>
-
-  //     <ProductOverviewWidget />
-
-  //     <RelatedProductsWidget />
-
-  //     <QuestionsAndAnswersWidget />
-
-  //     <RatingsReviewsWidget reviews={['Ratings and Reviews', 'next review']} />
-  //   </div>
-// );

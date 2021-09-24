@@ -15,7 +15,7 @@ import Question from './Question.jsx';
 import ProductContext from '../ProductContext.jsx';
 import Modal from './Modal.jsx';
 
-const QuestionList = ({ mockQuestions }) => {
+const QuestionList = ({ mockQuestions, color }) => {
   const productId = useContext(ProductContext);
   const firstRender = useRef(true);
 
@@ -87,7 +87,10 @@ const QuestionList = ({ mockQuestions }) => {
 
   return (
     <div>
-      <div className="qa-search flex-container">
+      <div
+        className="qa-search flex-container"
+        style={{ color, borderColor: color }}
+      >
         <input
           id="qa-search-text"
           type="text"
@@ -105,7 +108,7 @@ const QuestionList = ({ mockQuestions }) => {
       </div>
       <div className="qa-question-list">
         { questionList.map((question) => (
-          <Question question={question} />
+          <Question question={question} color={color} />
         )) }
       </div>
       <form className="qa-question-buttons">
@@ -114,12 +117,13 @@ const QuestionList = ({ mockQuestions }) => {
           type="button"
           value="MORE ANSWERED QUESTIONS"
           onClick={() => setDisplayList()}
-          style={{ display: displayMAQ ? 'inline' : 'none' }}
+          style={{ color, borderColor: color, display: displayMAQ ? 'inline' : 'none' }}
         />
         <input
           className="qa-add-question"
           type="button"
           value="ADD A QUESTION +"
+          style={{ color, borderColor: color }}
           onClick={() => onClick()}
         />
       </form>
@@ -136,6 +140,7 @@ const QuestionList = ({ mockQuestions }) => {
 
 QuestionList.propTypes = {
   mockQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  color: PropTypes.string.isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };
