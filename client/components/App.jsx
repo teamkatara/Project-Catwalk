@@ -33,6 +33,7 @@ class App extends React.Component {
       styles: styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      related: [40450, 40641, 40551, 40751, 40932, 41032, 40800],
       productId: 404579,
     };
 
@@ -45,12 +46,13 @@ class App extends React.Component {
   componentDidMount() {
   }
 
-  updateProduct(product, styles, reviews) {
+  updateProduct(product, styles, reviews, related) {
     this.setState({
       product: product,
       styles: styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      related: related,
     });
   }
 
@@ -92,7 +94,12 @@ class App extends React.Component {
             updateProduct={this.updateProduct}
           />
 
-          <RelatedProductsWidget updateProductId={this.updateProductId} />
+          <RelatedProductsWidget updateProductId={
+            this.updateProductId}
+            rel={this.state.related}
+            currentId={this.state.productId}
+            product={this.state.product}
+          />
 
           <QuestionsAndAnswersWidget />
 

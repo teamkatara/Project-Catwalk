@@ -9,11 +9,13 @@ const RelatedCarousel = ({ related }) => {
   const [leftShow, setLeftShow] = useState(false);
   const [rightShow, setRightShow] = useState(true);
 
+  const index = related.length - 3;
+
   const nextSlide = () => {
-    if (current === related.length - 4) {
+    if (current === index - 1) {
       setCurrent(current + 1);
       setRightShow(false);
-    } else if (current !== related.length) {
+    } else if (current !== index) {
       setCurrent(current + 1);
       if (leftShow === false) {
         setLeftShow(true);
@@ -27,7 +29,7 @@ const RelatedCarousel = ({ related }) => {
       setLeftShow(false);
     } else if (current !== 0) {
       setCurrent(current - 1);
-      if (current !== related.length - 1 && rightShow === false) {
+      if (current !== index - 1 && rightShow === false) {
         setRightShow(true);
       }
     }
@@ -56,7 +58,7 @@ const RelatedCarousel = ({ related }) => {
       <div className="rc-wrapper">
         {leftArrow}
         {related.map((product) => (
-          <div className="carousel-content.show-3" style={{ transform: `translateX(-${current * (100)}%)` }}>
+          <div className="carousel-content.show-3" style={{ transform: `translateX(-${current * (100)}%)` }} key={product.key}>
             {product}
           </div>
         ))}
@@ -67,7 +69,7 @@ const RelatedCarousel = ({ related }) => {
 };
 
 RelatedCarousel.propTypes = {
-  related: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+  related: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default RelatedCarousel;
