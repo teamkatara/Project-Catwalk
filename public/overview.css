@@ -54,8 +54,8 @@
 }
 
 .images {
-  max-height: 600px;
   padding-right: 50px;
+  max-height: 600px;
   max-width: 825px;
   cursor: zoom-in;
 }
@@ -103,6 +103,13 @@
   font-size: 2rem;
   cursor: pointer;
   z-index: 3;
+}
+
+.up-arrow:hover, .right-arrow:hover,
+.down-arrow:hover, .left-arrow:hover, .expand:hover {
+  cursor: pointer;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .bs-dot-container {
@@ -270,14 +277,6 @@
   z-index: 100;
   right: 100px;
 }
-
-/* .photo-container {
-  cursor: pointer;
-}
-
-.photo-container.selected {
-  border-bottom: 3px solid black;
-} */
 
 .photo-entry {
   display: block;

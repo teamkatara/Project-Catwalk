@@ -30,14 +30,14 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
                         .then((rating) => {
                           axios.get(`./reviews/meta/${productId}`)
                             .then((metaResults) => {
-                               updateProduct(
-                                 resultProduct.data,
-                                 resultStyles.data,
-                                 resultReviews.data,
-                                 metaResults.data,
-                                 resultRelated.data,
-                                 rating.data,
-                               );
+                              updateProduct(
+                                resultProduct.data,
+                                resultStyles.data,
+                                resultReviews.data,
+                                metaResults.data,
+                                resultRelated.data,
+                                rating.data,
+                              );
                             });
                         });
                     });
