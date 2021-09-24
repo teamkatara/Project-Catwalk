@@ -35,7 +35,7 @@ router.get('/products/styles/:product_id', (req, res) => {
 
 // RELATED PRODUCTS ENDPOINTS
 
-router.get('/products/related/:product_id', (req, res) => {
+router.get('/products/:product_id/related', (req, res) => {
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.params.product_id}/related`, {
     headers: { Authorization: authToken },
   })
