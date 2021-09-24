@@ -6,7 +6,7 @@ import OutfitThumbnail from './OutfitThumbnail';
 import currentStyle from '../../../mock-data/sample-styles.json';
 import currentProductInfo from '../../../mock-data/sample-product.json';
 
-const OutfitCard = ({ id, updateProductId, removeFunction }) => {
+const OutfitCard = ({ id, updateProductId, removeFunction, rating}) => {
   const currentProduct = currentProductInfo;
 
   const removing = () => {
@@ -43,6 +43,7 @@ OutfitCard.propTypes = {
   id: PropTypes.number.isRequired,
   updateProductId: PropTypes.func.isRequired,
   removeFunction: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 export default OutfitCard;

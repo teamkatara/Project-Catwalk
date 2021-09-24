@@ -1,32 +1,44 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import RelatedCard from './CardDetails/RelatedCard';
 import OutfitCard from './CardDetails/OutfitCard';
 import RelatedCarousel from './CardDetails/RelatedCarousel';
 import OutfitCarousel from './CardDetails/OutfitCarousel';
 import './RP.css';
-// import currentProduct from '../../mock-data/sample-product.json';
+import relatedProductList from './related-data/related-products.json';
+import relatedStyles from './related-data/related-styles.json';
 
 const RelatedProductsWidget = ({
   updateProductId,
   rel,
   currentId,
   currentProduct,
+  currentRating,
 }) => {
   const firstRender = useRef(true);
   const [list, setList] = useState(rel);
   const [current, setCurrent] = useState(currentProduct);
   const [outfitList, setOutfit] = useState([]);
+  const [currentP, setP] = useState();
+  const [currentS, setS] = useState();
+  const [rating, setRating] = useState();
 
-  // window.localStorage.setItem('outfits', JSON.stringify(outfitList));
-
-  // console.log(rel);
-  // console.log(outfitList);
-
-  // const outfitP = JSON.parse(window.localStorage.getItem('outfits'));
-
-  // console.log('local storage', outfitP);
+  useEffect(() => {
+    axios.get(`/products/${currentId}`)
+      .then((resultProduct) => {
+        axios.get(`/products/styles/${currentId}`)
+          .then((resultStyles) => {
+            axios.get(`/product/rating/${currentId}`)
+              .then((resultReviews) => {
+                setP(resultProduct.data);
+                setS(resultStyles.data);
+                return setRating(resultReviews.data);
+              });
+          });
+      });
+  }, [currentId]);
 
   useEffect(() => {
     if (firstRender.current) {
@@ -37,18 +49,8 @@ const RelatedProductsWidget = ({
     }
   }, [rel]);
 
-  const products = list.map((product) => (
-    <RelatedCard
-      updateProductId={updateProductId}
-      id={product}
-      key={product}
-      currentProductInfo={currentProduct}
-    />
-  ));
-
   const click = (e) => {
     e.preventDefault();
-    console.log(currentId);
     if (outfitList.indexOf(currentId) === -1) {
       setOutfit(outfitList.concat(currentId));
       // window.localStorage.setItem('outfits', JSON.stringify(outfitList));
@@ -56,7 +58,6 @@ const RelatedProductsWidget = ({
   };
 
   const removed = (number) => {
-    console.log(number);
     setOutfit(outfitList.filter((outfit) => outfit !== number));
   };
 
@@ -74,16 +75,57 @@ const RelatedProductsWidget = ({
     ));
   }
 
-  console.log(outfits);
-  console.log(currentId);
+  let currentPro;
+  let currentSty;
+  let currentRa;
+
+  const products = list.map((product) => {
+    for (let i = 0; i < relatedProductList.length; i += 1) {
+      if (currentP || currentS || rating === undefined) {
+        if (product === relatedProductList[i].id || product === relatedStyles[i].id) {
+          // eslint-disable-next-line prefer-destructuring
+          currentPro = (relatedProductList[i]);
+          currentSty = relatedStyles[i];
+          currentRa = currentRating;
+        }
+      }
+    }
+    if (currentPro !== undefined || currentSty !== undefined) {
+      return (
+        <RelatedCard
+          updateProductId={updateProductId}
+          id={product}
+          key={product}
+          currentProductInfo={currentProduct}
+          currentP={currentPro}
+          currentS={currentSty}
+          ratings={currentRa}
+        />
+      );
+    }
+
+    return (
+      <RelatedCard
+        updateProductId={updateProductId}
+        id={product}
+        key={product}
+        currentProductInfo={currentProduct}
+        currentP={currentP}
+        currentS={currentS}
+        ratings={rating}
+      />
+    );
+  });
 
   return (
     <div className="related-products">
       <h3>Related Products</h3>
       <RelatedCarousel related={products} />
+      <h3>Outfit List</h3>
       <OutfitCarousel
         outfit={outfits}
-        currentP={current}
+        currentProduct={current}
+        rating={currentRating}
         click={click}
       />
     </div>
@@ -94,6 +136,7 @@ RelatedProductsWidget.propTypes = {
   updateProductId: PropTypes.func.isRequired,
   rel: PropTypes.arrayOf(PropTypes.number).isRequired,
   currentId: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 export default RelatedProductsWidget;

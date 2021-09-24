@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 
 const RelatedCarousel = ({ related }) => {
-  console.log(related);
-
   const [current, setCurrent] = useState(0);
   const [leftShow, setLeftShow] = useState(false);
   const [rightShow, setRightShow] = useState(true);
@@ -34,8 +32,6 @@ const RelatedCarousel = ({ related }) => {
       }
     }
   };
-
-  console.log(current);
 
   let rightArrow;
 

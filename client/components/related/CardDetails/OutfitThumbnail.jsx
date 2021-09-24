@@ -19,7 +19,6 @@ const Thumbnail = ({
     </button>
   );
 
-  // const Star = React.createElement('button', {type: 'button'}, 'Star');
   return (
     <div className="star-container">
       <div className="star-button">
@@ -29,8 +28,7 @@ const Thumbnail = ({
         onClick={() => updateProductId(id)}
         className="thumbnail"
         style={{ backgroundImage: `url(${image})` }}
-      >
-      </div>
+      />
     </div>
   );
 };

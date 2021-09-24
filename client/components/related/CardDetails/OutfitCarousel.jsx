@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 
 const OutfitCarousel = ({ outfit, click }) => {
-  console.log(outfit);
-
   const [current, setCurrent] = useState(0);
   const [leftShow, setLeftShow] = useState(false);
   const [rightShow, setRightShow] = useState(true);
@@ -40,8 +38,6 @@ const OutfitCarousel = ({ outfit, click }) => {
       }
     }
   };
-
-  console.log(current);
 
   let rightArrow;
 

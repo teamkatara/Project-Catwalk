@@ -19,23 +19,27 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
       firstRender.current = false;
     } else {
       axios.get(`/products/${productId}`)
-        .then((resultProduct) => (
+        .then((resultProduct) => {
           axios.get(`/products/styles/${productId}`)
-            .then((resultStyles) => (
+            .then((resultStyles) => {
               axios.get(`/reviews/${productId}`)
-                .then((resultReviews) => (
+                .then((resultReviews) => {
                   axios.get(`/products/${productId}/related`)
                     .then((resultRelated) => {
-                      updateProduct(
-                        resultProduct.data,
-                        resultStyles.data,
-                        resultReviews.data,
-                        resultRelated.data,
-                      );
-                    })
-                ))
-            ))
-        ));
+                      axios.get(`/product/rating/${productId}`)
+                        .then((rating) => {
+                          updateProduct(
+                            resultProduct.data,
+                            resultStyles.data,
+                            resultReviews.data,
+                            resultRelated.data,
+                            rating.data,
+                          );
+                        });
+                    });
+                });
+            });
+        });
     }
   }, [productId]);
 
