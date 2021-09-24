@@ -5,8 +5,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { authToken } from '../../../config';
-import AnswerList from './AnswerList';
-import Modal from './Modal';
+import AnswerList from './AnswerList.jsx';
+import Modal from './Modal.jsx';
 
 const Question = ({ question, color }) => {
   const {

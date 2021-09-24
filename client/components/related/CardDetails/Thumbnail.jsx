@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Modal from './Modal';
+import Modal from './Modal.jsx';
 
 const Thumbnail = ({
   id, image, list, product, current, updateProductId,
@@ -16,7 +16,7 @@ const Thumbnail = ({
   };
 
   const Star = (
-    <button type="button" className="button-style" onClick={onClick}>
+    <button type="button" aria-label="Open Comparison" className="button-style" onClick={onClick}>
       <i className="far fa-star star-image" />
     </button>
   );

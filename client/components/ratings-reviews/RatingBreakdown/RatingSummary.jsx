@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AverageRating from '../../shared/AverageRating';
+import AverageRating from '../../shared/AverageRating.jsx';
 
 const RatingSummary = ({ average }) => (
   <div className="rating-summary">

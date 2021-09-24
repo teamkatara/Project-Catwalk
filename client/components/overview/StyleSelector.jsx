@@ -1,5 +1,5 @@
 import React from 'react';
-import StyleEntry from './StyleEntry';
+import StyleEntry from './StyleEntry.jsx';
 
 let key = 0;
 

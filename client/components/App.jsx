@@ -4,11 +4,11 @@ import $ from 'jquery';
 import { IoBagOutline, IoWaterOutline } from 'react-icons/io5';
 import { AiOutlineFire } from 'react-icons/ai';
 
-import ProductContext from './ProductContext';
-import Overview from './overview/Overview';
-import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget';
-import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget';
-import RelatedProductsWidget from './related/RelatedProductsWidget';
+import ProductContext from './ProductContext.jsx';
+import Overview from './overview/Overview.jsx';
+import QuestionsAndAnswersWidget from './qa/QuestionsAndAnswersWidget.jsx';
+import RatingsReviewsWidget from './ratings-reviews/RatingsReviewsWidget.jsx';
+import RelatedProductsWidget from './related/RelatedProductsWidget.jsx';
 
 import product from '../mock-data/sample-product.json';
 import styles from '../mock-data/sample-styles.json';
@@ -47,12 +47,14 @@ class App extends React.Component {
   componentDidMount() {
   }
 
-  updateProduct(product, styles, reviews) {
+  updateProduct(product, styles, reviews, metaData) {
     this.setState({
       product: product,
       styles: styles,
       clickedStyle: findDefault(styles),
       reviews: reviews.results.length,
+      allReviews: reviews.results,
+      reviewMeta: metaData,
     });
   }
 
@@ -101,7 +103,7 @@ class App extends React.Component {
 
           <QuestionsAndAnswersWidget color={this.state.color} />
 
-          <RatingsReviewsWidget />
+          <RatingsReviewsWidget reviews={this.state.allReviews} reviewMeta={this.state.reviewMeta}/>
         </ProductContext.Provider>
       </div>
     );

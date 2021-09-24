@@ -10,10 +10,10 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { authToken } from '../../../config';
 // import Search from './Search';
-import Question from './Question';
+import Question from './Question.jsx';
 // import MoreQuestions from './MoreQuestions';
-import ProductContext from '../ProductContext';
-import Modal from './Modal';
+import ProductContext from '../ProductContext.jsx';
+import Modal from './Modal.jsx';
 
 const QuestionList = ({ mockQuestions, color }) => {
   const productId = useContext(ProductContext);
