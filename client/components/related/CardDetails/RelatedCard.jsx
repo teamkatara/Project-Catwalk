@@ -5,9 +5,8 @@ import RelatedRating from './RelatedRating';
 import Thumbnail from './Thumbnail';
 import relatedProductList from '../related-data/related-products.json';
 import relatedStyles from '../related-data/related-styles.json';
-import currentProductInfo from '../../../mock-data/sample-product.json';
 
-const RelatedCard = ({ id, updateProductId }) => {
+const RelatedCard = ({ id, updateProductId, currentProductInfo }) => {
   let currentProduct;
   let currentStyle;
   const characteristics = [];
@@ -112,6 +111,13 @@ const RelatedCard = ({ id, updateProductId }) => {
 RelatedCard.propTypes = {
   id: PropTypes.number.isRequired,
   updateProductId: PropTypes.func.isRequired,
+  currentProductInfo: PropTypes.objectOf(
+    [
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.object,
+    ],
+  ).isRequired,
 };
 
 export default RelatedCard;

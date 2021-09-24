@@ -99,11 +99,11 @@ class App extends React.Component {
             color={this.state.color}
           />
 
-          <RelatedProductsWidget updateProductId={
-            this.updateProductId}
+          <RelatedProductsWidget
+            updateProductId={this.updateProductId}
             rel={this.state.related}
             currentId={this.state.productId}
-            product={this.state.product}
+            currentProduct={this.state.product}
           />
 
           <QuestionsAndAnswersWidget />

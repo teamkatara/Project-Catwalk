@@ -1,26 +1,48 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import RelatedCard from './CardDetails/RelatedCard';
 import OutfitCard from './CardDetails/OutfitCard';
 import RelatedCarousel from './CardDetails/RelatedCarousel';
 import OutfitCarousel from './CardDetails/OutfitCarousel';
 import './RP.css';
-import currentProduct from '../../mock-data/sample-product.json';
+// import currentProduct from '../../mock-data/sample-product.json';
 
-const RelatedProductsWidget = ({ updateProductId, rel, currentId }) => {
-  const [list] = useState(rel);
-  const [current] = useState(currentProduct);
+const RelatedProductsWidget = ({
+  updateProductId,
+  rel,
+  currentId,
+  currentProduct,
+}) => {
+  const firstRender = useRef(true);
+  const [list, setList] = useState(rel);
+  const [current, setCurrent] = useState(currentProduct);
   const [outfitList, setOutfit] = useState([]);
 
-  console.log(rel);
-  console.log(outfitList);
+  // window.localStorage.setItem('outfits', JSON.stringify(outfitList));
+
+  // console.log(rel);
+  // console.log(outfitList);
+
+  // const outfitP = JSON.parse(window.localStorage.getItem('outfits'));
+
+  // console.log('local storage', outfitP);
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      setList(rel);
+      setCurrent(currentProduct);
+    }
+  }, [rel]);
 
   const products = list.map((product) => (
     <RelatedCard
       updateProductId={updateProductId}
       id={product}
       key={product}
+      currentProductInfo={currentProduct}
     />
   ));
 
@@ -29,6 +51,7 @@ const RelatedProductsWidget = ({ updateProductId, rel, currentId }) => {
     console.log(currentId);
     if (outfitList.indexOf(currentId) === -1) {
       setOutfit(outfitList.concat(currentId));
+      // window.localStorage.setItem('outfits', JSON.stringify(outfitList));
     }
   };
 
