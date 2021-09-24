@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Answer from './Answer';
 
-const AnswerList = ({ answers }) => {
+const AnswerList = ({ answers, color }) => {
   const [allAnswers, setAllAnswers] = useState(Object.values(answers));
   const firstRender = useRef(true);
   const { length } = allAnswers;
@@ -33,7 +33,7 @@ const AnswerList = ({ answers }) => {
       className="qa-answers-lma"
       onClick={() => setDisplayList()}
       value="LOAD MORE ANSWERS"
-      style={{ display: displayLMA ? 'inline' : 'none' }}
+      style={{ color, display: displayLMA ? 'inline' : 'none' }}
     />
   );
 
@@ -50,6 +50,7 @@ const AnswerList = ({ answers }) => {
 
 AnswerList.propTypes = {
   answers: PropTypes.objectOf(PropTypes.object).isRequired,
+  color: PropTypes.string.isRequired,
   // PropTypes.arrayOf(PropTypes.string)
   // PropTypes.string.isRequired
 };

@@ -108,7 +108,7 @@ const Modal = ({
               <input
                 className="qa-modal-photo-body"
                 type="text"
-                maxLength="60"
+                maxLength="1000"
                 onChange={(e) => setNewPhoto([e.target.value])}
               />
             </div>
