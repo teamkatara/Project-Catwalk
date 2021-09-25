@@ -13,10 +13,18 @@
 
 ## Getting Started
 
-First, run the development server:
+Step One: After cloning the repo to your local machine install the packages needed for this project
+Step Two: Once npm is done installing, run webpack to create a development bundle
 
 ```bash
-npm run dev
+npm install
+npm run webpack
+```
+
+Step Three: In a separate terminal start up the development server to test API interactions
+
+```bash
+npm run server
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -48,7 +56,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 1. Submit Pull Request
     1. base:main <- feature-name
     1. reference Trello ticket with link
-1. Have a team member complete a Code Review according to [Code Review Guidlines](https://learn-2.galvanize.com/cohorts/2778/blocks/94/content_files/Front%20End%20Capstone/exercises/code_reviews.md)
+1. Have a team member complete a Code Review according to [Code Review Guidelines](https://learn-2.galvanize.com/cohorts/2778/blocks/94/content_files/Front%20End%20Capstone/exercises/code_reviews.md)
     1. reviewer will look for errors
 
 ## Syncing changes with `main`
