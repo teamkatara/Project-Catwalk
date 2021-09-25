@@ -2,6 +2,8 @@
 
 ## [Getting Started](https://github.com/teamkatara/Project-Catwalk/blob/main/getting-started.md)
 
+## [Production Optimization](https://github.com/teamkatara/Project-Catwalk/blob/main/optimization.md)
+
 ## Contributors
 
 ### Kevin Gao - Product Overview [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/kevinzhugao/)](https://www.linkedin.com/in/kevinzhugao/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/kevinzhugao)](https://github.com/kevinzhugao)

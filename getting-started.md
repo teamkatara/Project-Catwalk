@@ -13,15 +13,15 @@
 
 ## Getting Started
 
-Step One: After cloning the repo to your local machine install the packages needed for this project
-Step Two: Once npm is done installing, run webpack to create a development bundle
+- Step One: After cloning the repo to your local machine install the packages needed for this project
+- Step Two: Once npm is done installing, run webpack to create a development bundle
 
 ```bash
 npm install
 npm run webpack
 ```
 
-Step Three: In a separate terminal start up the development server to test API interactions
+- Step Three: In a separate terminal start up the development server to test API interactions
 
 ```bash
 npm run server
