@@ -31,7 +31,6 @@ body.active {
 .logo {
   font-size: 3rem;
   margin: 20;
-  /* margin-left: 50; */
   cursor: pointer;
 }
 
