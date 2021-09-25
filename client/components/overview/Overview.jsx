@@ -30,14 +30,14 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
                         .then((rating) => {
                           axios.get(`./reviews/meta/${productId}`)
                             .then((metaResults) => {
-                               updateProduct(
-                                 resultProduct.data,
-                                 resultStyles.data,
-                                 resultReviews.data,
-                                 metaResults.data,
-                                 resultRelated.data,
-                                 rating.data,
-                               );
+                              updateProduct(
+                                resultProduct.data,
+                                resultStyles.data,
+                                resultReviews.data,
+                                metaResults.data,
+                                resultRelated.data,
+                                rating.data,
+                              );
                             });
                         });
                     });
@@ -51,9 +51,9 @@ const Overview = ({ product, selectStyle, styles, clickedStyle, reviews, updateP
     <div className="overview">
       <Carousel clickedStyle={clickedStyle} />
       <div id="product-info-container">
-        <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} color={color} />
-        <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} color={color} />
-        <Buy clickedStyle={clickedStyle} color={color}/>
+        <Info product={product} styles={styles} clickedStyle={clickedStyle} reviews={reviews} color={color}/>
+        <StyleSelector styles={styles} clickedStyle={clickedStyle} selectStyle={selectStyle} color={color}/>
+        <Buy clickedStyle={clickedStyle} color={color} />
       </div>
       <ProductDescription description={product.description} slogan={product.slogan} color={color} />
       <ProductFeatures features={product.features} />
