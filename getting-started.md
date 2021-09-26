@@ -13,7 +13,7 @@
 
 ## Getting Started
 
-- Step One: After cloning the repo to your local machine make a file in the root directory named config.js using the same format as example.config.js -- the code should look something like this codeblock below. You will need a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">github personal token</a> with these privileges <a href="https://imgur.com/a/W5FoC3D" target="_blank">read:org and all user privileges checked</a>.
+- Step One: After cloning the repo to your local machine make a file in the root directory named config.js using the same format as example.config.js -- the code should look something like this codeblock below. You will need a [github personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with [read:org and all user privileges checked](https://imgur.com/a/W5FoC3D).
 
 ```javascript
 module.exports = {
