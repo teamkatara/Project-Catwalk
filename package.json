@@ -1,5 +1,5 @@
 {
-  "name": "front-end-capstone",
+  "name": "Project Catwalk",
   "version": "1.0.0",
   "description": "Team Katara Capstone",
   "main": "config.js",
@@ -12,17 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamKatara/Front-End-Capstone.git"
+    "url": "git+https://github.com/teamkatara/Project-Catwalk.git"
   },
   "keywords": [
     "FEC"
   ],
-  "author": "Team Katara HR-RFP55",
+  "author": "teamkatara",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TeamKatara/Front-End-Capstone/issues"
+    "url": "https://github.com/teamkatara/Project-Catwalk/issues"
   },
-  "homepage": "https://github.com/TeamKatara/Front-End-Capstone#readme",
+  "homepage": "https://github.com/teamkatara/Project-Catwalk#readme",
   "dependencies": {
     "axios": "^0.21.4",
     "body-parser": "^1.19.0",
