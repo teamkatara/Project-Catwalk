@@ -13,8 +13,15 @@
 
 ## Getting Started
 
-- Step One: After cloning the repo to your local machine install the packages needed for this project
-- Step Two: Once npm is done installing, run webpack to create a development bundle
+- Step One: After cloning the repo to your local machine make a file in the root directory named config.js using the same format as example.config.js -- the code should look something like this codeblock below. You will need a [github personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with [read:org and all user privileges checked](https://imgur.com/a/W5FoC3D).
+
+```javascript
+module.exports = {
+  authToken: 'YOUR TOKEN HERE',
+};
+```
+
+- Step Two: npm install and run webpack to create a development bundle
 
 ```bash
 npm install
@@ -27,7 +34,7 @@ npm run webpack
 npm run server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
 ## Creating a new Feature Branch
 
