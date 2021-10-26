@@ -87,6 +87,7 @@ const NewReview = ({ characters, closeHandler, productId }) => {
 
   const createFormCharacters = () => {
     let formCharacters = {};
+
     if (characters.Size) formCharacters[characters['Size']['id']] = parseInt(selectSize);
     if (characters.Fit) formCharacters[characters['Fit']['id']] = parseInt(selectFit);
     if (characters.Length) formCharacters[characters['Length']['id']] = parseInt(selectLength);
