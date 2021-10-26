@@ -10,19 +10,25 @@ router.get('/yourWidgetHere', (req, res) => {
 // OVERVIEW ENDPOINTS
 
 router.get('/products', (req, res) => {
-  axios.get('http://localhost:6879/products/?count=25')
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?count=25', {
+    headers: { Authorization: authToken },
+  })
     .then((response) => res.send(response.data))
     .catch((err) => res.send(err));
 });
 
 router.get('/products/:product_id', (req, res) => {
-  axios.get(`http://localhost:6879/products/${req.params.product_id}`)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.params.product_id}`, {
+    headers: { Authorization: authToken },
+  })
     .then((response) => res.send(response.data))
     .catch((err) => res.send(err));
 });
 
 router.get('/products/styles/:product_id', (req, res) => {
-  axios.get(`http://localhost:6879/products/${req.params.product_id}/styles`)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.params.product_id}/styles`, {
+    headers: { Authorization: authToken },
+  })
     .then((response) => res.send(response.data))
     .catch((err) => res.send(err));
 });
@@ -30,7 +36,9 @@ router.get('/products/styles/:product_id', (req, res) => {
 // RELATED PRODUCTS ENDPOINTS
 
 router.get('/products/:product_id/related', (req, res) => {
-  axios.get(`http://localhost:6879/products/${req.params.product_id}/related`)
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.params.product_id}/related`, {
+    headers: { Authorization: authToken },
+  })
     .then((response) => res.send(response.data))
     .catch((err) => res.send(err));
 });
