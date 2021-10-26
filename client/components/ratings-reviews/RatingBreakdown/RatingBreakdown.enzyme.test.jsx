@@ -22,7 +22,7 @@ describe('RatingBreakdown Component Enzyme Tests', () => {
   });
 
   it('should render a <div />', () => {
-    expect(container.find('div').length).toEqual(1);
+    expect(container.find('div').length).toEqual(4);
   });
 
   it('should render the RatingSummary Component', () => {
