@@ -18,11 +18,17 @@ Related product widgets consist of two parts. One is the Related products which 
 
 ### Ryan Rhoads - Questions & Answers Widget [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/ryangrantrhoads/)](https://www.linkedin.com/in/ryangrantrhoads/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/rgrhoads)](https://github.com/rgrhoads)
 
+Talk about Q & A widget - tell us something cool or noteworthy about your widget.
+
+- Talking Point 1
+- Talking Point 2
+- Talking Point 3
+
 ### Justin Beere - Ratings & Reviews Widget [![Linkedin: LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/justin-beere/)](https://www.linkedin.com/in/justin-beere/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/LiberNovus)](https://github.com/LiberNovus)
 
 The ratings and reviews widget displays the user with information about the product from others who have purchased the product. In this widget, the user has the option to sort through reviews based on relevance, newest and helpfulness. These sort options were implemented using the logic the client requested. In addition, a user can filter reviews by star rating and these star filters are additive, allowing the user to compare different reviews of specific ratings.\
 
-This widget also included a breakdown section where additional information about a product's characteristics were displayed. Some examples include length, fit, quality and comfort. Users can also add reviews for a product and one of the challenges was ensuring the form only showed the correct product's characteristics and not all potential characteristics for the entire product catalog. Utilizing React Hooks ( useEffect and useState ) I was able to dynamically change the form whenever a new product was rendered in the application.
+This widget also included a breakdown section where additional information about a product's characterstics were displayed. Some examples include length, fit, quality and comfort. Users can also add reviews for a product and one of the challenges was ensuring the form only showed the correct product's characterstics and not all potential characterstics for the entire product catalog. Utilizing React Hooks ( useEffect and useState ) I was able to dynamically change the form whenever a new product was rendered in the application.
 
 ### Technologies Used
 
